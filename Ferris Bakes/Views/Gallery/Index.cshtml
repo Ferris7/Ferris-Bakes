@@ -2,68 +2,130 @@
     ViewData["Title"] = "Home Page";
 }
 
-<body>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 5px;
+        }
+        .column1{
+            width: 100%;
+            padding: 5px;
+        }
+
+        .column2 {
+            width: 50%;
+            padding: 5px;
+        }
+
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+</head>
+
+<body id="colorful">
     <div class="text-center">
-        <h1 class="display-4">Previous Bakes!</h1>
+        <h1 class="display-4" style="font-size: 500%; color:white">Previous Bakes!</h1>
 
     </div>
 
-    <button onclick="one()">1</button>
-    <button onclick="two()">2</button>
-    <button onclick="four()">4</button>
-
-    <script>
-        var elements = document.getElementsByClassName("column");
-
-        var i;
-
-        function one() {
-            for (i = 0; i < elements.length; i++) {
-                elements[i].style.flex = "100%";
-            }
-        }
-
-        function two() {
-            for (i = 0; i < elements.length; i++) {
-                elements[i].style.flex = "50%";
-            }
-        }
-
-        function four() {
-            for (i = 0; i < elements.length; i++) {
-                elements[i].style.flex = "25%";
-            }
-        }
-    </script>
-
-    <div class="row">
-        <div class="column">
-            <img src="/bakes/apple pie.jpeg">
-            <img src="/bakes/bloody cups.jpeg">
-            <img src="/bakes/cheesecake.jpg">
-            <img src="/bakes/choc straw cup.jpeg">
-            <img src="/bakes/crinkle cookies.jpg">
+    <div class="container-fluid" style="width:100%;">
+        <div class="row">
+            <div class="column">
+                <img src="/bakes/apple pie.jpeg" alt="Apple Pie" class="rounded" style="width:100%">
+            </div>
+            <div class="column">
+                <img src="/bakes/pinwheel.jpg" alt="Pinwheel Pastry" class="rounded" style="width:100%">
+            </div>
+            <div class="column">
+                <img src="/bakes/wine cake.jpeg" alt="Wine Cake" class="rounded" style="width:100%">
+            </div>
         </div>
-        <div class="column">
-            <img src="/bakes/dec red vel.jpeg">
-            <img src="/bakes/fun box cake.jpeg">
-            <img src="/bakes/lemon cup.jpeg">
-            <img src="/bakes/pinwheel.jpg">
-            <img src="/bakes/pound cake.jpeg">
+        <div class="row">
+            <div class="column">
+                <img src="/bakes/bloody cups.jpeg" alt="Broken Glass Cupcakes" class="rounded" style="width:100%;">
+            </div>
+            <div class="column">
+                <img src="/bakes/choc straw cup.jpeg" alt="Chocolate-Strawberry Cupcakes" class="rounded" style="width:100%">
+            </div>
+            <div class="column">
+                <img src="/bakes/yellow cake.jpeg" alt="Yellow Cake" class="rounded" style="width:100%">
+            </div>
         </div>
-        <div class="column">
-            <img src="/bakes/pumpkin cake.jpg">
-            <img src="/bakes/rasp bar.jpeg">
-            <img src="/bakes/trifold.jpeg">
-            <img src="/bakes/wine cake.jpeg">
-            <img src="/bakes/yellow cake.jpeg">
+        <div class="row">
+            <div class="column1">
+                <img src="/bakes/lemon cup.jpeg" alt="Lemon Cupcakes" class="rounded" style="width:100%">
+            </div>
         </div>
-        <div class="column">
-            <img src="/bakes/cong red vel.jpg">
-            <img src="/bakes/colorful red vel.jpg">
-            <img src="/bakes/straw cream bar.jpeg">
-            <img src="/bakes/sugar cookie.jpeg">
-            <img src="/bakes/inside pumpkin.jpeg">
+        <div class="row">
+            <div class="column">
+                <img src="/bakes/pound cake2.jpeg" alt="Pound Cake" class="rounded" style="width:100%">
+            </div>
+
+            <div class="column">
+                <img src="/bakes/dec red vel.jpeg" alt="Red Velvet Cake" class="rounded" style="width: 100%">
+            </div>
+            <div class="column">
+                <img src="/bakes/rasp bar.jpeg" alt="Raspberry Oat Bars" class="rounded" style="width: 100%">
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <img src="/bakes/sugar cookie.jpeg" alt="Sugar Cookies" class="rounded" style="width:100%">
+
+            </div>
+            <div class="column">
+                <img src="/bakes/fun box cake.jpeg" alt="Decorated Cake" class="rounded" style="width: 100%">
+            </div>
+            <div class="column">
+                <img src="/bakes/trifold.jpeg" alt="Chocolate Trifle" class="rounded" style="width: 100%">
+            </div>
+        </div>
+        <div class="row">
+            <div class="column1">
+                <img src="/bakes/pumpkin cake.jpg" alt="Pumpkin Cake" class="rounded" style="width:100%;">
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="column">
+                <img src="/bakes/straw cream bar.jpeg" alt="Strawberry Cream Bar" class="rounded" style="width:100%">
+            </div>
+
+            <div class="column">
+                <img src="/bakes/cong red vel2.jpg" alt="Red Velvet Cake" class="rounded" style="width:100%">
+            </div>
+            <div class="column">
+                <img src="/bakes/colorful red vel.jpg" alt="Red Velvet Cupcakes" class="rounded" style="width: 100%">
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="column2">
+                <img src="/bakes/crinkle cookies.jpg" alt="Chocolate Crinckle Cookies" class="rounded" style="width:100%">
+            </div>
+            <div class="column2">
+                <img src="/bakes/cheesecake.jpg" alt="Cheesecake" class="rounded" style="width:100%">
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="column1">
+                <img src="/bakes/inside pumpkin.jpeg" alt="Pumpkin Cake" class="rounded" style="width:100%;">
+            </div>
         </div>
     </div>
 </body>
