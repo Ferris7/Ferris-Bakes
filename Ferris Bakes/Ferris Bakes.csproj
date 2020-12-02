@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Ferris_Bakes</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\bakes\apple pie.jpeg" />
+    <None Include="wwwroot\bakes\bloody cups.jpeg" />
+    <None Include="wwwroot\bakes\cheesecake.jpg" />
+    <None Include="wwwroot\bakes\choc straw cup.jpeg" />
+    <None Include="wwwroot\bakes\colorful red vel.jpg" />
+    <None Include="wwwroot\bakes\cong red vel.jpg" />
+    <None Include="wwwroot\bakes\crinkle cookies.jpg" />
+    <None Include="wwwroot\bakes\dec red vel.jpeg" />
+    <None Include="wwwroot\bakes\fun box cake.jpeg" />
+    <None Include="wwwroot\bakes\inside pumpkin.jpeg" />
+    <None Include="wwwroot\bakes\lemon cup.jpeg" />
+    <None Include="wwwroot\bakes\pinwheel.jpg"/>
+    <None Include="wwwroot\bakes\pound cake.jpeg" />
+    <None Include="wwwroot\bakes\pumpkin cake.jpg" />
+    <None Include="wwwroot\bakes\rasp bar.jpeg" />
+    <None Include="wwwroot\bakes\straw cream bar.jpeg" />
+    <None Include="wwwroot\bakes\sugar cookie.jpeg" />
+    <None Include="wwwroot\bakes\trifold.jpeg" />
+    <None Include="wwwroot\bakes\wine cake.jpeg" />
+    <None Include="wwwroot\bakes\yellow cake.jpeg" />
+  </ItemGroup>
+
+</Project>
