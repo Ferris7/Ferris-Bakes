@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Ferris_Bakes.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Ferris_Bakes
 {
@@ -24,6 +26,7 @@ namespace Ferris_Bakes
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<OrderModelContext>(options => options.UseSqlServer(Configuration.GetConnectionString("OrderContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

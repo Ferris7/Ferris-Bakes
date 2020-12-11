@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Ferris_Bakes.Models.OrderModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.bake)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.flavor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.filling)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fillFlavor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.comment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dueDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.bake)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.flavor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.filling)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fillFlavor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dueDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.orderNumber">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.orderNumber">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.orderNumber">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

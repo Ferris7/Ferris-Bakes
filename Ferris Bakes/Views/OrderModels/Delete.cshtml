@@ -1,0 +1,75 @@
+﻿@model Ferris_Bakes.Models.OrderModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>OrderModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.bake)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.bake)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.flavor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.flavor)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.size)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.size)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.filling)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.filling)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.fillFlavor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.fillFlavor)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.comment)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.comment)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.customerName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.customerName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.date)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dueDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dueDate)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="orderNumber" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

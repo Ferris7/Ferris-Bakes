@@ -1,4 +1,5 @@
-﻿using Ferris_Bakes.Models;
+﻿using Ferris_Bakes.Data;
+using Ferris_Bakes.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -18,15 +19,56 @@ namespace Ferris_Bakes.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string bake)
         {
-            return View();
+            OrderModel data = new OrderModel();
+
+            if (bake == null)
+            {
+                return View(data);
+            }
+     
+            data.bake = bake;
+
+            switch(bake)
+            {
+                case "Bars": 
+                    data.flavorOptions = new List<string> { "Oat bar", "Strawberry & Cream Bar" };
+                    data.filling = true;
+                    break;
+                case "Brownie": 
+                    data.flavorOptions = new List<string> { "Regular", "Nutty", "Slutty (add Oreos and Cookie Dough)" };
+                    data.filling = false;
+                    break;
+                case "Cake":
+                    data.flavorOptions = new List<string> { "Cheesecake", "Chocolate", "Lemon", "Pumpkin", "Red Velvet", "Sparkling Apple Cider Pound Cake", "Yellow" };
+                    data.filling = true;
+                    break;
+                case "Cookies":
+                    data.flavorOptions = new List<string> { "Chocolate Chip", "Chocolate Crinkle", "Sugar" };
+                    data.filling = false;
+                    break;
+                case "Pastry":
+                    data.flavorOptions = new List<string> { "Jam & Cream Cheese Pinwheel", "Pinwheel", "Strudel" };
+                    data.filling = true;
+                    break;
+                case "Pie":
+                    data.flavorOptions = new List<string> { "Apple", "Chocolate"};
+                    data.filling = false;
+                    break;
+                default: 
+                    data.flavorOptions = null;
+                    data.filling = true;
+                    break;
+            }
+                
+            return View(data);
+         
+
+            
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

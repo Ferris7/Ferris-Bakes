@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -17,7 +17,7 @@
     <None Include="wwwroot\bakes\fun box cake.jpeg" />
     <None Include="wwwroot\bakes\inside pumpkin.jpeg" />
     <None Include="wwwroot\bakes\lemon cup.jpeg" />
-    <None Include="wwwroot\bakes\pinwheel.jpg"/>
+    <None Include="wwwroot\bakes\pinwheel.jpg" />
     <None Include="wwwroot\bakes\pound cake.jpeg" />
     <None Include="wwwroot\bakes\pumpkin cake.jpg" />
     <None Include="wwwroot\bakes\rasp bar.jpeg" />
@@ -26,6 +26,16 @@
     <None Include="wwwroot\bakes\trifold.jpeg" />
     <None Include="wwwroot\bakes\wine cake.jpeg" />
     <None Include="wwwroot\bakes\yellow cake.jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
   </ItemGroup>
 
 </Project>

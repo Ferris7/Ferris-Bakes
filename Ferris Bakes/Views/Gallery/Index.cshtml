@@ -29,6 +29,27 @@
             clear: both;
             display: table;
         }
+
+        .column:hover + .overlay {
+            opacity: 1;
+        }
+
+        .overlay {
+            bottom: 0;
+            background: rgb(0, 0, 0);
+            background: rgba(0, 0, 0, 0.5);
+            color: #f1f1f1;
+            width: 100%;
+            transition: .5s ease;
+            opacity: 0;
+            color: white;
+            font-size: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+
+
     </style>
 </head>
 
@@ -42,57 +63,93 @@
         <div class="row">
             <div class="column">
                 <img src="/bakes/apple pie.jpeg" alt="Apple Pie" class="rounded" style="width:100%">
+                <div class="overlay">
+                    <p>Apple Pie</p>
+                </div>
             </div>
             <div class="column">
                 <img src="/bakes/pinwheel.jpg" alt="Pinwheel Pastry" class="rounded" style="width:100%">
+                <div class="overlay">
+                    <p>Jam & Cream Cheese Pinwheels</p>
+                </div>
             </div>
             <div class="column">
                 <img src="/bakes/wine cake.jpeg" alt="Wine Cake" class="rounded" style="width:100%">
+                <div class="overlay">
+                    <p>Yellow cake shaped like wine bottle</p>
+                </div>
             </div>
         </div>
         <div class="row">
-            <div class="column">
-                <img src="/bakes/bloody cups.jpeg" alt="Broken Glass Cupcakes" class="rounded" style="width:100%;">
+
+            <div class="column2">
+                <img src="/bakes/crinkle cookies.jpg" alt="Chocolate Crinckle Cookies" class="rounded" style="width:100%">
+                <div class="overlay">
+                    <p>Chocolate Crinkle Cookies</p>
+                </div>
             </div>
-            <div class="column">
-                <img src="/bakes/choc straw cup.jpeg" alt="Chocolate-Strawberry Cupcakes" class="rounded" style="width:100%">
-            </div>
-            <div class="column">
-                <img src="/bakes/yellow cake.jpeg" alt="Yellow Cake" class="rounded" style="width:100%">
+            <div class="column2">
+                <img src="/bakes/cheesecake.jpg" alt="Cheesecake" class="rounded" style="width:100%">
+                <div class="overlay">
+                    <p>New York Style Cheesecake</p>
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="column1">
                 <img src="/bakes/lemon cup.jpeg" alt="Lemon Cupcakes" class="rounded" style="width:100%">
+                <div class="overlay">
+                    <p>Lemon Cupcakes with Lavendar Frosting</p>
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="column">
                 <img src="/bakes/pound cake2.jpeg" alt="Pound Cake" class="rounded" style="width:100%">
+                <div class="overlay">
+                    <p>Sparkling Apple Cider Pound Cake</p>
+                </div>
             </div>
 
             <div class="column">
                 <img src="/bakes/dec red vel.jpeg" alt="Red Velvet Cake" class="rounded" style="width: 100%">
+                <div class="overlay">
+                    <p>Red Velvet Cake with Cream Cheese Frosting</p>
+                </div>
             </div>
             <div class="column">
                 <img src="/bakes/rasp bar.jpeg" alt="Raspberry Oat Bars" class="rounded" style="width: 100%">
+                <div class="overlay">
+                    <p>Raspberry Oat Bar</p>
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="column">
                 <img src="/bakes/sugar cookie.jpeg" alt="Sugar Cookies" class="rounded" style="width:100%">
-
+                <div class="overlay">
+                    <p>Christmas Sugar Cookies</p>
+                </div>
             </div>
             <div class="column">
                 <img src="/bakes/fun box cake.jpeg" alt="Decorated Cake" class="rounded" style="width: 100%">
+                <div class="overlay">
+                    <p>Dyed Box Cake</p>
+                </div>
             </div>
             <div class="column">
                 <img src="/bakes/trifold.jpeg" alt="Chocolate Trifle" class="rounded" style="width: 100%">
+                <div class="overlay">
+                    <p>Chocalate-Strawberry Trifle</p>
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="column1">
                 <img src="/bakes/pumpkin cake.jpg" alt="Pumpkin Cake" class="rounded" style="width:100%;">
+                <div class="overlay">
+                    <p>Pumpkin Cake</p>
+                </div>
             </div>
         </div>
 
@@ -100,31 +157,51 @@
 
             <div class="column">
                 <img src="/bakes/straw cream bar.jpeg" alt="Strawberry Cream Bar" class="rounded" style="width:100%">
+                <div class="overlay">
+                    <p>Strawberry Cream Bar</p>
+                </div>
             </div>
 
             <div class="column">
                 <img src="/bakes/cong red vel2.jpg" alt="Red Velvet Cake" class="rounded" style="width:100%">
+                <div class="overlay">
+                    <p>Red Velvet Cake</p>
+                </div>
             </div>
             <div class="column">
                 <img src="/bakes/colorful red vel.jpg" alt="Red Velvet Cupcakes" class="rounded" style="width: 100%">
+                <div class="overlay">
+                    <p>Red Velvet Cupcakes</p>
+                </div>
             </div>
 
         </div>
-
         <div class="row">
-
-            <div class="column2">
-                <img src="/bakes/crinkle cookies.jpg" alt="Chocolate Crinckle Cookies" class="rounded" style="width:100%">
+            <div class="column">
+                <img src="/bakes/bloody cups.jpeg" alt="Broken Glass Cupcakes" class="rounded" style="width:100%;">
+                <div class="overlay">
+                    <p>Broken Glass Cupcakes</p>
+                </div>
             </div>
-            <div class="column2">
-                <img src="/bakes/cheesecake.jpg" alt="Cheesecake" class="rounded" style="width:100%">
+            <div class="column">
+                <img src="/bakes/choc straw cup.jpeg" alt="Chocolate-Strawberry Cupcakes" class="rounded" style="width:100%">
+                <div class="overlay">
+                    <p>Chocolate Cupcakes with Strawberry Filling</p>
+                </div>
             </div>
-
+            <div class="column">
+                <img src="/bakes/yellow cake.jpeg" alt="Yellow Cake" class="rounded" style="width:100%">
+                <div class="overlay">
+                    <p>Yellow cake with Chocolate Buttercream</p>
+                </div>
+            </div>
         </div>
-
         <div class="row">
             <div class="column1">
                 <img src="/bakes/inside pumpkin.jpeg" alt="Pumpkin Cake" class="rounded" style="width:100%;">
+                <div class="overlay">
+                    <p>Pumpkin Cake with edible "Pumpkin guts"</p>
+                </div>
             </div>
         </div>
     </div>
