@@ -30,11 +30,17 @@
             display: table;
         }
 
-        .column:hover + .overlay {
+        .box {
+            position: relative;
+            width: 100%;
+        }
+
+        .box:hover + .overlay {
             opacity: 1;
         }
 
         .overlay {
+            position: absolute;
             bottom: 0;
             background: rgb(0, 0, 0);
             background: rgba(0, 0, 0, 0.5);
@@ -62,9 +68,11 @@
     <div class="container-fluid" style="width:100%;">
         <div class="row">
             <div class="column">
-                <img src="/bakes/apple pie.jpeg" alt="Apple Pie" class="rounded" style="width:100%">
-                <div class="overlay">
-                    <p>Apple Pie</p>
+                <div class="box">
+                    <img src="/bakes/apple pie.jpeg" alt="Apple Pie" class="rounded" style="width:100%">
+                    <div class="overlay">
+                        <p>Apple Pie</p>
+                    </div>
                 </div>
             </div>
             <div class="column">

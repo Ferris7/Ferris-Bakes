@@ -11,98 +11,37 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60px;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="text-center">
-        <h1 class="display-4">Order Delicious Bakes Here!</h1>
-    </div>
-
-
-    <div class="container">
-        <form>
-            <label>Select type of Bake:</label>
-            <select name="bake" class="custom-select">
-                <option selected disabled value="">Pick a Bake</option>
-                <option href="order?bake=bars">Bars</option>
-                <option href="order?bake=brownies">Brownies</option>
-                <option href="order?bake=cake">Cake/Cupcake</option>
-                <option href="order?bake=cookie">Cookies</option>
-                <option href="order?bake=pastry">Pastry</option>
-                <option href="order?bake=pie">Pie</option>
-            </select>
-            <button type="submit" class="btn btn-primary">Continue</button>
-        </form>
-
-
-        @if (Model.filling)
-        {
-            @if (Model.bake == "cake")
-            {
-                <form>
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="customCheck" name="fillingCheck" onclick="setFilling()">
-                        <label class="custom-control-label" for="customCheck">Filling?</label>
-                    </div>
-                </form>
-            }
-            else
-            {
-                <form>
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="customCheck" name="fillingCheck" onclick="setFilling()" checked="checked">
-                        <label class="custom-control-label" for="customCheck">Filling?</label>
-                    </div>
-                </form>
-            }
-            @if (Model.filling)
-            {
-                <form>
-                    <label>Select Filling:</label>
-                    <select name="fillingFlavor" class="custom-select">
-                        <option selected disabled value="">Pick Filling</option>
-                        <option>Raspberry</option>
-                        <option>Strawberry</option>
-                        <option>Blackberry</option>
-                        <option>Blueberry</option>
-                    </select>
-                </form>
-            }
-           
-        }
-        
-
-        <form class="form-inline" action="/action_page.php">
-            <h3>@ViewData["Message"]</h3>
-            <label for="Size">Size/Quatity:</label>
-            <input class="form-control" placeholder="Enter Amount" id="size">
-
-        </form>
-
-        <div class="form-group">
-            <label for="comment">Comments/Special Requests:</label>
-            <textarea class="form-control" rows="5" id="comment"></textarea>
-        </div>
-        
-
-        <script>
-            function setFilling() {
-                var checkBox = document.getElementById("fillingCheck");
-                if (checkBox.checked == true) {
-                    newOrder.filling = true;
-                } else {
-                    newOrder.filling = false;;
-                }
-            }
-        </script>
-
+    
+    <div class="shadow-lg p-4 mb-4" id="marg">
 
         <div class="text-center">
-            <h3> Click below to submit your order! </h3>
-            <button type="button" class="btn btn-info">Order</button>
+            <h1 class="display-4">Order Delicious Bakes Here!</h1>
         </div>
+
+        @using (Html.BeginForm("Index", "Order", FormMethod.Post))
+        {
+            <div class="form">
+                <div class="form-group">
+                    <h2><label asp-for="BakeList">Available Bakes:</label></h2>
+                </div>
+                @Html.DropDownListFor(m => m.bake, Model.BakeList.Select(x => new SelectListItem(x, x)), "Select a Bake", new { @class = "selector form-control" })
+                <br />
+                <input type="submit" class="btn btn-info" id="betterButton" value="Next" />
+            </div>
+        }
 
     </div>
 
-    
 </body>

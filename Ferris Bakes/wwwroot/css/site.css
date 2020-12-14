@@ -18,6 +18,11 @@ a {
   border-color: #1861ac;
 }
 
+#centered {
+    text-align: center;
+    padding: 5px; 
+}
+
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: #fff;
   background-color: #1b6ec2;
@@ -112,4 +117,64 @@ div.desc {
 #colorful {
     background-image: -webkit-linear-gradient(top, #2e85ff 0, #f96297 89%);
     background: linear-gradient(to top, #2e85ff 0%, #f96297 89%);
+}
+
+#jordanColor {
+    background-color: #a9bbc2;
+}
+
+#delayOne {
+    display: none;
+}
+
+#delayTwo {
+    
+}
+
+#pic {
+    margin: 20px;
+    float: left;
+}
+
+.picText {
+    width: 100%;
+    height: auto;
+    padding: 1%;
+    font-family: Garamond, serif;
+    font-size: 150%;
+}
+
+#header {
+    font-family: Garamond, serif;
+    font-size: 50pt;
+    text-align: center;
+}
+
+#fillingCheck {
+    display: none;
+}
+
+#marg{
+    margin: 50px;
+}
+
+#betterButton {
+    border: 2px solid #008CBA;
+    align-content: center;
+}
+
+.tab {
+    display: inline-block;
+    margin-left: 40px;
+}
+
+.row3 {
+    display: flex;
+    padding: 5px 0px;
+    margin: 5px 0px;
+}
+
+
+#space{
+    margin: 50px;
 }

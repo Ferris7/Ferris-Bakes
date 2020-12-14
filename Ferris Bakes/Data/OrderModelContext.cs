@@ -15,5 +15,10 @@ namespace Ferris_Bakes.Data
         }
 
         public DbSet<OrderModel> Order { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=orderContext-1;Integrated Security=True");
+        }
     }
 }

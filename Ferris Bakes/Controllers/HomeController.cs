@@ -23,7 +23,7 @@ namespace Ferris_Bakes.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult AboutMe()
         {
             return View();
         }

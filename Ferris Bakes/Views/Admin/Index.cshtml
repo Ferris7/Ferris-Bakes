@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model AdminModel
+
+<body>
+    <h2>List of Orders:</h2>
+
+    
+    @foreach (var Order in Model.OrderList)
+    {
+        <div class="card">
+            <div class="card-header">
+                <label asp-for="@Order.orderNumber">Order Number: </label>
+                <input asp-for="@Order.orderNumber" readonly />
+            </div>
+            <div class="card-body">
+                <label asp-for="@Order.bake">Bake: </label>
+                <input asp-for="@Order.bake" readonly />
+                <label asp-for="@Order.flavor">Flavor: </label>
+                <input asp-for="@Order.flavor" readonly />
+                <label asp-for="@Order.Frosting">Frosting: </label>
+                <input asp-for="@Order.Frosting" readonly />
+                <label asp-for="@Order.filling">Filling: </label>
+                <input asp-for="@Order.filling" readonly />
+                <label asp-for="@Order.fillFlavor">Filling Flavor: </label>
+                <input asp-for="@Order.fillFlavor" readonly />
+                <label asp-for="@Order.size">Size/Quantity: </label>
+                <input asp-for="@Order.size" readonly />
+                <label asp-for="@Order.comment">Comments: </label>
+                <input asp-for="@Order.comment" readonly />
+                <label asp-for="@Order.customerName">Name: </label>
+                <input asp-for="@Order.customerName" readonly />
+                <label asp-for="@Order.date">Date Submitted: </label>
+                <input asp-for="@Order.date" readonly />
+                <label asp-for="@Order.dueDate">Date Requested: </label>
+                <input asp-for="@Order.dueDate" readonly />
+            </div>
+        </div>
+    }
+        
+
+    </body>
