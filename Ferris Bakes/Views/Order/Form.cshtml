@@ -87,45 +87,8 @@
                     <br />
                 }
 
-                <button type="button" class="btn btn-info" onclick="delay()" id="betterButton">Next</button>
+                <input type="submit" class="btn btn-info" id="betterButton" value="Next" />
 
-                <div id="delayOne">
-                    <br />
-                    <div class="row3">
-                        <div class="form-inline">
-                            <label for="Size">Full Name:</label>
-                            <span class="tab"></span>
-                            <input class="form-control" placeholder="Enter Your Name" id="costumerName">
-                        </div>
-                    </div>
-                    <div class="row3">
-                        <div class="form-inline">
-                            <label for="Size">Date Requested By:</label>
-                            <span class="tab"></span>
-                            <input class="form-control" type="datetime-local" id="dueDate"
-                                   name="DueDate" value="2020-12-01T00:00"
-                                   min="2020-12-01T00:00" max="2024-12-01T00:00">
-                        </div>
-                    </div>
-                    <div class="row3">
-                        <div class="form-inline">
-                            <label for="Size">Size/Quatity:</label>
-                            <span class="tab"></span>
-                            <input class="form-control" placeholder="Enter Amount" id="size">
-                            <p style="display: inline"><span class="tab"></span>@ViewData["Sizing"]</p>
-                        </div>
-                    </div>
-                    <p> <br /> @ViewData["Message"]</p>
-                    <div class="form-group">
-                        <label for="comment">Comments/Special Requests:</label>
-                        <textarea class="form-control" rows="5" id="comment"></textarea>
-                    </div>
-                </div>
-
-                <div class="text-center">
-                    <h3> Click below to submit your order! </h3>
-                    <input type="submit" class="btn btn-info" id="betterButton" value="Order Now!" />
-                </div>
         </div>
         }
     </div>

@@ -64,6 +64,15 @@ namespace Ferris_Bakes.Controllers
                     break;
             }
 
+
+            return View("Form", data);
+         
+
+            
+        }
+
+        public IActionResult Form(OrderModel data)
+        {
             if (data.bake == "Cake/Cupcake")
             {
                 ViewData["Message"] = "Please put in the comment box whether you would like a Cake or Cupcakes.";
@@ -71,7 +80,7 @@ namespace Ferris_Bakes.Controllers
 
             ViewData["Bake"] = data.bake;
 
-            ViewData["Sizing"] = bake switch
+            ViewData["Sizing"] = data.bake switch
             {
                 "Bars" => "Size is number of pans.",
                 "Brownies" => "Size is number of pans.",
@@ -82,16 +91,12 @@ namespace Ferris_Bakes.Controllers
                 _ => "Size is in individual items.",
             };
 
-            return View("Form", data);
-         
-
-            
+            return View("Details", data);
         }
-
-        public IActionResult Form(OrderModel data)
+        public IActionResult Details (OrderModel data)
         {
             ViewData["ID"] = data.orderNumber;
-           
+
             return View("OrderPlaced", data);
         }
 
