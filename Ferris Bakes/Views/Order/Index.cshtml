@@ -8,39 +8,244 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/site.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <style>
+
+        .column3 {
+            flex: 33.33%;
+            padding: 5px;
+        } 
+
         .center {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 60px;
         }
+
+        .centerRight {
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            height: 60px;
+        }
+
+        .orderContainer {
+            position: relative;
+            width: 75%;
+            margin: auto;
+        }
+
+        .orderImage {
+            opacity: 1;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            height: 100%;
+            transition: .5s ease;
+            backface-visibility: hidden;
+            border-radius: 50%;
+        }
+
+        .orderBtn {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+            background-color: #555;
+            color: white;
+            font-size: 16px;
+            padding: 12px 24px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .orderContainer:hover .orderImage {
+            opacity: 0.3;
+        }
+
+        .orderContainer:hover .orderBtn {
+            opacity: 1;
+        }
+
+        .miniNavbar {
+            overflow: hidden;
+            background-color: #eee6f5;
+            width: 100%;
+            padding: 15px;
+            font-size: 20px;
+        }
+
+        .miniNavbar a {
+            float: left;
+            display: block;
+            color: #000000;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .hoverFix:hover {
+            background: #ddd;
+            color: black;
+        }
+
+        .miniNavbar .centerRight a {
+            float: right;
+            display: block;
+            justify-content: right;
+            align-items: center;
+            color: white;
+        }
+
     </style>
+
 </head>
 
 <body>
     
     <div class="shadow-lg p-4 mb-4" id="marg">
 
-        <div class="text-center">
-            <h1 class="display-4">Order Delicious Bakes Here!</h1>
+        <div class="miniNavbar">
+            <a class ="hoverFix" href="#Cakes">Cakes</a>
+            <a class ="hoverFix" href="#Cookies">Cookies</a>
+            <a class ="hoverFix" href="#Cupcakes">Cupcakes</a>
+            <a class ="hoverFix" href="#Pastry">Pastries</a>
+            <a class ="hoverFix" href="#Misc">Misc.</a>
+            <div class="centerRight">
+                <a asp-area="" asp-controller="CustomOrder" asp-action="Index" class="btn btn-info" role="button" id="betterButton">Custom Bake!!</a>
+            </div>
         </div>
 
-        @using (Html.BeginForm("Index", "Order", FormMethod.Post))
-        {
-            <div class="form">
-                <div class="form-group">
-                    <h2><label asp-for="BakeList">Available Bakes:</label></h2>
+        <h1 class="center" id="Cakes">Cakes</h1>
+        <div class="row">
+            <div class="column3">
+                <div class="orderContainer">
+                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <button class="orderBtn">Order Now!</button>
                 </div>
-                @Html.DropDownListFor(m => m.bake, Model.BakeList.Select(x => new SelectListItem(x, x)), "Select a Bake", new { @class = "selector form-control" })
-                <br />
-                <input type="submit" class="btn btn-info" id="betterButton" value="Next" />
             </div>
-        }
+
+            <div class="column3">
+                <div class="orderContainer">
+                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <button class="orderBtn">Order Now!</button>
+                </div>
+            </div>
+
+            <div class="column3">
+                <div class="orderContainer">
+                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <button class="orderBtn">Order Now!</button>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="center" id="Cookies">Cookies</h1>
+        <div class="row">
+            <div class="column3">
+                <div class="orderContainer">
+                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <button class="orderBtn">Order Now!</button>
+                </div>
+            </div>
+
+            <div class="column3">
+                <div class="orderContainer">
+                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <button class="orderBtn">Order Now!</button>
+                </div>
+            </div>
+
+            <div class="column3">
+                <div class="orderContainer">
+                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <button class="orderBtn">Order Now!</button>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="center" id="Cupcakes">Cupcakes</h1>
+        <div class="row">
+            <div class="column3">
+                <div class="orderContainer">
+                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <button class="orderBtn">Order Now!</button>
+                </div>
+            </div>
+
+            <div class="column3">
+                <div class="orderContainer">
+                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <button class="orderBtn">Order Now!</button>
+                </div>
+            </div>
+
+            <div class="column3">
+                <div class="orderContainer">
+                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <button class="orderBtn">Order Now!</button>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="center" id="Pastry">Pastries</h1>
+        <div class="row">
+            <div class="column3">
+                <div class="orderContainer">
+                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <button class="orderBtn">Order Now!</button>
+                </div>
+            </div>
+
+            <div class="column3">
+                <div class="orderContainer">
+                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <button class="orderBtn">Order Now!</button>
+                </div>
+            </div>
+
+            <div class="column3">
+                <div class="orderContainer">
+                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <button class="orderBtn">Order Now!</button>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="center" id="Misc">Misc.</h1>
+        <div class="row">
+            <div class="column3">
+                <div class="orderContainer">
+                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <button class="orderBtn">Order Now!</button>
+                </div>
+            </div>
+
+            <div class="column3">
+                <div class="orderContainer">
+                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <button class="orderBtn">Order Now!</button>
+                </div>
+            </div>
+
+            <div class="column3">
+                <div class="orderContainer">
+                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <button class="orderBtn">Order Now!</button>
+                </div>
+            </div>
+        </div>
 
     </div>
 

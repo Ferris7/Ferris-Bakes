@@ -22,6 +22,6 @@ namespace Ferris_Bakes.Models
         public DateTime date { get; set; }
         public DateTime dueDate { get; set; }
 
-        public List<string> BakeList = new List<string> { "Bars", "Brownies", "Cake/Cupcake", "Cookies", "Pastry", "Pie" };
+        public List<string> BakeList = new List<string> { "Bars", "Brownies", "Cake", "Cupcake", "Cookies", "Pastry", "Pie" };
     } 
 }
