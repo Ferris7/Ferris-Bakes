@@ -37,7 +37,16 @@
         .orderContainer {
             position: relative;
             width: 75%;
-            margin: auto;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            text-align: center;
+            font-family: arial;
+            padding: 20px;
+            background-color: #eee6f5;
+            border-radius: 25px;
         }
 
         .orderImage {
@@ -45,11 +54,26 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
-            width: 100%;
-            height: 100%;
+            margin-bottom: 10px;
+            width: 75%;
+            height: 75%;
             transition: .5s ease;
             backface-visibility: hidden;
             border-radius: 50%;
+        }
+
+        .price {
+            color: grey;
+            font-size: 22px;
+        }
+
+        .description {
+            font-size: 20px;
+        }
+
+        .imageCon {
+            display: block;
+            position: relative;
         }
 
         .orderBtn {
@@ -117,11 +141,12 @@
     <div class="shadow-lg p-4 mb-4" id="marg">
 
         <div class="miniNavbar">
-            <a class ="hoverFix" href="#Cakes">Cakes</a>
-            <a class ="hoverFix" href="#Cookies">Cookies</a>
-            <a class ="hoverFix" href="#Cupcakes">Cupcakes</a>
-            <a class ="hoverFix" href="#Pastry">Pastries</a>
-            <a class ="hoverFix" href="#Misc">Misc.</a>
+            <a class="hoverFix" href="#Cakes">Cakes</a>
+            <a class="hoverFix" href="#Cookies">Cookies</a>
+            <a class="hoverFix" href="#Cupcakes">Cupcakes</a>
+            <a class="hoverFix" href="#Pastry">Pastries</a>
+            <a class="hoverFix" href="#Misc">Misc.</a>
+            <a class="hoverFix" href="#Holiday">Holiday</a>
             <div class="centerRight">
                 <a asp-area="" asp-controller="CustomOrder" asp-action="Index" class="btn btn-info" role="button" id="betterButton">Custom Bake!!</a>
             </div>
@@ -131,21 +156,58 @@
         <div class="row">
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <div class="imageCon">
+                        <img src="/bakes/square/21st bday.jpg" class="orderImage">
+                        <button class="orderBtn">Order Now!</button>
+                    </div>
+                    <h3>Bailey's and Chocolate Cake</h3>
+                    <p class="price">$34.99</p>
+                    <p class="description">Chocolate and Bailey's flavored cake with a Bailey's buttercream. Filled with a Bailey's mousse and topped with a Chocolate Ganache.</p>
+                </div>
+            </div>
+
+            <div class="column3">
+                <div class="orderContainer">
+                    <div class="imageCon">
+                        <img src="/bakes/square/dec red vel.jpeg" class="orderImage">
+                        <button class="orderBtn">Order Now!</button>
+                    </div>
+                    <h3>Red Velvet Cake</h3>
+                    <p class="price">$24.99</p>
+                    <p class="description">Red Velvet Cake with Lemon Cream Cheese frosting.</p>
+                </div>
+            </div>
+
+            <div class="column3">
+                <div class="orderContainer">                    
+                    <div class="imageCon">
+                        <img src="/bakes/square/mini lemon bunt cakes.jpg" class="orderImage">
+                        <button class="orderBtn">Order Now!</button>
+                    </div>
+                    <h3>MIni Lemon Bunt Cake</h3>
+                    <p class="price">$10 per 4 cakes</p>
+                    <p class="description">Mini Lemon Bunt Cake with blueberry filling and icing on top.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column3">
+                <div class="orderContainer">
+                    <img src="/bakes/square/pound cake.jpeg" class="orderImage">
                     <button class="orderBtn">Order Now!</button>
                 </div>
             </div>
 
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <img src="/bakes/square/no Photo.jpg" class="orderImage">
                     <button class="orderBtn">Order Now!</button>
                 </div>
             </div>
 
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <img src="/bakes/square/no Photo.jpg" class="orderImage">
                     <button class="orderBtn">Order Now!</button>
                 </div>
             </div>
@@ -155,21 +217,21 @@
         <div class="row">
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <img src="/bakes/square/crinkle cookies.jpg" class="orderImage">
                     <button class="orderBtn">Order Now!</button>
                 </div>
             </div>
 
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <img src="/bakes/square/no Photo.jpg" class="orderImage">
                     <button class="orderBtn">Order Now!</button>
                 </div>
             </div>
 
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <img src="/bakes/square/no Photo.jpg" class="orderImage">
                     <button class="orderBtn">Order Now!</button>
                 </div>
             </div>
@@ -179,21 +241,21 @@
         <div class="row">
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <img src="/bakes/square/bloody cups.jpeg" class="orderImage">
                     <button class="orderBtn">Order Now!</button>
                 </div>
             </div>
 
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <img src="/bakes/square/choc straw cup.jpeg" class="orderImage">
                     <button class="orderBtn">Order Now!</button>
                 </div>
             </div>
 
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <img src="/bakes/square/lemon cup.jpeg" class="orderImage">
                     <button class="orderBtn">Order Now!</button>
                 </div>
             </div>
@@ -203,21 +265,65 @@
         <div class="row">
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <img src="/bakes/square/apple pie.jpeg" class="orderImage">
                     <button class="orderBtn">Order Now!</button>
                 </div>
             </div>
 
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <img src="/bakes/square/pinwheel.jpg" class="orderImage">
                     <button class="orderBtn">Order Now!</button>
                 </div>
             </div>
 
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <img src="/bakes/square/no Photo.jpg" class="orderImage">
+                    <button class="orderBtn">Order Now!</button>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="center" id="Holiday">Holiday</h1>
+        <div class="row">
+            <div class="column3">
+                <div class="orderContainer">
+                    <img src="/bakes/square/bloody cups.jpeg" class="orderImage">
+                    <button class="orderBtn">Order Now!</button>
+                </div>
+            </div>
+
+            <div class="column3">
+                <div class="orderContainer">
+                    <img src="/bakes/square/pumpkin cake.jpg" class="orderImage">
+                    <button class="orderBtn">Order Now!</button>
+                </div>
+            </div>
+
+            <div class="column3">
+                <div class="orderContainer">
+                    <img src="/bakes/square/santa cupcakes.jpg" class="orderImage">
+                    <button class="orderBtn">Order Now!</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column3">
+                <div class="orderContainer">
+                    <img src="/bakes/square/peppermint cupcakes.jpg" class="orderImage">
+                    <button class="orderBtn">Order Now!</button>
+                </div>
+            </div>
+            <div class="column3">
+                <div class="orderContainer">
+                    <img src="/bakes/square/VDay cheesecake.jpg" class="orderImage">
+                    <button class="orderBtn">Order Now!</button>
+                </div>
+            </div>
+            <div class="column3">
+                <div class="orderContainer">
+                    <img src="/bakes/square/no Photo.jpg" class="orderImage">
                     <button class="orderBtn">Order Now!</button>
                 </div>
             </div>
@@ -227,21 +333,44 @@
         <div class="row">
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <img src="/bakes/square/cake pops.jpg" class="orderImage">
                     <button class="orderBtn">Order Now!</button>
                 </div>
             </div>
 
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <img src="/bakes/square/rasp bar.jpeg" class="orderImage">
                     <button class="orderBtn">Order Now!</button>
                 </div>
             </div>
 
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/pumpkin cake square.jpg" class="orderImage">
+                    <img src="/bakes/square/swiss rolls.jpg" class="orderImage">
+                    <button class="orderBtn">Order Now!</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column3">
+                <div class="orderContainer">
+                    <img src="/bakes/square/tiger pretzels.jpg" class="orderImage">
+                    <button class="orderBtn">Order Now!</button>
+                </div>
+            </div>
+
+            <div class="column3">
+                <div class="orderContainer">
+                    <img src="/bakes/square/trifold.jpeg" class="orderImage">
+                    <button class="orderBtn">Order Now!</button>
+                </div>
+            </div>
+
+            <div class="column3">
+                <div class="orderContainer">
+                    <img src="/bakes/square/no Photo.jpg" class="orderImage">
                     <button class="orderBtn">Order Now!</button>
                 </div>
             </div>
