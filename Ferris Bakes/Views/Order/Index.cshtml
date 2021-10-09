@@ -16,15 +16,22 @@
     <style>
 
         .column3 {
-            flex: 33.33%;
+            flex: 1;
             padding: 5px;
-        } 
+        }
+
+        .row {
+            display: flex;
+            width: 100%;
+        }
 
         .center {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 60px;
+            margin-top: 20px;
+            margin-bottom: 15px;
         }
 
         .centerRight {
@@ -44,9 +51,10 @@
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             text-align: center;
             font-family: arial;
-            padding: 20px;
+            padding: 15px;
             background-color: #eee6f5;
             border-radius: 25px;
+            height: 500px;
         }
 
         .orderImage {
@@ -55,8 +63,8 @@
             margin-left: auto;
             margin-right: auto;
             margin-bottom: 10px;
-            width: 75%;
-            height: 75%;
+            width: 65%;
+            height: 65%;
             transition: .5s ease;
             backface-visibility: hidden;
             border-radius: 50%;
@@ -68,7 +76,7 @@
         }
 
         .description {
-            font-size: 20px;
+            font-size: 18px;
         }
 
         .imageCon {
@@ -131,13 +139,15 @@
             align-items: center;
             color: white;
         }
-
+        
     </style>
 
 </head>
 
 <body>
-    
+
+    <button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>
+
     <div class="shadow-lg p-4 mb-4" id="marg">
 
         <div class="miniNavbar">
@@ -145,8 +155,8 @@
             <a class="hoverFix" href="#Cookies">Cookies</a>
             <a class="hoverFix" href="#Cupcakes">Cupcakes</a>
             <a class="hoverFix" href="#Pastry">Pastries</a>
-            <a class="hoverFix" href="#Misc">Misc.</a>
             <a class="hoverFix" href="#Holiday">Holiday</a>
+            <a class="hoverFix" href="#Misc">Misc.</a>
             <div class="centerRight">
                 <a asp-area="" asp-controller="CustomOrder" asp-action="Index" class="btn btn-info" role="button" id="betterButton">Custom Bake!!</a>
             </div>
@@ -161,7 +171,7 @@
                         <button class="orderBtn">Order Now!</button>
                     </div>
                     <h3>Bailey's and Chocolate Cake</h3>
-                    <p class="price">$34.99</p>
+                    <p class="price">$35</p>
                     <p class="description">Chocolate and Bailey's flavored cake with a Bailey's buttercream. Filled with a Bailey's mousse and topped with a Chocolate Ganache.</p>
                 </div>
             </div>
@@ -173,18 +183,18 @@
                         <button class="orderBtn">Order Now!</button>
                     </div>
                     <h3>Red Velvet Cake</h3>
-                    <p class="price">$24.99</p>
+                    <p class="price">$25</p>
                     <p class="description">Red Velvet Cake with Lemon Cream Cheese frosting.</p>
                 </div>
             </div>
 
             <div class="column3">
-                <div class="orderContainer">                    
+                <div class="orderContainer">
                     <div class="imageCon">
                         <img src="/bakes/square/mini lemon bunt cakes.jpg" class="orderImage">
                         <button class="orderBtn">Order Now!</button>
                     </div>
-                    <h3>MIni Lemon Bunt Cake</h3>
+                    <h3>Mini Lemon Bunt Cake</h3>
                     <p class="price">$10 per 4 cakes</p>
                     <p class="description">Mini Lemon Bunt Cake with blueberry filling and icing on top.</p>
                 </div>
@@ -193,22 +203,37 @@
         <div class="row">
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/square/pound cake.jpeg" class="orderImage">
-                    <button class="orderBtn">Order Now!</button>
+                    <div class="imageCon">
+                        <img src="/bakes/square/pound cake.jpeg" class="orderImage">
+                        <button class="orderBtn">Order Now!</button>
+                    </div>
+                    <h3>Sparkling Apple Cider Pound Cake</h3>
+                    <p class="price">$20</p>
+                    <p class="description">Sparkling Apple Cider Pound Cake with a sparkling apple cider icing.</p>
                 </div>
             </div>
 
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/square/no Photo.jpg" class="orderImage">
-                    <button class="orderBtn">Order Now!</button>
+                    <div class="imageCon">
+                        <img src="/bakes/square/no Photo.jpg" class="orderImage">
+                        <button class="orderBtn">Order Now!</button>
+                    </div>
+                    <h3>Chocolate Cake</h3>
+                    <p class="price">$20</p>
+                    <p class="description">Chocolate cake with chocolate icing.</p>
                 </div>
             </div>
 
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/square/no Photo.jpg" class="orderImage">
-                    <button class="orderBtn">Order Now!</button>
+                    <div class="imageCon">
+                        <img src="/bakes/square/no Photo.jpg" class="orderImage">
+                        <button class="orderBtn">Order Now!</button>
+                    </div>
+                    <h3>Vanilla Cake</h3>
+                    <p class="price">$20</p>
+                    <p class="description">Vanilla cake with vanilla icing.</p>
                 </div>
             </div>
         </div>
@@ -217,23 +242,59 @@
         <div class="row">
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/square/crinkle cookies.jpg" class="orderImage">
-                    <button class="orderBtn">Order Now!</button>
+                    <div class="imageCon">
+                        <img src="/bakes/square/crinkle cookies.jpg" class="orderImage">
+                        <button class="orderBtn">Order Now!</button>
+                    </div>
+                    <h3>Chocolate Crinkle Cookies</h3>
+                    <p class="price">$15</p>
+                    <p class="description">Chocolate Crinkle Cookies covered in powered sugar.</p>
                 </div>
             </div>
 
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/square/no Photo.jpg" class="orderImage">
-                    <button class="orderBtn">Order Now!</button>
+                    <div class="imageCon">
+                        <img src="/bakes/square/no Photo.jpg" class="orderImage">
+                        <button class="orderBtn">Order Now!</button>
+                    </div>
+                    <h3>Red Velvet Crinkle Cookies</h3>
+                    <p class="price">$15</p>
+                    <p class="description">Red Velvet Crinkle Cookies covered in powered sugar.</p>
                 </div>
             </div>
 
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/square/no Photo.jpg" class="orderImage">
-                    <button class="orderBtn">Order Now!</button>
+                    <div class="imageCon">
+                        <img src="/bakes/square/no Photo.jpg" class="orderImage">
+                        <button class="orderBtn">Order Now!</button>
+                    </div>
+                    <h3>Chocolate Chip Cookies</h3>
+                    <p class="price">$10</p>
+                    <p class="description">Chocolate Chip Cookies.</p>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column3">
+                <div class="orderContainer">
+                    <div class="imageCon">
+                        <img src="/bakes/square/no Photo.jpg" class="orderImage">
+                        <button class="orderBtn">Order Now!</button>
+                    </div>
+                    <h3>Sugar Cookies</h3>
+                    <p class="price">$10</p>
+                    <p class="description">Chocolate Crinkle Cookies covered in powered sugar.</p>
+                </div>
+            </div>
+
+            <div class="column3">
+
+            </div>
+
+            <div class="column3">
+
             </div>
         </div>
 
@@ -241,22 +302,37 @@
         <div class="row">
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/square/bloody cups.jpeg" class="orderImage">
-                    <button class="orderBtn">Order Now!</button>
+                    <div class="imageCon">
+                        <img src="/bakes/square/lemon cup.jpeg" class="orderImage">
+                        <button class="orderBtn">Order Now!</button>
+                    </div>
+                    <h3>Lemon Cupcakes</h3>
+                    <p class="price">$20</p>
+                    <p class="description">Lemon Cupcakes with a lavendar buttercream.</p>
                 </div>
             </div>
 
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/square/choc straw cup.jpeg" class="orderImage">
-                    <button class="orderBtn">Order Now!</button>
+                    <div class="imageCon">
+                        <img src="/bakes/square/choc straw cup.jpeg" class="orderImage">
+                        <button class="orderBtn">Order Now!</button>
+                    </div>
+                    <h3>Chocolate-Strawberry Cupcakes</h3>
+                    <p class="price">$15</p>
+                    <p class="description">Chocolate cupcakes with a strawberry filling and vanilla buttercream.</p>
                 </div>
             </div>
 
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/square/lemon cup.jpeg" class="orderImage">
-                    <button class="orderBtn">Order Now!</button>
+                    <div class="imageCon">
+                        <img src="/bakes/square/no Photo.jpg" class="orderImage">
+                        <button class="orderBtn">Order Now!</button>
+                    </div>
+                    <h3>Vanilla Cupcakes</h3>
+                    <p class="price">$10</p>
+                    <p class="description">Vanilla Cupcakes with vanilla buttercream.</p>
                 </div>
             </div>
         </div>
@@ -265,23 +341,29 @@
         <div class="row">
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/square/apple pie.jpeg" class="orderImage">
-                    <button class="orderBtn">Order Now!</button>
+                    <div class="imageCon">
+                        <img src="/bakes/square/apple pie.jpeg" class="orderImage">
+                        <button class="orderBtn">Order Now!</button>
+                    </div>
+                    <h3>Apple Pie</h3>
+                    <p class="price">$20</p>
+                    <p class="description">Apple Pie made with Granny Smith apples and homemade pastry.</p>
                 </div>
             </div>
 
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/square/pinwheel.jpg" class="orderImage">
-                    <button class="orderBtn">Order Now!</button>
+                    <div class="imageCon">
+                        <img src="/bakes/square/pinwheel.jpg" class="orderImage">
+                        <button class="orderBtn">Order Now!</button>
+                    </div>
+                    <h3>Pinwheel Pastries</h3>
+                    <p class="price">$25</p>
+                    <p class="description">Pinwheel shaped pastries with cream cheese and raspberry jam filling.</p>
                 </div>
             </div>
 
             <div class="column3">
-                <div class="orderContainer">
-                    <img src="/bakes/square/no Photo.jpg" class="orderImage">
-                    <button class="orderBtn">Order Now!</button>
-                </div>
             </div>
         </div>
 
@@ -289,43 +371,65 @@
         <div class="row">
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/square/bloody cups.jpeg" class="orderImage">
-                    <button class="orderBtn">Order Now!</button>
+                    <div class="imageCon">
+                        <img src="/bakes/square/bloody cups.jpeg" class="orderImage">
+                        <button class="orderBtn">Order Now!</button>
+                    </div>
+                    <h3>Broken Glass Cupcakes</h3>
+                    <p class="price">$25</p>
+                    <p class="description">Chocolate cupcakes with vanilla buttercream topped with sugar glass and fake edible blood.</p>
                 </div>
             </div>
 
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/square/pumpkin cake.jpg" class="orderImage">
-                    <button class="orderBtn">Order Now!</button>
+                    <div class="imageCon">
+                        <img src="/bakes/square/pumpkin cake.jpg" class="orderImage">
+                        <button class="orderBtn">Order Now!</button>
+                    </div>
+                    <h3>Pumpkin Cake</h3>
+                    <p class="price">$50</p>
+                    <p class="description">Pumpkin flavored and shaped caked with cream cheese frosting with orange geletain and white chocolate chips as pumpkin guts inside.</p>
                 </div>
             </div>
 
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/square/santa cupcakes.jpg" class="orderImage">
-                    <button class="orderBtn">Order Now!</button>
+                    <div class="imageCon">
+                        <img src="/bakes/square/santa cupcakes.jpg" class="orderImage">
+                        <button class="orderBtn">Order Now!</button>
+                    </div>
+                    <h3>Santa hat Cupcakes</h3>
+                    <p class="price">$15</p>
+                    <p class="description">Vanilla cupcakes with white chocolate buttercream filled with cranberry filling.</p>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/square/peppermint cupcakes.jpg" class="orderImage">
-                    <button class="orderBtn">Order Now!</button>
+                    <div class="imageCon">
+                        <img src="/bakes/square/peppermint cupcakes.jpg" class="orderImage">
+                        <button class="orderBtn">Order Now!</button>
+                    </div>
+                    <h3>Peppermint  Cupcakes</h3>
+                    <p class="price">$10</p>
+                    <p class="description">Chocolate cupcakes with a peppermint buttercream topped with a peppermint.</p>
                 </div>
             </div>
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/square/VDay cheesecake.jpg" class="orderImage">
-                    <button class="orderBtn">Order Now!</button>
+                    <div class="imageCon">
+                        <img src="/bakes/square/VDay cheesecake.jpg" class="orderImage">
+                        <button class="orderBtn">Order Now!</button>
+                    </div>
+                    <h3>Valentine's Day Cheesecake</h3>
+                    <p class="price">$40</p>
+                    <p class="description">New York style cheesecake topped with chocolate covered strawberries and a chocolate heart mold.</p>
                 </div>
             </div>
             <div class="column3">
-                <div class="orderContainer">
-                    <img src="/bakes/square/no Photo.jpg" class="orderImage">
-                    <button class="orderBtn">Order Now!</button>
-                </div>
+
             </div>
         </div>
 
@@ -333,22 +437,37 @@
         <div class="row">
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/square/cake pops.jpg" class="orderImage">
-                    <button class="orderBtn">Order Now!</button>
+                    <div class="imageCon">
+                        <img src="/bakes/square/cake pops.jpg" class="orderImage">
+                        <button class="orderBtn">Order Now!</button>
+                    </div>
+                    <h3>Cake pops</h3>
+                    <p class="price">$15 per 15</p>
+                    <p class="description">Cake pops red velvet and cream cheese & lemon and lavendar flavored.</p>
                 </div>
             </div>
 
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/square/rasp bar.jpeg" class="orderImage">
-                    <button class="orderBtn">Order Now!</button>
+                    <div class="imageCon">
+                        <img src="/bakes/square/rasp bar.jpeg" class="orderImage">
+                        <button class="orderBtn">Order Now!</button>
+                    </div>
+                    <h3>Raspberry Oat Bar</h3>
+                    <p class="price">$10</p>
+                    <p class="description">Raspberry Out Bar.</p>
                 </div>
             </div>
 
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/square/swiss rolls.jpg" class="orderImage">
-                    <button class="orderBtn">Order Now!</button>
+                    <div class="imageCon">
+                        <img src="/bakes/square/swiss rolls.jpg" class="orderImage">
+                        <button class="orderBtn">Order Now!</button>
+                    </div>
+                    <h3>Swiss Rolls</h3>
+                    <p class="price">$20</p>
+                    <p class="description">Chocolate and peppermint swiss rolls.</p>
                 </div>
             </div>
         </div>
@@ -356,26 +475,55 @@
         <div class="row">
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/square/tiger pretzels.jpg" class="orderImage">
-                    <button class="orderBtn">Order Now!</button>
+                    <div class="imageCon">
+                        <img src="/bakes/square/tiger pretzels.jpg" class="orderImage">
+                        <button class="orderBtn">Order Now!</button>
+                    </div>
+                    <h3>Tiger Pretzels</h3>
+                    <p class="price">$20</p>
+                    <p class="description">Tiger striped pretzels.</p>
                 </div>
             </div>
 
             <div class="column3">
                 <div class="orderContainer">
-                    <img src="/bakes/square/trifold.jpeg" class="orderImage">
-                    <button class="orderBtn">Order Now!</button>
+                    <div class="imageCon">
+                        <img src="/bakes/square/trifold.jpeg" class="orderImage">
+                        <button class="orderBtn">Order Now!</button>
+                    </div>
+                    <h3>Chocolate Strawberry Trifold</h3>
+                    <p class="price">$25</p>
+                    <p class="description">Chocolate cake with whipped cream, fresh strawberries, and chocolate ganache.</p>
                 </div>
             </div>
 
             <div class="column3">
-                <div class="orderContainer">
-                    <img src="/bakes/square/no Photo.jpg" class="orderImage">
-                    <button class="orderBtn">Order Now!</button>
-                </div>
+
             </div>
         </div>
 
     </div>
+
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("topBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
 
 </body>
