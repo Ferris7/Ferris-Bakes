@@ -12,86 +12,96 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        .center {
+            max-width: 65%;
+            margin: auto;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="shadow-lg p-4 mb-4" id="marg">
+    <div class="center">
+        <div class="shadow-lg p-4 mb-4" id="marg">
 
-        <div class="text-center">
-            <h1 class="display-4">Order Delicious Bakes Here!</h1>
-        </div>
+            <div class="text-center" id="orderHeader">
+                <h1 class="display-4">Order Delicious Bakes Here!</h1>
+            </div>
 
-        <h2>Bake Type: @ViewData["Bake"]</h2>
+            
 
-        @using (Html.BeginForm("Form", "CustomOrder", FormMethod.Post))
-        {
-            <div class="form" id="formWidth">
-                <div class="form" id="delayTwo">
-                    <div class="form-group">
-                        <h2><label asp-for="flavorOptions">Flavors:</label></h2>
-                    </div>
-                    @Html.DropDownListFor(m => m.flavor, Model.flavorOptions.Select(x => new SelectListItem(x, x)), "Select a Flavor", new { @class = "selector form-control" })
-                    <br />
-                </div>
-        
-
-                @if (Model.bake == "Cake" || Model.bake == "Cupcake")
-                {
-                    <div>
-                        <label> Select Frosting Flavor:</label>
-                        <select name="fillingFlavor" class="custom-select">
-                            <option selected disabled value="">Pick a Frosting:</option>
-                            <option>Baileys</option>
-                            <option>Blueberry</option>
-                            <option>Chocolate</option>
-                            <option>Cream Cheese</option>
-                            <option>Lavendar</option>
-                            <option>None</option>
-                            <option>Strawberry</option>
-                            <option>Vanilla</option>
-                        </select>
+            @using (Html.BeginForm("Form", "CustomOrder", FormMethod.Post))
+            {
+                <div class="form" id="formWidth">
+                    <div class="form" id="delayTwo">
+                        <div class="form-group">
+                            <h2 style="margin-bottom:15px">Bake Type: @ViewData["Bake"]</h2>
+                            <h2><label asp-for="flavorOptions">Flavors:</label></h2>
+                        </div>
+                        @Html.DropDownListFor(m => m.flavor, Model.flavorOptions.Select(x => new SelectListItem(x, x)), "Select a Flavor", new { @class = "selector form-control" })
+                        <br />
                     </div>
 
-                    <br />
-                }
 
-                @if (Model.filling)
-                {
                     @if (Model.bake == "Cake" || Model.bake == "Cupcake")
                     {
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheck" name="fillingCheck" onclick="setFilling()">
-                            <label class="custom-control-label" for="customCheck">Filling?</label>
+                        <div>
+                            <label> Select Frosting Flavor:</label>
+                            <select name="fillingFlavor" class="custom-select">
+                                <option selected disabled value="">Pick a Frosting:</option>
+                                <option>Baileys</option>
+                                <option>Blueberry</option>
+                                <option>Chocolate</option>
+                                <option>Cream Cheese</option>
+                                <option>Lavendar</option>
+                                <option>None</option>
+                                <option>Strawberry</option>
+                                <option>Vanilla</option>
+                            </select>
                         </div>
+
+                        <br />
                     }
-                    else
+
+                    @if (Model.filling)
                     {
-                        <div class="custom-control custom-checkbox">
-                            <label class="custom-control-label" for="customCheck">Filling?</label>
-                            <input type="checkbox" class="custom-control-input" id="customCheck" name="fillingCheck" onclick="setFilling()" checked="checked">
+                        @if (Model.bake == "Cake" || Model.bake == "Cupcake")
+                        {
+                            <div class="custom-control custom-checkbox" style="margin: 20px 0px 10px;">
+                                <input type="checkbox" class="custom-control-input" id="customCheck" name="fillingCheck" onclick="setFilling()">
+                                <label class="custom-control-label" for="customCheck">Would you like to add a filling?</label>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="custom-control custom-checkbox" style="margin: 20px 0px 10px;">
+                                <label class="custom-control-label" for="customCheck">Would you like to add a filling?</label>
+                                <input type="checkbox" class="custom-control-input" id="customCheck" name="fillingCheck" onclick="setFilling()" checked="checked">
+                            </div>
+                        }
+
+
+                        <div id="fillingCheck">
+                            <label>Select Filling:</label>
+                            <select name="fillingFlavor" class="custom-select">
+                                <option selected disabled value="">Pick Filling</option>
+                                <option>Raspberry</option>
+                                <option>Strawberry</option>
+                                <option>Blackberry</option>
+                                <option>Blueberry</option>
+                            </select>
                         </div>
+
+
+                        <br />
                     }
 
+                    <input type="submit" class="btn btn-info" id="betterButton" value="Next" />
 
-                    <div id="fillingCheck">
-                        <label>Select Filling:</label>
-                        <select name="fillingFlavor" class="custom-select">
-                            <option selected disabled value="">Pick Filling</option>
-                            <option>Raspberry</option>
-                            <option>Strawberry</option>
-                            <option>Blackberry</option>
-                            <option>Blueberry</option>
-                        </select>
-                    </div>
-
-
-                    <br />
-                }
-
-                <input type="submit" class="btn btn-info" id="betterButton" value="Next" />
-
+                </div>
+            }
         </div>
-        }
     </div>
 
     <div>

@@ -12,23 +12,32 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        .center {
+            max-width: 65%;
+            margin: auto;
+        }
+    </style>
+
 </head>
 
 <body>
-    <div class="shadow-lg p-4 mb-4" id="marg">
 
-        <div class="text-center">
-            <h1 class="display-4">Order Delicious Bakes Here!</h1>
-        </div>
+    <div class="center">
+        <div class="shadow-lg p-4 mb-4" id="marg">
 
-        <h2>Bake Type: @ViewData["Bake"]</h2>
+            <div class="text-center" id="orderHeader">
+                <h1 class="display-4">Order Delicious Bakes Here!</h1>
+            </div>
 
-        @using (Html.BeginForm("Details", "CustomOrder", FormMethod.Post))
-        {
-            <div class="form" id="formWidth">
-                
-                <div >
-                    <br />
+            @using (Html.BeginForm("Details", "CustomOrder", FormMethod.Post))
+            {
+                <div class="form" id="formWidth">
+
+                    <h2 style="margin-bottom: 0px;">Bake Type: @ViewData["Bake"]</h2>
+                    <h2 style="margin-bottom: 30px;">Flavor: @ViewData["Flavor"]</h2>
+
                     <div class="row3">
                         <div class="form-inline">
                             <label for="Size">Full Name:</label>
@@ -41,31 +50,33 @@
                             <label for="Size">Date Requested By:</label>
                             <span class="tab"></span>
                             <input class="form-control" type="datetime-local" id="dueDate"
-                                   name="DueDate" value=DateTime.Today
-                                   min="DateTime.Today+3" max="2024-12-01T00:00">
+                                    name="DueDate" value=DateTime.Today
+                                    min="DateTime.Today+3" max="2024-12-01T00:00">
                         </div>
                     </div>
                     <div class="row3">
                         <div class="form-inline">
-                            <label for="Size">Size/Quatity:</label>
+                            <label for="Size">Size/Quatity*:</label>
                             <span class="tab"></span>
                             <input class="form-control" placeholder="Enter Amount" id="size">
-                            <p style="display: inline"><span class="tab"></span>@ViewData["Sizing"]</p>
                         </div>
                     </div>
-                    
+                    <div class="row3">
+                        <p><span class="tab"></span>*@ViewData["Sizing"]</p>
+                    </div>
+
                     <div class="form-group">
                         <label for="comment">Comments/Special Requests:</label>
                         <textarea class="form-control" rows="5" id="comment"></textarea>
                     </div>
-                </div>
 
-                <div class="text-center">
-                    <h3> Click below to submit your order! </h3>
-                    <input type="submit" class="btn btn-info" id="betterButton" value="Order Now!" />
+                    <div class="text-center">
+                        <h3> Click below to submit your order! </h3>
+                        <input type="submit" class="btn btn-info" id="betterButton" value="Order Now!" />
+                    </div>
                 </div>
+            }
         </div>
-        }
     </div>
 
     <div>

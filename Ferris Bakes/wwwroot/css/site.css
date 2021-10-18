@@ -164,6 +164,7 @@ div.desc {
     display: flex;
     padding: 5px 0px;
     margin: 5px 0px;
+    font-size:18px;
 }
 
 #space{
@@ -273,7 +274,7 @@ button:hover {
 }
 
 #formWidth {
-   padding: 100px;
+   margin: 5%;
 
 }
 
@@ -337,4 +338,8 @@ button:hover {
 
 #topBtn:hover {
     opacity: 0.5;
+}
+
+#orderHeader {
+    margin-top: 30px;
 }

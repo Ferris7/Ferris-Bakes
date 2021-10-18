@@ -15,34 +15,36 @@
 
     <style>
         .center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 60px;
+            max-width: 65%;
+            margin: auto;
         }
+
+
     </style>
 </head>
 
 <body>
     
-    <div class="shadow-lg p-4 mb-4" id="marg">
+    <div class="center">
+        <div class="shadow-lg p-4 mb-4" id="marg">
 
-        <div class="text-center">
-            <h1 class="display-4">Order Delicious Bakes Here!</h1>
-        </div>
-
-        @using (Html.BeginForm("Index", "CustomOrder", FormMethod.Post))
-        {
-            <div class="form" id="formWidth">
-                <div class="form-group">
-                    <h2><label asp-for="BakeList">Available Bakes:</label></h2>
-                </div>
-                @Html.DropDownListFor(m => m.bake, Model.BakeList.Select(x => new SelectListItem(x, x)), "Select a Bake", new { @class = "selector form-control" })
-                <br />
-                <input type="submit" class="btn btn-info" id="betterButton" value="Next" />
+            <div class="text-center" id="orderHeader">
+                <h1 class="display-4">Order Delicious Bakes Here!</h1>
             </div>
-        }
 
+            @using (Html.BeginForm("Index", "CustomOrder", FormMethod.Post))
+            {
+                <div class="form" id="formWidth">
+                    <div class="form-group">
+                        <h2><label asp-for="BakeList">Available Bakes:</label></h2>
+                    </div>
+                    @Html.DropDownListFor(m => m.bake, Model.BakeList.Select(x => new SelectListItem(x, x)), "Select a Bake", new { @class = "selector form-control" })
+                    <br />
+                    <input type="submit" class="btn btn-info" id="betterButton" value="Next" />
+                </div>
+            }
+
+        </div>
     </div>
 
 </body>
