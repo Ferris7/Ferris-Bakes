@@ -29,10 +29,9 @@
                 <h1 class="display-4">Order Delicious Bakes Here!</h1>
             </div>
 
-            
 
-            @using (Html.BeginForm("Form", "CustomOrder", FormMethod.Post))
-            {
+
+            <form asp-controller="CustomOrder" asp-action="Form" method="post">
                 <div class="form" id="formWidth">
                     <div class="form" id="delayTwo">
                         <div class="form-group">
@@ -100,7 +99,7 @@
                     <input type="submit" class="btn btn-info" id="betterButton" value="Next" />
 
                 </div>
-            }
+            </form>
         </div>
     </div>
 

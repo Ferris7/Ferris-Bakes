@@ -31,8 +31,7 @@
                 <h1 class="display-4">Order Delicious Bakes Here!</h1>
             </div>
 
-            @using (Html.BeginForm("Details", "CustomOrder", FormMethod.Post))
-            {
+            <form asp-controller="CustomOrder" asp-action="Details" method="post">
                 <div class="form" id="formWidth">
 
                     <h2 style="margin-bottom: 0px;">Bake Type: @ViewData["Bake"]</h2>
@@ -50,8 +49,8 @@
                             <label for="Size">Date Requested By:</label>
                             <span class="tab"></span>
                             <input class="form-control" type="datetime-local" id="dueDate"
-                                    name="DueDate" value=DateTime.Today
-                                    min="DateTime.Today+3" max="2024-12-01T00:00">
+                                   name="DueDate" value=DateTime.Today
+                                   min="DateTime.Today+3" max="2024-12-01T00:00">
                         </div>
                     </div>
                     <div class="row3">
@@ -75,7 +74,7 @@
                         <input type="submit" class="btn btn-info" id="betterButton" value="Order Now!" />
                     </div>
                 </div>
-            }
+            </form>
         </div>
     </div>
 
