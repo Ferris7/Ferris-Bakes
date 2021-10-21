@@ -24,6 +24,8 @@ namespace Ferris_Bakes.Models
 
         public List<string> BakeList = new List<string> { "Bars", "Brownies", "Cake", "Cupcake", "Cookies", "Pastry", "Pie" };
 
-        public int count { get; set; }
+        public List<string> FrostingList = new List<string> { "Baileys", "Blueberry", "Chocolate", "Cream Cheese", "Lavendar", "None", "Strawberry", "Vanilla" };
+
+        public List<string> FillingList = new List<string> { "Blackberry", "Blueberry", "Mango", "Peach", "Strawberry", "Raspberry"};
     } 
 }

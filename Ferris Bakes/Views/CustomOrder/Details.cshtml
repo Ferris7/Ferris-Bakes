@@ -34,8 +34,8 @@
             <form asp-controller="CustomOrder" asp-action="Details" method="post">
                 <div class="form" id="formWidth">
 
-                    <h2 style="margin-bottom: 0px;">Bake Type: @ViewData["Bake"]</h2>
-                    <h2 style="margin-bottom: 30px;">Flavor: @ViewData["Flavor"]</h2>
+                    <h2 style="margin-bottom: 0px;">Bake Type: @Model.bake</h2>
+                    <h2 style="margin-bottom: 30px;">Flavor: @Model.flavor</h2>
 
                     <div class="row3">
                         <div class="form-inline">
@@ -71,7 +71,7 @@
 
                     <div class="text-center">
                         <h3> Click below to submit your order! </h3>
-                        <input type="submit" class="btn btn-info" id="betterButton" value="Order Now!" />
+                        <input type="submit" class="btn btn-info" id="betterButton" value="Order Now!" asp-area="Details" asp-controller="CustomOrder" asp-action="OrderPlaced"/>
                     </div>
                 </div>
             </form>

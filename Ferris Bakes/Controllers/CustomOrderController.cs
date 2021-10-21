@@ -67,17 +67,13 @@ namespace Ferris_Bakes.Controllers
             }
 
             ViewData["Bake"] = bake;
-            data.count = 0;
 
-            return RedirectToAction("Form", data);
-        
+            return View("Form", data);
+         
         }
 
         public IActionResult Form(OrderModel data)
         {
-            //ViewData["Bake"] = data.bake;
-            
-                
 
             ViewData["Bake"] = data.bake;
             
@@ -93,14 +89,8 @@ namespace Ferris_Bakes.Controllers
                 _ => "Size is in individual items.",
             };
 
-            if (data.count == 0)
-            {
-                data.count = 1;
-                return View(data);
-            }
-
-            data.count = 0;
-            return RedirectToAction("Details", data);
+            return View("Details", data);
+            //return View(data);
         }
 
         public IActionResult Details(OrderModel data)
@@ -110,16 +100,7 @@ namespace Ferris_Bakes.Controllers
 
             ViewData["ID"] = data.orderNumber;
 
-            if (data.count == 0)
-            {
-                data.count = 1;
-                return View(data);
-                
-            }
-
-
-            data.count = 0;
-            return RedirectToAction("OrderPlaced", data);
+            return View("OrderPlaced", data);
         }
 
         public IActionResult OrderPlaced(OrderModel data)
