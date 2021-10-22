@@ -51,7 +51,7 @@
                             <div class="form-group">
                                 <h2><label asp-for="Frosting"> Select Frosting Flavor:</label></h2>
                             </div>
-                            @Html.DropDownListFor(m => m.bake, Model.FrostingList.Select(x => new SelectListItem(x, x)), "Select a Frosting", new { @class = "selector form-control" })
+                            @Html.DropDownListFor(m => m.Frosting, Model.FrostingList.Select(x => new SelectListItem(x, x)), "Select a Frosting", new { @class = "selector form-control" })
                         </div>
 
                         <br />
@@ -74,13 +74,11 @@
                             </div>
                         }
 
-                        <input asp-for="filling" value="false" type="hidden" />
                         <div id="fillingCheck">
                             <div class="form-group">
                                 <h2><label asp-for="fillFlavor">Select Filling:</label></h2>
                             </div>
-                            @Html.DropDownListFor(m => m.bake, Model.FillingList.Select(x => new SelectListItem(x, x)), "Select a Filling", new { @class = "selector form-control" })
-                            <input asp-for="filling" value="true" type="hidden" />
+                            @Html.DropDownListFor(m => m.fillFlavor, Model.FillingList.Select(x => new SelectListItem(x, x)), "Select a Filling", new { @class = "selector form-control" })
                         </div>
 
 

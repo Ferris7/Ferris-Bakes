@@ -18,7 +18,8 @@ namespace Ferris_Bakes.Models
         public bool filling { get; set; }
         public string fillFlavor { get; set; }
         public string comment { get; set; }
-        public string customerName { get; set; }
+        public string customerFirstName { get; set; }
+        public string customerLastName { get; set; }
         public DateTime date { get; set; }
         public DateTime dueDate { get; set; }
 

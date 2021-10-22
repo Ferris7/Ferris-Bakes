@@ -31,7 +31,10 @@
                 @Html.DisplayNameFor(model => model.comment)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.customerName)
+                @Html.DisplayNameFor(model => model.customerFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customerLastName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.date)
@@ -64,7 +67,10 @@
                 @Html.DisplayFor(modelItem => item.comment)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.customerName)
+                @Html.DisplayFor(modelItem => item.customerFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customerLastName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.date)
