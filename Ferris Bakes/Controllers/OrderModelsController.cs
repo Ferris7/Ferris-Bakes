@@ -54,7 +54,7 @@ namespace Ferris_Bakes.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("orderNumber,bake,flavor,size,filling,fillFlavor,comment,customerName,date,dueDate")] OrderModel orderModel)
+        public async Task<IActionResult> Create([Bind("orderNumber,bake,flavor,size,filling,fillFlavor,comment,customerName,date,dueDate")] CustomOrderModel orderModel)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace Ferris_Bakes.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("orderNumber,bake,flavor,size,filling,fillFlavor,comment,customerName,date,dueDate")] OrderModel orderModel)
+        public async Task<IActionResult> Edit(int id, [Bind("orderNumber,bake,flavor,size,filling,fillFlavor,comment,customerName,date,dueDate")] CustomOrderModel orderModel)
         {
             if (id != orderModel.orderNumber)
             {

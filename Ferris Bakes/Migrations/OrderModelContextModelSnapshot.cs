@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ferris_Bakes.Migrations
 {
     [DbContext(typeof(OrderModelContext))]
-    partial class OrderContextModelSnapshot : ModelSnapshot
+    partial class OrderModelContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -26,13 +26,19 @@ namespace Ferris_Bakes.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Frosting")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("bake")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("comment")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("customerName")
+                    b.Property<string>("customerFirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("customerLastName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("date")
@@ -41,8 +47,8 @@ namespace Ferris_Bakes.Migrations
                     b.Property<DateTime>("dueDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("fillFlavor")
-                        .HasColumnType("int");
+                    b.Property<string>("fillFlavor")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("filling")
                         .HasColumnType("bit");

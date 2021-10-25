@@ -21,7 +21,7 @@ namespace Ferris_Bakes.Controllers
 
         public IActionResult Index(string bake)
         {
-            OrderModel data = new OrderModel();
+            CustomOrderModel data = new CustomOrderModel();
 
             if (bake == null)
             {
@@ -72,7 +72,7 @@ namespace Ferris_Bakes.Controllers
          
         }
 
-        public IActionResult Form(OrderModel data)
+        public IActionResult Form(CustomOrderModel data)
         {
 
             ViewData["Bake"] = data.bake;
@@ -93,7 +93,7 @@ namespace Ferris_Bakes.Controllers
             //return View(data);
         }
 
-        public IActionResult Details(OrderModel data)
+        public IActionResult Details(CustomOrderModel data)
         {
 
             ViewData["Bake"] = data.bake;
@@ -103,7 +103,7 @@ namespace Ferris_Bakes.Controllers
             return View("OrderPlaced", data);
         }
 
-        public IActionResult OrderPlaced(OrderModel data)
+        public IActionResult OrderPlaced(CustomOrderModel data)
         {
             //put in database
 

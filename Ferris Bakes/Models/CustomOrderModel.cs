@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ferris_Bakes.Models
 {
-    public class OrderModel
+    public class CustomOrderModel
     {
         [Key]
         public int orderNumber { get; set; }
