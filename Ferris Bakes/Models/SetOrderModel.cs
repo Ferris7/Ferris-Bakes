@@ -10,11 +10,13 @@ namespace Ferris_Bakes.Models
     {
         [Key]
         public int BakeID { get; set; }
-        public string Bake { get; set; }
+        public string BakeName { get; set; }
+        public string BakeType { get; set; }
         public string Flavor { get; set; }
         public int Size { get; set; }
         public string Frosting { get; set; }
         public string FillFlavor { get; set; }
-        public DateTime Date { get; set; }
+        public string Description { get; set; }
+        public double Price { get; set; }
     } 
 }

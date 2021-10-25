@@ -4,8 +4,9 @@ using System.Linq;
 using System.Web;
 using Ferris_Bakes.Models;
 using Ferris_Bakes.Data;
+using Microsoft.AspNetCore.Http;
 
-namespace WingtipToys.Logic
+namespace Ferris_Bakes.Logic
 {
     public class ShoppingCartActions : IDisposable
     {

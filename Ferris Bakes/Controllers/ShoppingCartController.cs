@@ -9,21 +9,16 @@ using System.Threading.Tasks;
 
 namespace Ferris_Bakes.Controllers
 {
-    public class HomeController : Controller
+    public class ShoppingCartController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<ShoppingCartController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public ShoppingCartController(ILogger<ShoppingCartController> logger)
         {
             _logger = logger;
         }
 
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult AboutMe()
         {
             return View();
         }
