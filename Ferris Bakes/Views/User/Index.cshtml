@@ -1,0 +1,36 @@
+﻿@model UserModel
+
+<head>
+    <style>
+        #edit {
+            display: none;
+        }
+
+    </style>
+</head>
+
+<div class="text-center">
+    <br />
+    <h1 class="display-4">Hello, @Model.Name</h1>
+
+    <br />
+    <h3>Profile Info: </h3>
+    <div id="info">
+        <input type="text" class="form-control" placeholder="@Model.Name" disabled>
+        <input type="text" class="form-control" placeholder="@Model.Email" disabled>
+        <input type="text" class="form-control" placeholder="@Model.DOB" disabled>
+    </div>
+    <div id="edit">
+        <input type="text" class="form-control" placeholder="@Model.Name">
+        <input type="text" class="form-control" placeholder="@Model.Email">
+        <input type="text" class="form-control" placeholder="@Model.DOB">
+        <input type="submit" class="btn btn-info" id="betterButton" value="Done" />
+    </div>
+
+    <button type="button" class="btn btn-danger" onclick="document.getElementById('info').style.display='none', document.getElementById('edi').style.display='block'" id="editbtn">Edit your infomation</button>
+
+
+
+
+</div>
+
