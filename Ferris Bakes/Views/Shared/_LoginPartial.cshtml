@@ -1,6 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using Ferris_Bakes.Models
-@using Ferris_Bakes.Data
+@using Ferris_Bakes.Areas.Identity.Pages
 
 @inject SignInManager<UserModel> SignInManager
 @inject UserManager<UserModel> UserManager
@@ -8,11 +8,21 @@
 <div class="right">
     @if (SignInManager.IsSignedIn(User))
     {
-        <a asp-area="" asp-controller="User" asp-action="Index"><img src="~/pics/profile.png" alt="profile" style="width:42px;height:42px;"></a>
-        <button class="btn btn-info" id="betterButton" onclick="document.getElementById('id01').style.display='block'">Logout</button>
+        <a asp-area="Identity" asp-page="/Account/Manage/Index"><img src="~/pics/profile.png" alt="profile" style="width:42px;height:42px;"></a>
+        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button class="btn btn-info" type="submit" id="betterButton">Logout</button>
+        </form>
+
     }
     else
     {
-        <button class="btn btn-info" id="betterButton" onclick="document.getElementById('id01').style.display='block'">Login</button>
+        <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        <!--
+           <form id="login" class="form-inline" asp-area="Identity" asp-page="/Account/Login">
+            <button class="btn btn-info" type="submit" id="betterButton">Login</button>
+        </form>
+        -->
+
+        <!--<button class="btn btn-info" id="betterButton" onclick="document.getElementById('id01').style.display='block'">Login</button> -->
     }
 </div>
