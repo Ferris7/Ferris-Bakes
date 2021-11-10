@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+@using Microsoft.AspNetCore.Identity
+@using Ferris_Bakes.Models
+@using Ferris_Bakes.Areas.Identity.Pages
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -11,6 +14,7 @@
         body {
             background-image: -webkit-linear-gradient(top, #b5abff 0, #6f5cff 100%);
         }
+
         header {
             background-color: #eee6f5;
             display: block;
@@ -52,22 +56,22 @@
                 <partial name="_LoginPartial" />
             </div>
         </nav>
-        
+
     </header>
     <div class="container2">
         <main role="main" class="pb-3">
             @RenderBody()
             <div id="id01" class="modal">
-
-                <form class="modal-content animate" action="/areas/Identity/pages/account/Login?ReturnUrl=%2F" method="post">
+       
+                <form class="modal-content animate" asp-area="Identity" asp-page="/Account/Login">
                     <div class="container2">
-                        <label for="uname"><b>Username</b></label>
+                        <label for="UserName"><b>Username</b></label>
                         <input type="text" placeholder="Enter Username" name="uname" required>
 
                         <label for="psw"><b>Password</b></label>
                         <input type="password" placeholder="Enter Password" name="psw" required>
 
-                        <button class="btn btn-info" id="betterButton" type="submit">Login</button>
+                        <button class="btn btn-info" id="betterButton" asp-area="Identity" asp-page="/Account/Login" type="submit">Login</button>
                         <br />
                         <label id="space">
                             <input type="checkbox" checked="checked" name="remember"> Remember me

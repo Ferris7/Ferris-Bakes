@@ -72,7 +72,8 @@ namespace Ferris_Bakes.Data
                     Email = "fdehar1@lsu.edu",
                     UserName = "fdehar1@lsu.edu",
                     NormalizedUserName = StringNormalizationExtensions.Normalize("fdehar1@lsu.edu"),
-                    Name = "Ferris DeHart",
+                    FirstName = "Ferris",
+                    LastName = "DeHart",
                     DOB = new DateTime(2000, 7, 7),
                     EmailConfirmed = true
                 }

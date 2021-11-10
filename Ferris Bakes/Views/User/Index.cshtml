@@ -11,17 +11,19 @@
 
 <div class="text-center">
     <br />
-    <h1 class="display-4">Hello, @Model.Name</h1>
+    <h1 class="display-4">Hello, @Model.FirstName</h1>
 
     <br />
     <h3>Profile Info: </h3>
     <div id="info">
-        <input type="text" class="form-control" placeholder="@Model.Name" disabled>
+        <input type="text" class="form-control" placeholder="@Model.FirstName" disabled>
+        <input type="text" class="form-control" placeholder="@Model.LastName" disabled>
         <input type="text" class="form-control" placeholder="@Model.Email" disabled>
         <input type="text" class="form-control" placeholder="@Model.DOB" disabled>
     </div>
     <div id="edit">
-        <input type="text" class="form-control" placeholder="@Model.Name">
+        <input type="text" class="form-control" placeholder="@Model.FirstName">
+        <input type="text" class="form-control" placeholder="@Model.LastName">
         <input type="text" class="form-control" placeholder="@Model.Email">
         <input type="text" class="form-control" placeholder="@Model.DOB">
         <input type="submit" class="btn btn-info" id="betterButton" value="Done" />
