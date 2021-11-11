@@ -17,6 +17,8 @@ namespace Ferris_Bakes.Data
         public DbSet<CustomOrderModel> Order { get; set; }
         public DbSet<SetOrderModel> SetOrder { get; set; }
         public DbSet<CartItemModel> Cart { get; set; }
+        public DbSet<ReciepeModel> Reciepes { get; set; }
+        public DbSet<ReciepeBook> ReciepeBook { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

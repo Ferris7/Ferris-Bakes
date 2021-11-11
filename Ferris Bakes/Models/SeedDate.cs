@@ -344,8 +344,22 @@ namespace Ferris_Bakes.Models
                         Description = "Chocolate cake with whipped cream, fresh strawberries, a strawberry galze, and chocolate ganache.",
                         Price = 19.99
                     }
+
                 ); 
                 context.SaveChanges();
+
+                context.Reciepes.AddRange(
+                    new ReciepeModel()
+                    {
+                        ReciepeNumber = 1,
+                        Title = "Chocolate Chip Cookies",
+                        Description = "Chocolate Chip Cookies",
+                        Ingredients = { "Chocolate"},
+                        Size = "One Dozen",
+                        Price = ,
+                        LactoseIntolerant = 
+                    },
+                );
             }
         }
     }
