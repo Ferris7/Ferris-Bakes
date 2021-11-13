@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Ferris_Bakes.Entities;
 
 namespace Ferris_Bakes.Models
 {
@@ -12,9 +13,9 @@ namespace Ferris_Bakes.Models
         public int ReciepeNumber { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public List<string> Ingredients { get; set; }
+        //public List<string> Ingredients { get; set; }
+        public Ingredients Ingredients { get; set; }
         public string Size { get; set; }
         public double Price { get; set; }
-        public bool LactoseIntolerant { get; set; }
     } 
 }
