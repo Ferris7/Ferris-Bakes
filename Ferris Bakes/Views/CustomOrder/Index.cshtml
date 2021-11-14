@@ -19,7 +19,6 @@
             margin: auto;
         }
 
-
     </style>
 </head>
 
@@ -30,6 +29,7 @@
 
             <div class="text-center" id="orderHeader">
                 <h1 class="display-4">Order Delicious Bakes Here!</h1>
+                <p>Click the Baker in the bottom right for help customizing.</p>
             </div>
 
             <form asp-controller="CustomOrder" asp-action="Index" method="post">
@@ -39,12 +39,16 @@
                     </div>
                     @Html.DropDownListFor(m => m.bake, Model.BakeList.Select(x => new SelectListItem(x, x)), "Select a Bake", new { @class = "selector form-control" })
                     <br />
-                    <input type="submit" class="btn btn-info" id="betterButton" value="Next"/>
+                    <input type="submit" class="btn btn-info" id="betterButton" value="Next" />
                 </div>
             </form>
-            
+
 
         </div>
+
+        <a class="helperBaker" asp-controller="Baker" asp-action="Index"><img src="/pics/Baker.png" alt="Baker" style="width:100%"></a>
+ 
+
     </div>
 
 </body>

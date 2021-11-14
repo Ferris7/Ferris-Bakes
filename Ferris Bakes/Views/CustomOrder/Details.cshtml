@@ -37,6 +37,7 @@
 
             <div class="text-center" id="orderHeader">
                 <h1 class="display-4">Order Delicious Bakes Here!</h1>
+                <p>Click the Baker in the bottom right for help customizing.</p>
             </div>
 
             <form asp-controller="CustomOrder" asp-action="Details" method="post">
@@ -58,55 +59,58 @@
                     {
                         <h2 class="noBotMargin">Filling: @Model.fillFlavor</h2>
                     }
-                <div class="topMarg">
+                    <div class="topMarg">
 
-                    <div class="row3">
-                        <div class="form-inline">
-                            <label for="Size">First Name:</label>
-                            <span class="tab"></span>
-                            <input asp-for="customerFirstName" class="form-control" placeholder="Enter Your Name" id="costumerName">
+                        <div class="row3">
+                            <div class="form-inline">
+                                <label for="Size">First Name:</label>
+                                <span class="tab"></span>
+                                <input asp-for="customerFirstName" class="form-control" placeholder="Enter Your Name" id="costumerName">
+                            </div>
+                            <p></p>
+                            <div class="form-inline" style="margin-left: 30px">
+                                <label for="Size">Last Name:</label>
+                                <span class="tab"></span>
+                                <input asp-for="customerLastName" class="form-control" placeholder="Enter Your Name" id="costumerName">
+                            </div>
                         </div>
-                        <p></p>
-                        <div class="form-inline" style="margin-left: 30px">
-                            <label for="Size">Last Name:</label>
-                            <span class="tab"></span>
-                            <input asp-for="customerLastName" class="form-control" placeholder="Enter Your Name" id="costumerName">
+                        <div class="row3">
+                            <div class="form-inline">
+                                <label for="Size">Date Requested By:</label>
+                                <span class="tab"></span>
+                                <input asp-for="dueDate" class="form-control" type="datetime-local" id="dueDate"
+                                       name="DueDate" value=DateTime.Today
+                                       min="DateTime.Today+3" max="2024-12-01T00:00">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row3">
-                        <div class="form-inline">
-                            <label for="Size">Date Requested By:</label>
-                            <span class="tab"></span>
-                            <input asp-for="dueDate" class="form-control" type="datetime-local" id="dueDate"
-                                   name="DueDate" value=DateTime.Today
-                                   min="DateTime.Today+3" max="2024-12-01T00:00">
+                        <div class="row3">
+                            <div class="form-inline">
+                                <label for="Size">Size/Quatity*:</label>
+                                <span class="tab"></span>
+                                <input asp-for="size" class="form-control" placeholder="Enter Amount" id="size">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row3">
-                        <div class="form-inline">
-                            <label for="Size">Size/Quatity*:</label>
-                            <span class="tab"></span>
-                            <input asp-for="size" class="form-control" placeholder="Enter Amount" id="size">
+                        <div class="row3">
+                            <p><span class="tab"></span>*@ViewData["Sizing"]</p>
                         </div>
-                    </div>
-                    <div class="row3">
-                        <p><span class="tab"></span>*@ViewData["Sizing"]</p>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="comment">Comments/Special Requests:</label>
-                        <textarea asp-for="comment" class="form-control" rows="5" id="comment"></textarea>
-                    </div>
+                        <div class="form-group">
+                            <label for="comment">Comments/Special Requests:</label>
+                            <textarea asp-for="comment" class="form-control" rows="5" id="comment"></textarea>
+                        </div>
 
-                    <div class="text-center">
-                        <h3> Click below to submit your order! </h3>
-                        <input type="submit" class="btn btn-info" id="betterButton" value="Order Now!" asp-area="Details" asp-controller="CustomOrder" asp-action="OrderPlaced" />
-                    </div>
+                        <div class="text-center">
+                            <h3> Click below to submit your order! </h3>
+                            <input type="submit" class="btn btn-info" id="betterButton" value="Order Now!" asp-area="Details" asp-controller="CustomOrder" asp-action="OrderPlaced" />
+                        </div>
 
-                </div>
+                    </div>
                 </div>
             </form>
         </div>
+
+
+        <a class="helperBaker" asp-controller="Baker" asp-action="Index"><img src="/pics/Baker.png" alt="Baker" style="width:100%"></a>
     </div>
 
     <div>

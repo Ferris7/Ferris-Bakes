@@ -12,6 +12,7 @@ namespace Ferris_Bakes.Models
     {
         [NotMapped] public Ingredients Likes { get; set; }
         [NotMapped] public Ingredients Dislikes { get; set; }
+        [NotMapped] public List<ReciepeModel> Results { get; set; }
 
         public bool Vegan { get; set; }
 
