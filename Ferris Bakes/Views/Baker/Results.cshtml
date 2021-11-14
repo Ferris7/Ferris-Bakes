@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+@model Preference
+
+<h1>Login</h1>
+
+<body>
+
+    <h2>List of Results:</h2>
+
+    @foreach (ReciepeModel r in Model.Results)
+    {
+        <div class="card">
+            <div class="card-header">
+                <label asp-for="@r.Title">Bake Name: </label>
+                <input asp-for="@r.Title" readonly />
+            </div>
+            <div class="card-body">
+                <label asp-for="@r.Description">Description: </label>
+                <input asp-for="@r.Description" readonly />
+                <label asp-for="@r.Size">Size: </label>
+                <input asp-for="@r.Size" readonly />
+                <label asp-for="@r.Price">Price: </label>
+                <input asp-for="@r.Price" readonly />
+            </div>
+        </div>
+
+    }
+
+</body>

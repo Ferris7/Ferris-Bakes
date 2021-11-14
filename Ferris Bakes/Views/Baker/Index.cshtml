@@ -1,0 +1,141 @@
+﻿
+@model Preference
+
+<head>
+    <style>
+        #spacing {
+            margin-right: 50px;
+        }
+
+        #leftAlign {
+            text-align: left;
+            margin-left: 30px;
+            margin-top: 15px;
+        }
+
+        #checkboxes {
+            margin-left: 100px;
+        }
+
+        .center {
+            max-width: 65%;
+            margin: auto;
+        }
+
+    </style>
+</head>
+
+<div class="center">
+    <div class="shadow-lg p-4 mb-4" id="marg">
+
+        <div class="text-center" id="orderHeader">
+            <h1 class="display-4">Let's Bake!</h1>
+        </div>
+
+        <form class="form-check" asp-controller="Baker" asp-action="Index" method="post">
+            <h2 id="leftAlign">Likes:</h2>
+
+            <div class="row" id="checkboxes">
+                <label class="checkbox-inline" id="spacing">
+                    <input class="form-check-input" asp-for="@Model.Likes.Chocolate" type="checkbox" value="">Chocolate
+                </label>
+                <label class="checkbox-inline" id="spacing">
+                    <input class="form-check-input" asp-for="@Model.Likes.Vanilla" type="checkbox" value="">Vanilla
+                </label>
+                <label class="checkbox-inline" id="spacing">
+                    <input class="form-check-input" asp-for="@Model.Likes.Strawberry" type="checkbox" value="">Strawberry
+                </label>
+                <label class="checkbox-inline" id="spacing">
+                    <input class="form-check-input" asp-for="@Model.Likes.Raspberry" type="checkbox" value="">Raspberry
+                </label>
+                <label class="checkbox-inline" id="spacing">
+                    <input class="form-check-input" asp-for="@Model.Likes.Peach" type="checkbox" value="">Peach
+                </label>
+                <label class="checkbox-inline" id="spacing">
+                    <input class="form-check-input" asp-for="@Model.Likes.Mango" type="checkbox" value="">Mango
+                </label>
+            </div>
+
+            <div class="row" id="checkboxes">
+                <label class="checkbox-inline" id="spacing">
+                    <input class="form-check-input" asp-for="@Model.Likes.RedVelvet" type="checkbox" value="">Red Velvet
+                </label>
+                <label class="checkbox-inline" id="spacing">
+                    <input class="form-check-input" asp-for="@Model.Likes.Lemon" type="checkbox" value="">Lemon
+                </label>
+                <label class="checkbox-inline" id="spacing">
+                    <input class="form-check-input" asp-for="@Model.Likes.Blueberry" type="checkbox" value="">Blueberry
+                </label>
+                <label class="checkbox-inline" id="spacing">
+                    <input class="form-check-input" asp-for="@Model.Likes.Blackberry" type="checkbox" value="">Blackberry
+                </label>
+                <label class="checkbox-inline" id="spacing">
+                    <input class="form-check-input" asp-for="@Model.Likes.Pecan" type="checkbox" value="">Pecan
+                </label>
+                <label class="checkbox-inline" id="spacing">
+                    <input class="form-check-input" asp-for="@Model.Likes.Spice" type="checkbox" value="">Spice (such as Cimmonman)
+                </label>
+            </div>
+
+            <h2 id="leftAlign">Dislikes:</h2>
+
+            <div class="row" id="checkboxes">
+                <label class="checkbox-inline" id="spacing">
+                    <input class="form-check-input" asp-for="@Model.Dislikes.Chocolate" type="checkbox" value="">Chocolate
+                </label>
+                <label class="checkbox-inline" id="spacing">
+                    <input class="form-check-input" asp-for="@Model.Dislikes.Vanilla" type="checkbox" value="">Vanilla
+                </label>
+                <label class="checkbox-inline" id="spacing">
+                    <input class="form-check-input" asp-for="@Model.Dislikes.Strawberry" type="checkbox" value="">Strawberry
+                </label>
+                <label class="checkbox-inline" id="spacing">
+                    <input class="form-check-input" asp-for="@Model.Dislikes.Raspberry" type="checkbox" value="">Raspberry
+                </label>
+                <label class="checkbox-inline" id="spacing">
+                    <input class="form-check-input" asp-for="@Model.Dislikes.Peach" type="checkbox" value="">Peach
+                </label>
+                <label class="checkbox-inline" id="spacing">
+                    <input class="form-check-input" asp-for="@Model.Dislikes.Mango" type="checkbox" value="">Mango
+                </label>
+            </div>
+
+            <div class="row" id="checkboxes">
+                <label class="checkbox-inline" id="spacing">
+                    <input class="form-check-input" asp-for="@Model.Dislikes.RedVelvet" type="checkbox" value="">Red Velvet
+                </label>
+                <label class="checkbox-inline" id="spacing">
+                    <input class="form-check-input" asp-for="@Model.Dislikes.Lemon" type="checkbox" value="">Lemon
+                </label>
+                <label class="checkbox-inline" id="spacing">
+                    <input class="form-check-input" asp-for="@Model.Dislikes.Blueberry" type="checkbox" value="">Blueberry
+                </label>
+                <label class="checkbox-inline" id="spacing">
+                    <input class="form-check-input" asp-for="@Model.Dislikes.Blackberry" type="checkbox" value="">Blackberry
+                </label>
+                <label class="checkbox-inline" id="spacing">
+                    <input class="form-check-input" asp-for="@Model.Dislikes.Pecan" type="checkbox" value="">Pecan
+                </label>
+                <label class="checkbox-inline" id="spacing">
+                    <input class="form-check-input" asp-for="@Model.Dislikes.Spice" type="checkbox" value="">Spice (such as Cimmonman)
+                </label>
+            </div>
+
+
+            <h2 id="leftAlign">Dietary Restrictions:</h2>
+
+            <div class="row" id="checkboxes">
+                <label class="checkbox-inline" id="spacing">
+                    <input class="form-check-input" asp-for="@Model.Vegan" type="checkbox" value="">Vegan?
+                </label>
+            </div>
+
+            <input type="submit" class="btn btn-info" id="betterButton" value="Bake" />
+
+        </form>
+
+
+    </div>
+    
+</div>
+

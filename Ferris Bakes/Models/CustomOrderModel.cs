@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,7 +13,7 @@ namespace Ferris_Bakes.Models
         public int orderNumber { get; set; }
         public string bake { get; set; }
         public string flavor { get; set; }
-        [System.ComponentModel.DataAnnotations.Schema.NotMapped] public List<string> flavorOptions { get; set; }
+        [NotMapped] public List<string> flavorOptions { get; set; }
         public int size { get; set; }
         public string Frosting { get; set; }
         public bool filling { get; set; }

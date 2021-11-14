@@ -19,6 +19,47 @@ namespace Ferris_Bakes.Migrations.OrderModel
                 .HasAnnotation("ProductVersion", "5.0.11")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Ferris_Bakes.Entities.Ingredients", b =>
+                {
+                    b.Property<bool>("Blackberry")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Blueberry")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Chocolate")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Lemon")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Mango")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Peach")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Pecan")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Raspberry")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("RedVelvet")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Spice")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Strawberry")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Vanilla")
+                        .HasColumnType("bit");
+
+                    b.ToTable("Ingredients");
+                });
+
             modelBuilder.Entity("Ferris_Bakes.Models.CartItemModel", b =>
                 {
                     b.Property<string>("ItemId")
@@ -88,6 +129,55 @@ namespace Ferris_Bakes.Migrations.OrderModel
                     b.ToTable("Order");
                 });
 
+            modelBuilder.Entity("Ferris_Bakes.Models.ReciepeBook", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ReciepeBookId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReciepeBookId");
+
+                    b.ToTable("ReciepeBook");
+                });
+
+            modelBuilder.Entity("Ferris_Bakes.Models.ReciepeModel", b =>
+                {
+                    b.Property<int>("ReciepeNumber")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("ReciepeBookId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Size")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ReciepeNumber");
+
+                    b.HasIndex("ReciepeBookId");
+
+                    b.ToTable("Reciepes");
+                });
+
             modelBuilder.Entity("Ferris_Bakes.Models.SetOrderModel", b =>
                 {
                     b.Property<int>("BakeID")
@@ -133,6 +223,27 @@ namespace Ferris_Bakes.Migrations.OrderModel
                         .IsRequired();
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("Ferris_Bakes.Models.ReciepeBook", b =>
+                {
+                    b.HasOne("Ferris_Bakes.Models.ReciepeBook", null)
+                        .WithMany("Chapters")
+                        .HasForeignKey("ReciepeBookId");
+                });
+
+            modelBuilder.Entity("Ferris_Bakes.Models.ReciepeModel", b =>
+                {
+                    b.HasOne("Ferris_Bakes.Models.ReciepeBook", null)
+                        .WithMany("Reciepes")
+                        .HasForeignKey("ReciepeBookId");
+                });
+
+            modelBuilder.Entity("Ferris_Bakes.Models.ReciepeBook", b =>
+                {
+                    b.Navigation("Chapters");
+
+                    b.Navigation("Reciepes");
                 });
 #pragma warning restore 612, 618
         }
