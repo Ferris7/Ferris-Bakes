@@ -15,7 +15,7 @@ namespace Ferris_Bakes.Logic
         {
             List<ReciepeModel> Reciepes = new List<ReciepeModel>();
 
-            using (var context = new OrderModelContext())
+            using (var context = new FerrisBakesContext())
             {
                 List<ReciepeModel> data = context.Reciepes.ToList();
                 bool Fruit = !(Preference.Dislikes.Blackberry && Preference.Dislikes.Blueberry && Preference.Dislikes.Strawberry && Preference.Dislikes.Raspberry && Preference.Dislikes.Mango && Preference.Dislikes.Peach && Preference.Dislikes.Lemon);
@@ -23,16 +23,16 @@ namespace Ferris_Bakes.Logic
 
                 if (Preference.Vegan)
                 {
-                    ReciepeBook Vegan = context.ReciepeBook.Find(5);
+                    ReciepeBook Vegan = context.ReciepeBook.Find(18);
                     Reciepes.AddRange(BookReader(Preference.Dislikes, Vegan));
                 }
 
                 else
                 {
-                    ReciepeBook Chocolate = context.ReciepeBook.Find(1);
-                    ReciepeBook Vanilla = context.ReciepeBook.Find(2);
-                    ReciepeBook FruitBook = context.ReciepeBook.Find(3);
-                    ReciepeBook Misc = context.ReciepeBook.Find(4);
+                    ReciepeBook Chocolate = context.ReciepeBook.Find(14);
+                    ReciepeBook Vanilla = context.ReciepeBook.Find(15);
+                    ReciepeBook FruitBook = context.ReciepeBook.Find(16);
+                    ReciepeBook Misc = context.ReciepeBook.Find(17);
 
 
                     if (!Preference.Dislikes.Chocolate)

@@ -12,7 +12,7 @@ namespace Ferris_Bakes.Controllers
     {
         public IActionResult Index()
         {
-            using (var context = new OrderModelContext())
+            using (var context = new FerrisBakesContext())
             {
                 
                 AdminModel temp = new AdminModel { OrderList = context.Order.ToList() };

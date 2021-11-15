@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Ferris_Bakes.Migrations.OrderModel
+namespace Ferris_Bakes.Migrations.FerrisBakes
 {
-    [DbContext(typeof(OrderModelContext))]
-    [Migration("20211113210928_InitialCreate")]
+    [DbContext(typeof(FerrisBakesContext))]
+    [Migration("20211115095514_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,47 +20,6 @@ namespace Ferris_Bakes.Migrations.OrderModel
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.11")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("Ferris_Bakes.Entities.Ingredients", b =>
-                {
-                    b.Property<bool>("Blackberry")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Blueberry")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Chocolate")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Lemon")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Mango")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Peach")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Pecan")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Raspberry")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("RedVelvet")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Spice")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Strawberry")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Vanilla")
-                        .HasColumnType("bit");
-
-                    b.ToTable("Ingredients");
-                });
 
             modelBuilder.Entity("Ferris_Bakes.Models.CartItemModel", b =>
                 {

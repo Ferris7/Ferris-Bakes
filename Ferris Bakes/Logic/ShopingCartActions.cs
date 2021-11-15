@@ -12,7 +12,7 @@ namespace Ferris_Bakes.Logic
     {
         public string ShoppingCartId { get; set; }
 
-        private OrderModelContext _db = new OrderModelContext();
+        private FerrisBakesContext _db = new FerrisBakesContext();
 
         public const string CartSessionKey = "CartId";
 

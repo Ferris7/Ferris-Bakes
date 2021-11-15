@@ -1,5 +1,4 @@
-﻿using Ferris_Bakes.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -21,17 +20,17 @@ namespace Ferris_Bakes.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index(Preference UserPreference)
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Results(Preference UserPreference)
         {
             HelpingBaker HelpingBaker = new HelpingBaker();
 
             UserPreference.Results.AddRange(HelpingBaker.GetLikeableRecieps(UserPreference));
 
-            return View("Results", UserPreference);
-        }
-
-        public IActionResult Results(Preference UserPreference)
-        {
             return View(UserPreference);
         }
 

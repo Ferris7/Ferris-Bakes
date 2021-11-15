@@ -26,7 +26,7 @@ namespace Ferris_Bakes
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<OrderModelContext>(options => options.UseSqlServer(Configuration.GetConnectionString("OrderContext")));
+            services.AddDbContext<FerrisBakesContext>(options => options.UseSqlServer(Configuration.GetConnectionString("FerrisBakesContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

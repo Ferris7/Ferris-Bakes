@@ -12,9 +12,9 @@ namespace Ferris_Bakes.Controllers
 {
     public class OrderModelsController : Controller
     {
-        private readonly OrderModelContext _context;
+        private readonly FerrisBakesContext _context;
 
-        public OrderModelsController(OrderModelContext context)
+        public OrderModelsController(FerrisBakesContext context)
         {
             _context = context;
         }

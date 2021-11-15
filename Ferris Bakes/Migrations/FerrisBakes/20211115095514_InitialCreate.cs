@@ -1,33 +1,12 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Ferris_Bakes.Migrations.OrderModel
+namespace Ferris_Bakes.Migrations.FerrisBakes
 {
     public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "Ingredients",
-                columns: table => new
-                {
-                    Chocolate = table.Column<bool>(type: "bit", nullable: false),
-                    Vanilla = table.Column<bool>(type: "bit", nullable: false),
-                    Strawberry = table.Column<bool>(type: "bit", nullable: false),
-                    Raspberry = table.Column<bool>(type: "bit", nullable: false),
-                    Peach = table.Column<bool>(type: "bit", nullable: false),
-                    Mango = table.Column<bool>(type: "bit", nullable: false),
-                    Blackberry = table.Column<bool>(type: "bit", nullable: false),
-                    Blueberry = table.Column<bool>(type: "bit", nullable: false),
-                    RedVelvet = table.Column<bool>(type: "bit", nullable: false),
-                    Lemon = table.Column<bool>(type: "bit", nullable: false),
-                    Spice = table.Column<bool>(type: "bit", nullable: false),
-                    Pecan = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                });
-
             migrationBuilder.CreateTable(
                 name: "Order",
                 columns: table => new
@@ -155,9 +134,6 @@ namespace Ferris_Bakes.Migrations.OrderModel
         {
             migrationBuilder.DropTable(
                 name: "Cart");
-
-            migrationBuilder.DropTable(
-                name: "Ingredients");
 
             migrationBuilder.DropTable(
                 name: "Order");
