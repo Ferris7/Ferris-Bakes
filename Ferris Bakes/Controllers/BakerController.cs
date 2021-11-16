@@ -22,7 +22,8 @@ namespace Ferris_Bakes.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            Preference UserPreference = new Preference();
+            return View(UserPreference);
         }
 
         public IActionResult Results(Preference UserPreference)
