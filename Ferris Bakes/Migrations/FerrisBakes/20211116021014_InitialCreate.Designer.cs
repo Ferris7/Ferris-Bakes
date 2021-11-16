@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ferris_Bakes.Migrations.FerrisBakes
 {
     [DbContext(typeof(FerrisBakesContext))]
-    [Migration("20211115095514_InitialCreate")]
+    [Migration("20211116021014_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,6 +20,68 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.11")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("Ferris_Bakes.Entities.Chapter", b =>
+                {
+                    b.Property<int>("ChapterId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("BookID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ChapterId");
+
+                    b.ToTable("Chapters");
+                });
+
+            modelBuilder.Entity("Ferris_Bakes.Entities.Ingredients", b =>
+                {
+                    b.Property<int>("ReciepeID")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Blackberry")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Blueberry")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Chocolate")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Lemon")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Mango")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Peach")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Pecan")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Raspberry")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("RedVelvet")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Spice")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Strawberry")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Vanilla")
+                        .HasColumnType("bit");
+
+                    b.HasKey("ReciepeID");
+
+                    b.ToTable("Ingredients");
+                });
 
             modelBuilder.Entity("Ferris_Bakes.Models.CartItemModel", b =>
                 {
@@ -97,15 +159,13 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("ReciepeBookId")
+                    b.Property<int>("BookId")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ReciepeBookId");
 
                     b.ToTable("ReciepeBook");
                 });
@@ -117,14 +177,20 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ChapterId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Ingredients")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Price")
                         .HasColumnType("float");
-
-                    b.Property<int?>("ReciepeBookId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Size")
                         .HasColumnType("nvarchar(max)");
@@ -133,8 +199,6 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ReciepeNumber");
-
-                    b.HasIndex("ReciepeBookId");
 
                     b.ToTable("Reciepes");
                 });
@@ -184,27 +248,6 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                         .IsRequired();
 
                     b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("Ferris_Bakes.Models.ReciepeBook", b =>
-                {
-                    b.HasOne("Ferris_Bakes.Models.ReciepeBook", null)
-                        .WithMany("Chapters")
-                        .HasForeignKey("ReciepeBookId");
-                });
-
-            modelBuilder.Entity("Ferris_Bakes.Models.ReciepeModel", b =>
-                {
-                    b.HasOne("Ferris_Bakes.Models.ReciepeBook", null)
-                        .WithMany("Reciepes")
-                        .HasForeignKey("ReciepeBookId");
-                });
-
-            modelBuilder.Entity("Ferris_Bakes.Models.ReciepeBook", b =>
-                {
-                    b.Navigation("Chapters");
-
-                    b.Navigation("Reciepes");
                 });
 #pragma warning restore 612, 618
         }

@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 
 namespace Ferris_Bakes.Entities
 {
-    [Keyless]
     public class Ingredients
     {
+        [Key]
+        public int ReciepeID { get; set; }
         public bool Chocolate { get; set; }
         public bool Vanilla { get; set; }
         public bool Strawberry { get; set; }
@@ -24,8 +25,25 @@ namespace Ferris_Bakes.Entities
         public bool Spice { get; set; }
         public bool Pecan { get; set; }
 
-        public Ingredients ()
+        public Ingredients (int ReciepeNum)
         {
+            ReciepeID = ReciepeNum;
+            Chocolate = false;
+            Vanilla = false;
+            Strawberry = false;
+            Raspberry = false;
+            Peach = false;
+            Mango = false;
+            Blackberry = false;
+            Blueberry = false;
+            RedVelvet = false;
+            Lemon = false;
+            Spice = false;
+            Pecan = false;
+        }
+        public Ingredients()
+        {
+            ;
             Chocolate = false;
             Vanilla = false;
             Strawberry = false;
@@ -42,81 +60,93 @@ namespace Ferris_Bakes.Entities
 
         public Ingredients Update(Ingredients Value, String Flavor)
         {
-            switch (Flavor)
+            string[] Flavors = Flavor.Split('-');
+
+            foreach (string s in Flavors)
             {
-                case "Chocolate":
-                    {
-                        Value.Chocolate = true;
-                        break;
-                    }
-                case "Vanilla":
-                    {
-                        Value.Vanilla = true;
-                        break;
-                    }
+                switch (s)
+                {
+                    case "Chocolate":
+                        {
+                            Value.Chocolate = true;
+                            break;
+                        }
+                    case "Vanilla":
+                        {
+                            Value.Vanilla = true;
+                            break;
+                        }
 
-                case "Strawberry":
-                    {
-                        Value.Strawberry = true;
-                        break;
-                    }
+                    case "Strawberry":
+                        {
+                            Value.Strawberry = true;
+                            break;
+                        }
 
-                case "Raspberry":
-                    {
-                        Value.Raspberry = true;
-                        break;
-                    }
-                case "Peach":
-                    {
-                        Value.Peach = true;
-                        break;
-                    }
-                case "Mango":
-                    {
-                        Value.Mango = true;
-                        break;
-                    }
-                case "Blackberry":
-                    {
-                        Value.Blackberry = true;
-                        break;
-                    }
-                case "Blueberry":
-                    {
-                        Value.Blueberry = true;
-                        break;
-                    }
-                case "RedVelvet":
-                    {
-                        Value.RedVelvet = true;
-                        break;
-                    }
-                case "Lemon":
-                    {
-                        Value.Lemon = true;
-                        break;
-                    }
-                case "Spice":
-                    {
-                        Value.Spice = true;
-                        break;
-                    }
-                case "Pecan":
-                    {
-                        Value.Spice = true;
-                        break;
-                    }
-                default:
-                    {
-                        Debug.Print("Error");
-                        break;
-                    }
+                    case "Raspberry":
+                        {
+                            Value.Raspberry = true;
+                            break;
+                        }
+                    case "Peach":
+                        {
+                            Value.Peach = true;
+                            break;
+                        }
+                    case "Mango":
+                        {
+                            Value.Mango = true;
+                            break;
+                        }
+                    case "Blackberry":
+                        {
+                            Value.Blackberry = true;
+                            break;
+                        }
+                    case "Blueberry":
+                        {
+                            Value.Blueberry = true;
+                            break;
+                        }
+                    case "RedVelvet":
+                        {
+                            Value.RedVelvet = true;
+                            break;
+                        }
+                    case "Lemon":
+                        {
+                            Value.Lemon = true;
+                            break;
+                        }
+                    case "Spice":
+                        {
+                            Value.Spice = true;
+                            break;
+                        }
+                    case "Pecan":
+                        {
+                            Value.Spice = true;
+                            break;
+                        }
+                    case "":
+                        {
+                            break;
+                        }
+                    default:
+                        {
+                            Debug.Print("Error");
+                            break;
+                        }
+                }
             }
+
+            
             return Value;
         }
 
-        public Ingredients (String Flavor)
+        public Ingredients (int ReciepeNum, String Flavor)
         {
+            ReciepeID = ReciepeNum;
             Chocolate = false;
             Vanilla = false;
             Strawberry = false;
@@ -133,73 +163,31 @@ namespace Ferris_Bakes.Entities
             Update(this, Flavor);
         }
 
-        public Ingredients(String Flavor1, String Flavor2)
-        {
-            Chocolate = false;
-            Vanilla = false;
-            Strawberry = false;
-            Raspberry = false;
-            Peach = false;
-            Mango = false;
-            Blackberry = false;
-            Blueberry = false;
-            RedVelvet = false;
-            Lemon = false;
-            Spice = false;
-            Pecan = false;
-
-            Update(this, Flavor1);
-            Update(this, Flavor2);
-
-        }
-
-        public Ingredients(String Flavor1, String Flavor2, String Flavor3)
-        {
-            Chocolate = false;
-            Vanilla = false;
-            Strawberry = false;
-            Raspberry = false;
-            Peach = false;
-            Mango = false;
-            Blackberry = false;
-            Blueberry = false;
-            RedVelvet = false;
-            Lemon = false;
-            Spice = false;
-            Pecan = false;
-
-            Update(this, Flavor1);
-            Update(this, Flavor2);
-            Update(this, Flavor3);
-
-        }
-
-
         public bool CompareDislikes(Ingredients Dislikes)
         {
-            if (this.Chocolate == Dislikes.Chocolate)
+            if (this.Chocolate && Dislikes.Chocolate)
                 return true;
-            if (this.Vanilla == Dislikes.Vanilla)
+            if (this.Vanilla && Dislikes.Vanilla)
                 return true;
-            if (this.Strawberry == Dislikes.Strawberry)
+            if (this.Strawberry && Dislikes.Strawberry)
                 return true;
-            if (this.Raspberry == Dislikes.Raspberry)
+            if (this.Raspberry && Dislikes.Raspberry)
                 return true;
-            if (this.Peach == Dislikes.Peach)
+            if (this.Peach && Dislikes.Peach)
                 return true;
-            if (this.Mango == Dislikes.Mango)
+            if (this.Mango && Dislikes.Mango)
                 return true;
-            if (this.Blackberry == Dislikes.Blackberry)
+            if (this.Blackberry && Dislikes.Blackberry)
                 return true;
-            if (this.Blueberry == Dislikes.Blueberry)
+            if (this.Blueberry && Dislikes.Blueberry)
                 return true;
-            if (this.RedVelvet == Dislikes.RedVelvet)
+            if (this.RedVelvet && Dislikes.RedVelvet)
                 return true;
-            if (this.Lemon == Dislikes.Lemon)
+            if (this.Lemon && Dislikes.Lemon)
                 return true;
-            if (this.Spice == Dislikes.Spice)
+            if (this.Spice && Dislikes.Spice)
                 return true;
-            if (this.Spice == Dislikes.Spice)
+            if (this.Pecan && Dislikes.Pecan)
                 return true;
             return false;
         }

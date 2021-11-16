@@ -1,17 +1,20 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ferris_Bakes.Models
+namespace Ferris_Bakes.Entities
 {
-    public class ReciepeBook
+    public class Chapter
     {
         [Key]
-        public int Id { get; set; }
-        public int BookId { get; set; }
+        public int ChapterId { get; set; }
+        public int BookID { get; set; }
         public string Title { get; set; }
-    } 
+
+    }
 }

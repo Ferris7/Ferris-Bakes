@@ -28,6 +28,7 @@ namespace Ferris_Bakes.Controllers
         public IActionResult Results(Preference UserPreference)
         {
             HelpingBaker HelpingBaker = new HelpingBaker();
+            UserPreference.Results = new List<ReciepeModel>();
 
             UserPreference.Results.AddRange(HelpingBaker.GetLikeableRecieps(UserPreference));
 

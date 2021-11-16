@@ -9,6 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Ferris_Bakes.Data;
 using Ferris_Bakes.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Ferris_Bakes
 {
@@ -25,6 +26,11 @@ namespace Ferris_Bakes
                 try
                 {
                     SeedData.Initialize(services);
+                }
+                catch (DbUpdateException x)
+                {
+                    var logger = services.GetRequiredService<ILogger<Program>>();
+                    logger.LogError(x, "LOOK HERE.", x.Entries);
                 }
                 catch (Exception ex)
                 {

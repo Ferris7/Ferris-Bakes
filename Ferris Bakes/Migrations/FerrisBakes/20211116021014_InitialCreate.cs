@@ -8,6 +8,42 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Chapters",
+                columns: table => new
+                {
+                    ChapterId = table.Column<int>(type: "int", nullable: false),
+                    BookID = table.Column<int>(type: "int", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Chapters", x => x.ChapterId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Ingredients",
+                columns: table => new
+                {
+                    ReciepeID = table.Column<int>(type: "int", nullable: false),
+                    Chocolate = table.Column<bool>(type: "bit", nullable: false),
+                    Vanilla = table.Column<bool>(type: "bit", nullable: false),
+                    Strawberry = table.Column<bool>(type: "bit", nullable: false),
+                    Raspberry = table.Column<bool>(type: "bit", nullable: false),
+                    Peach = table.Column<bool>(type: "bit", nullable: false),
+                    Mango = table.Column<bool>(type: "bit", nullable: false),
+                    Blackberry = table.Column<bool>(type: "bit", nullable: false),
+                    Blueberry = table.Column<bool>(type: "bit", nullable: false),
+                    RedVelvet = table.Column<bool>(type: "bit", nullable: false),
+                    Lemon = table.Column<bool>(type: "bit", nullable: false),
+                    Spice = table.Column<bool>(type: "bit", nullable: false),
+                    Pecan = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Ingredients", x => x.ReciepeID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Order",
                 columns: table => new
                 {
@@ -36,18 +72,31 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ReciepeBookId = table.Column<int>(type: "int", nullable: true)
+                    BookId = table.Column<int>(type: "int", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ReciepeBook", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ReciepeBook_ReciepeBook_ReciepeBookId",
-                        column: x => x.ReciepeBookId,
-                        principalTable: "ReciepeBook",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Reciepes",
+                columns: table => new
+                {
+                    ReciepeNumber = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Ingredients = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Size = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Price = table.Column<double>(type: "float", nullable: false),
+                    BookId = table.Column<int>(type: "int", nullable: false),
+                    ChapterId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reciepes", x => x.ReciepeNumber);
                 });
 
             migrationBuilder.CreateTable(
@@ -68,29 +117,6 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_SetOrder", x => x.BakeID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Reciepes",
-                columns: table => new
-                {
-                    ReciepeNumber = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Size = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Price = table.Column<double>(type: "float", nullable: false),
-                    ReciepeBookId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Reciepes", x => x.ReciepeNumber);
-                    table.ForeignKey(
-                        name: "FK_Reciepes_ReciepeBook_ReciepeBookId",
-                        column: x => x.ReciepeBookId,
-                        principalTable: "ReciepeBook",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -118,16 +144,6 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                 name: "IX_Cart_ProductId",
                 table: "Cart",
                 column: "ProductId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ReciepeBook_ReciepeBookId",
-                table: "ReciepeBook",
-                column: "ReciepeBookId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Reciepes_ReciepeBookId",
-                table: "Reciepes",
-                column: "ReciepeBookId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -136,16 +152,22 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                 name: "Cart");
 
             migrationBuilder.DropTable(
+                name: "Chapters");
+
+            migrationBuilder.DropTable(
+                name: "Ingredients");
+
+            migrationBuilder.DropTable(
                 name: "Order");
+
+            migrationBuilder.DropTable(
+                name: "ReciepeBook");
 
             migrationBuilder.DropTable(
                 name: "Reciepes");
 
             migrationBuilder.DropTable(
                 name: "SetOrder");
-
-            migrationBuilder.DropTable(
-                name: "ReciepeBook");
         }
     }
 }

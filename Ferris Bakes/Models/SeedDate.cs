@@ -5,6 +5,7 @@ using System.Linq;
 using Ferris_Bakes.Data;
 using System.Collections.Generic;
 using Ferris_Bakes.Entities;
+using System.Diagnostics;
 
 namespace Ferris_Bakes.Models
 {
@@ -18,8 +19,9 @@ namespace Ferris_Bakes.Models
             {
                 SeedSetOrder(context);
                 SeedReciepes(context);
-                //SeedChapters(context);
+                SeedChapters(context);
                 SeedReciepeBooks(context);
+                SeedIngredients(context);
             }
 
         }
@@ -376,656 +378,802 @@ namespace Ferris_Bakes.Models
                     {                        
                         Title = "Chocolate Chip Cookies",
                         Description = "Chocolate Chip Cookies",
-                        Ingredients = new Ingredients("Chocolate"),
+                        Ingredients = "Chocolate",
                         Size = "One Dozen",
-                        Price = 9.99
+                        Price = 9.99,
+                        BookId = 1,
+                        ChapterId = 0
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Sugar Cookies",
                         Description = "Sugar Cookies",
-                        Ingredients = new Ingredients("Vanilla"),
+                        Ingredients = "Vanilla",
                         Size = "One Dozen",
-                        Price = 9.99
+                        Price = 9.99,
+                        BookId = 2,
+                        ChapterId = 0
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Chocolate Crinkle Cookies",
                         Description = "Chocolate Crinkle Cookies",
-                        Ingredients = new Ingredients("Chocolate"),
+                        Ingredients = "Chocolate",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 1,
+                        ChapterId = 0
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Red Velvet Crinkle Cookies",
                         Description = "Red Velvet Crinkle Cookies",
-                        Ingredients = new Ingredients("RedVelvet"),
+                        Ingredients = "RedVelvet",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 4,
+                        ChapterId = 0
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Snicker Doodle Cookies",
                         Description = "Snicker Doodle Cookies",
-                        Ingredients = new Ingredients("Spice"),
+                        Ingredients = "Spice",
                         Size = "One Dozen",
-                        Price = 9.99
+                        Price = 9.99,
+                        BookId = 4,
+                        ChapterId = 0
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Vanilla Cupcakes",
                         Description = "Vanilla Cupcakes with Vanilla Buttercream",
-                        Ingredients = new Ingredients("Vanilla"),
+                        Ingredients = "Vanilla",
                         Size = "One Dozen",
-                        Price = 9.99
+                        Price = 9.99,
+                        BookId = 2,
+                        ChapterId = 0
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Vanilla Cake",
                         Description = "Vanilla Cake with Vanilla Buttercream",
-                        Ingredients = new Ingredients("Vanilla"),
+                        Ingredients = "Vanilla",
                         Size = "One three tiered cake",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 2,
+                        ChapterId = 0
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Chocolate Cupcakes",
                         Description = "Chocolate Cupcakes with Chocolate Buttercream",
-                        Ingredients = new Ingredients("Chocolate"),
+                        Ingredients = "Chocolate",
                         Size = "One Dozen",
-                        Price = 9.99
+                        Price = 9.99,
+                        BookId = 1,
+                        ChapterId = 0
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Chocolate Cake",
                         Description = "Chocolate Cake with Chocolate Buttercream",
-                        Ingredients = new Ingredients("Chocolate"),
+                        Ingredients = "Chocolate",
                         Size = "One three tiered cake",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 1,
+                        ChapterId = 0
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Vanilla and Chocolate Cupcakes",
                         Description = "Vanilla Cupcakes with Chocolate Buttercream",
-                        Ingredients = new Ingredients("Chocolate", "Vanilla"),
+                        Ingredients = "Chocolate-Vanilla",
                         Size = "One Dozen",
-                        Price = 9.99
+                        Price = 9.99,
+                        BookId = 2,
+                        ChapterId = 4
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Vanilla and Chocolate Cake",
                         Description = "Vanilla Cake with Chocolate Buttercream",
-                        Ingredients = new Ingredients("Chocolate", "Vanilla"),
+                        Ingredients = "Chocolate-Vanilla",
                         Size = "One three tiered cake",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 2,
+                        ChapterId = 4
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Chocolate and Vanilla Cupcakes",
                         Description = "Chocolate Cupcakes with Vanilla Buttercream",
-                        Ingredients = new Ingredients("Chocolate", "Vanilla"),
+                        Ingredients = "Chocolate-Vanilla",
                         Size = "One Dozen",
-                        Price = 9.99
+                        Price = 9.99,
+                        BookId = 1,
+                        ChapterId = 1
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Chocolate and Vanilla Cake",
                         Description = "Chocolate Cake with Vanilla Buttercream",
-                        Ingredients = new Ingredients("Chocolate", "Vanilla"),
+                        Ingredients = "Chocolate-Vanilla",
                         Size = "One three tiered cake",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 1,
+                        ChapterId = 1
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Chocolate and Strawberry Cupcakes",
                         Description = "Chocolate Cupcakes with Chocolate Buttercream and Strawberry filling",
-                        Ingredients = new Ingredients("Chocolate", "Strawberry"),
+                        Ingredients = "Chocolate-Strawberry",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 1,
+                        ChapterId = 2
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Chocolate and Strawberry Cake",
                         Description = "Chocolate Cake with Chocolate Buttercream and Strawberry filling",
-                        Ingredients = new Ingredients("Chocolate", "Strawberry"),
+                        Ingredients = "Chocolate-Strawberry",
                         Size = "One three tiered cake",
-                        Price = 19.99
+                        Price = 19.99,
+                        BookId = 1,
+                        ChapterId = 2
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Chocolate and Raspberry Cupcakes",
                         Description = "Chocolate Cupcakes with Chocolate Buttercream and Raspberry filling",
-                        Ingredients = new Ingredients("Chocolate", "Raspberry"),
+                        Ingredients = "Chocolate-Raspberry",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 1,
+                        ChapterId = 2
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Chocolate and Raspberry Cake",
                         Description = "Chocolate Cake with Chocolate Buttercream and Raspberry filling",
-                        Ingredients = new Ingredients("Chocolate", "Raspberry"),
+                        Ingredients = "Chocolate-Raspberry",
                         Size = "One three tiered cake",
-                        Price = 19.99
+                        Price = 19.99,
+                        BookId = 1,
+                        ChapterId = 2
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Chocolate, Vanilla, and Strawbery Cupcakes",
                         Description = "Chocolate Cupcakes with Vanilla Buttercream and Strawberry filling",
-                        Ingredients = new Ingredients("Chocolate", "Vanilla", "Strawberry"),
+                        Ingredients = "Chocolate-Vanilla-Strawberry",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 1,
+                        ChapterId = 1
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Chocolate, Vanilla, and Strawberry Cake",
                         Description = "Chocolate Cake with Vanilla Buttercream and Strawberry filling",
-                        Ingredients = new Ingredients("Chocolate", "Vanilla", "Strawberry"),
+                        Ingredients = "Chocolate-Vanilla-Strawberry",
                         Size = "One three tiered cake",
-                        Price = 19.99
+                        Price = 19.99,
+                        BookId = 1,
+                        ChapterId = 1
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Chocolate, Vanilla, and Raspberry Cupcakes",
                         Description = "Chocolate Cupcakes with Vanilla Buttercream and Raspberry filling",
-                        Ingredients = new Ingredients("Chocolate", "Vanilla", "Raspberry"),
+                        Ingredients = "Chocolate-Vanilla-Raspberry",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 1,
+                        ChapterId = 1
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Chocolate, Vanilla, and Raspberry Cake",
                         Description = "Chocolate Cake with Vanilla Buttercream and Raspberry filling",
-                        Ingredients = new Ingredients("Vanilla", "Raspberry"),
+                        Ingredients = "Vanilla-Raspberry",
                         Size = "One three tiered cake",
-                        Price = 19.99
+                        Price = 19.99,
+                        BookId = 1,
+                        ChapterId = 1
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Vanilla and Strawberry Cupcakes",
                         Description = "Vanilla Cupcakes with Vanilla Buttercream and Strawberry filling",
-                        Ingredients = new Ingredients("Vanilla", "Strawberry"),
+                        Ingredients = "Vanilla-Strawberry",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 2,
+                        ChapterId = 5
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Vanilla and Strawberry Cake",
                         Description = "Vanilla Cake with Vanilla Buttercream and Strawberry filling",
-                        Ingredients = new Ingredients("Vanilla", "Strawberry"),
+                        Ingredients = "Vanilla-Strawberry",
                         Size = "One three tiered cake",
-                        Price = 19.99
+                        Price = 19.99,
+                        BookId = 2,
+                        ChapterId = 5
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Vanilla and Raspberry Cupcakes",
                         Description = "Vanilla Cupcakes with Vanilla Buttercream and Raspberry filling",
-                        Ingredients = new Ingredients("Vanilla", "Raspberry"),
+                        Ingredients = "Vanilla-Raspberry",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 2,
+                        ChapterId = 5
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Vanilla and Raspberry Cake",
                         Description = "Vanilla Cake with Vanilla Buttercream and Raspberry filling",
-                        Ingredients = new Ingredients("Vanilla", "Raspberry"),
+                        Ingredients = "Vanilla-Raspberry",
                         Size = "One three tiered cake",
-                        Price = 19.99
+                        Price = 19.99,
+                        BookId = 2,
+                        ChapterId = 5
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Vanilla and Peach Cupcakes",
                         Description = "Vanilla Cupcakes with Vanilla Buttercream and Peach filling",
-                        Ingredients = new Ingredients("Vanilla", "Peach"),
+                        Ingredients = "Vanilla-Peach",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 2,
+                        ChapterId = 5
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Vanilla and Peach Cake",
                         Description = "Vanilla Cake with Vanilla Buttercream and Peach filling",
-                        Ingredients = new Ingredients("Vanilla", "Peach"),
+                        Ingredients = "Vanilla-Peach",
                         Size = "One three tiered cake",
-                        Price = 19.99
+                        Price = 19.99,
+                        BookId = 2,
+                        ChapterId = 5
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Vanilla and Mango Cupcakes",
                         Description = "Vanilla Cupcakes with Vanilla Buttercream and Mango filling",
-                        Ingredients = new Ingredients("Vanilla", "Mango"),
+                        Ingredients = "Vanilla-Mango",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 2,
+                        ChapterId = 5
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Vanilla and Mango Cake",
                         Description = "Vanilla Cake with Vanilla Buttercream and Mango filling",
-                        Ingredients = new Ingredients("Vanilla", "Mango"),
+                        Ingredients = "Vanilla-Mango",
                         Size = "One three tiered cake",
-                        Price = 19.99
+                        Price = 19.99,
+                        BookId = 2,
+                        ChapterId = 5
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Vanilla and Blueberry Cupcakes",
                         Description = "Vanilla Cupcakes with Vanilla Buttercream and Blueberry filling",
-                        Ingredients = new Ingredients("Vanilla", "Blueberry"),
+                        Ingredients = "Vanilla-Blueberry",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 2,
+                        ChapterId = 5
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Vanilla and Blueberry Cake",
                         Description = "Vanilla Cake with Vanilla Buttercream and Blueberry filling",
-                        Ingredients = new Ingredients("Vanilla", "Blueberry"),
+                        Ingredients = "Vanilla-Blueberry",
                         Size = "One three tiered cake",
-                        Price = 19.99
+                        Price = 19.99,
+                        BookId = 2,
+                        ChapterId = 5
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Lemon and Lavendar Cupcakes",
                         Description = "Lemon Cupcakes with Lavendar Buttercream",
-                        Ingredients = new Ingredients("Lemon"),
+                        Ingredients = "Lemon",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 3,
+                        ChapterId = 6
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Lemon and Lavendar Cake",
                         Description = "Lemon Cake with Lavendar Buttercream",
-                        Ingredients = new Ingredients("Lemon"),
+                        Ingredients = "Lemon",
                         Size = "One three tiered cake",
-                        Price = 19.99
+                        Price = 19.99,
+                        BookId = 3,
+                        ChapterId = 6
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Lemon and Blueberry Cupcakes",
                         Description = "Lemon Cupcakes with Vanilla Buttercream and Blueberry Filling",
-                        Ingredients = new Ingredients("Lemon", "Vanilla", "Blueberry"),
+                        Ingredients = "Lemon-Vanilla-Blueberry",
                         Size = "One Dozen",
-                        Price = 19.99
+                        Price = 19.99,
+                        BookId = 3,
+                        ChapterId = 6
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Lemon and Blueberry Cake",
                         Description = "Lemon Cake with Vanilla Buttercream and Blueberry Filling",
-                        Ingredients = new Ingredients("Lemon", "Vanilla", "Blueberry"),
+                        Ingredients = "Lemon-Vanilla-Blueberry",
                         Size = "One three tiered cake",
-                        Price = 24.99
+                        Price = 24.99,
+                        BookId = 3,
+                        ChapterId = 6
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Lemon and Raspberry Cupcakes",
                         Description = "Lemon Cupcakes with Vanilla Buttercream and Raspberry Filling",
-                        Ingredients = new Ingredients("Lemon", "Vanilla", "Raspberry"),
+                        Ingredients = "Lemon-Vanilla-Raspberry",
                         Size = "One Dozen",
-                        Price = 19.99
+                        Price = 19.99,
+                        BookId = 3,
+                        ChapterId = 6
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Lemon and Raspberry Cake",
                         Description = "Lemon Cake with Vanilla Buttercream and Raspberry Filling",
-                        Ingredients = new Ingredients("Lemon", "Vanilla", "Raspberry"),
+                        Ingredients = "Lemon-Vanilla-Raspberry",
                         Size = "One three tiered cake",
-                        Price = 24.99
+                        Price = 24.99,
+                        BookId = 3,
+                        ChapterId = 6
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Red Velvet Cupcakes",
                         Description = "Red Velvet Cupcakes with Cream Cheese Frosting",
-                        Ingredients = new Ingredients("RedVelvet", "Chocolate"),
+                        Ingredients = "RedVelvet-Chocolate",
                         Size = "One Dozen",
-                        Price = 9.99
+                        Price = 9.99,
+                        BookId = 4,
+                        ChapterId = 0
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Red Velvet Cake",
                         Description = "Red Velvet Cake with Cream Cheese Frosting",
-                        Ingredients = new Ingredients("RedVelvet", "Chocolate"),
+                        Ingredients = "RedVelvet-Chocolate",
                         Size = "One three tiered cake",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 4,
+                        ChapterId = 0
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Pumpkin Cupcakes",
                         Description = "Pumpkin Cupcakes with Cream Cheese Frosting",
-                        Ingredients = new Ingredients("Spice"),
+                        Ingredients = "Spice",
                         Size = "One Dozen",
-                        Price = 9.99
+                        Price = 9.99,
+                        BookId = 4,
+                        ChapterId = 0
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Pumpkin Cake",
                         Description = "Pumpkin Cake with Cream Cheese Frosting",
-                        Ingredients = new Ingredients("Spice"),
+                        Ingredients = "Spice",
                         Size = "One three tiered cake",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 4,
+                        ChapterId = 0
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Chocolate and Bailey Cupcakes",
                         Description = "Chocolate Cupcakes with Bailey's Buttercream",
-                        Ingredients = new Ingredients("Chocolate"),
+                        Ingredients = "Chocolate",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 1,
+                        ChapterId = 3
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Chocolate and Bailey's Cake",
                         Description = "Chocolate Cake with Bailey's Buttercream with Bailey's ganache filling",
-                        Ingredients = new Ingredients("Chocolate"),
+                        Ingredients = "Chocolate",
                         Size = "One three tiered cake",
-                        Price = 19.99
+                        Price = 19.99,
+                        BookId = 1,
+                        ChapterId = 3
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Chocolate and Peppermint Cupcakes",
                         Description = "Chocolate Cupcakes with Peppermint Buttercream",
-                        Ingredients = new Ingredients("Chocolate"),
+                        Ingredients = "Chocolate",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 1,
+                        ChapterId = 3
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Chocolate and Peppermint Cake",
                         Description = "Chocolate Cake with Peppermint Buttercream",
-                        Ingredients = new Ingredients("Chocolate"),
+                        Ingredients = "Chocolate",
                         Size = "One three tiered cake",
-                        Price = 19.99
+                        Price = 19.99,
+                        BookId = 1,
+                        ChapterId = 3
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Vanilla Cranberry Cupcakes",
                         Description = "Vanilla Cupcakes with White Chocolate Buttercream with Cranberry filling",
-                        Ingredients = new Ingredients("Vanilla", "Chocolate"),
+                        Ingredients = "Vanilla-Chocolate",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 2,
+                        ChapterId = 5
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Vanilla Cranberry Cake",
                         Description = "Vanilla Cake with White Chocolate Buttercream with Cranberry filling",
-                        Ingredients = new Ingredients("Vanilla", "Chocolate"),
+                        Ingredients = "Vanilla-Chocolate",
                         Size = "One three tiered cake",
-                        Price = 19.99
+                        Price = 19.99,
+                        BookId = 2,
+                        ChapterId = 5
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Strawberry and Cream Cheese Pastry Pinwheels",
                         Description = "Pastry Pinwheels filled with Cream Cheese and Strawberry",
-                        Ingredients = new Ingredients("Strawberry"),
+                        Ingredients = "Strawberry",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 3,
+                        ChapterId = 7
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Raspberry and Cream Cheese Pastry Pinwheels",
                         Description = "Pastry Pinwheels filled with Cream Cheese and Raspberry",
-                        Ingredients = new Ingredients("Raspberry"),
+                        Ingredients = "Raspberry",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 3,
+                        ChapterId = 8
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Peach and Cream Cheese Pastry Pinwheels",
                         Description = "Pastry Pinwheels filled with Cream Cheese and Peach",
-                        Ingredients = new Ingredients("Peach"),
+                        Ingredients = "Peach",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 3,
+                        ChapterId = 9
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Mango and Cream Cheese Pastry Pinwheels",
                         Description = "Pastry Pinwheels filled with Cream Cheese and Mango",
-                        Ingredients = new Ingredients("Mango"),
+                        Ingredients = "Mango",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 3,
+                        ChapterId = 10
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Blueberry and Cream Cheese Pastry Pinwheels",
                         Description = "Pastry Pinwheels filled with Cream Cheese and Blueberry",
-                        Ingredients = new Ingredients("Blueberry"),
+                        Ingredients = "Blueberry",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 3,
+                        ChapterId = 11
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Blackberry and Cream Cheese Pastry Pinwheels",
                         Description = "Pastry Pinwheels filled with Cream Cheese and Blackberry",
-                        Ingredients = new Ingredients("Blackberry"),
+                        Ingredients = "Blackberry",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 3,
+                        ChapterId = 12
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Raspberry Oat Bars",
                         Description = "Oat Bars with a Raspberry filling",
-                        Ingredients = new Ingredients("Raspberry"),
+                        Ingredients = "Raspberry",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 3,
+                        ChapterId = 8
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Strawberry Oat Bars",
                         Description = "Oat Bars with a Strawberry filling",
-                        Ingredients = new Ingredients("Strawberry"),
+                        Ingredients = "Strawberry",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 3,
+                        ChapterId = 7
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Peach Oat Bars",
                         Description = "Oat Bars with a Peach filling",
-                        Ingredients = new Ingredients("Peach"),
+                        Ingredients = "Peach",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 3,
+                        ChapterId = 9
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Mango Oat Bars",
                         Description = "Oat Bars with a Mango filling",
-                        Ingredients = new Ingredients("Mango"),
+                        Ingredients = "Mango",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 3,
+                        ChapterId = 10
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Blueberry Oat Bars",
                         Description = "Oat Bars with a Blueberry filling",
-                        Ingredients = new Ingredients("Peach"),
+                        Ingredients = "Peach",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 3,
+                        ChapterId = 11
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Blackberry Oat Bars",
                         Description = "Oat Bars with a Blackberry filling",
-                        Ingredients = new Ingredients("Blackberry"),
+                        Ingredients = "Blackberry",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 3,
+                        ChapterId = 12
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Apple Pie",
                         Description = "Apple Pie",
-                        Ingredients = new Ingredients(),
+                        Ingredients = "",
                         Size = "One Pie",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 3,
+                        ChapterId = 0
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Chocolate Pie",
                         Description = "Chocolate Pie",
-                        Ingredients = new Ingredients("Chocolate"),
+                        Ingredients = "Chocolate",
                         Size = "One Pie",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 1,
+                        ChapterId = 0
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Pecan Pie",
                         Description = "Pecan Pie",
-                        Ingredients = new Ingredients("Pecan"),
+                        Ingredients = "Pecan",
                         Size = "One Pie",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 4,
+                        ChapterId = 0
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Peach Cobbler",
                         Description = "Peach Cobbler",
-                        Ingredients = new Ingredients("Peach"),
+                        Ingredients = "Peach",
                         Size = "One tray",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 3,
+                        ChapterId = 9
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Blueberry Cobbler",
                         Description = "Blueberry Cobbler",
-                        Ingredients = new Ingredients("Blueberry"),
+                        Ingredients = "Blueberry",
                         Size = "One tray",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 3,
+                        ChapterId = 11
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Blackberry Cobbler",
                         Description = "Blackberry Cobbler",
-                        Ingredients = new Ingredients("Blackberry"),
+                        Ingredients = "Blackberry",
                         Size = "One tray",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 3,
+                        ChapterId = 12
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Strawberry Cobbler",
                         Description = "Strawberry Cobbler",
-                        Ingredients = new Ingredients("Strawberry"),
+                        Ingredients = "Strawberry",
                         Size = "One tray",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 3,
+                        ChapterId = 7
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Peach and Pecan Cobbler",
                         Description = "Peach and Pecan Cobbler",
-                        Ingredients = new Ingredients("Peach", "Pecan"),
+                        Ingredients = "Peach-Pecan",
                         Size = "One tray",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 3,
+                        ChapterId = 9
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Vegan Brownies",
                         Description = "Vegan Brownies made with vegan butter, vegan chocolate chips, and flax seed",
-                        Ingredients = new Ingredients("Chocolate"),
+                        Ingredients = "Chocolate",
                         Size = "One tray",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 5,
+                        ChapterId = 0
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Vegan Chocolate Cake",
                         Description = "Vegan Chocolate Cake made with vegan butter, vegan chocolate chips, and apple sauce",
-                        Ingredients = new Ingredients("Chocolate"),
+                        Ingredients = "Chocolate",
                         Size = "One three tiered cake",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 5,
+                        ChapterId = 0
                     },
                     new ReciepeModel()
                     {
                         Title = "Vanilla, Chocolate, and Strawbery Cupcakes",
                         Description = "Vanilla Cupcakes with Chocolate Buttercream and Strawberry filling",
-                        Ingredients = new Ingredients("Vanilla", "Chocolate", "Strawberry"),
+                        Ingredients = "Vanilla-Chocolate-Strawberry",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 2,
+                        ChapterId = 4
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Vanilla, Chocolate, and Strawberry Cake",
                         Description = "Vanilla Cake with Chocolate Buttercream and Strawberry filling",
-                        Ingredients = new Ingredients("Vanilla", "Chocolate", "Strawberry"),
+                        Ingredients = "Vanilla-Chocolate-Strawberry",
                         Size = "One three tiered cake",
-                        Price = 19.99
+                        Price = 19.99,
+                        BookId = 2,
+                        ChapterId = 4
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Vanilla, Chocolate, and Raspberry Cupcakes",
                         Description = "Vanilla Cupcakes with Chocolate Buttercream and Raspberry filling",
-                        Ingredients = new Ingredients("Vanilla", "Chocolate", "Raspberry"),
+                        Ingredients = "Vanilla-Chocolate-Raspberry",
                         Size = "One Dozen",
-                        Price = 14.99
+                        Price = 14.99,
+                        BookId = 2,
+                        ChapterId = 4
                     },
 
                     new ReciepeModel()
                     {
                         Title = "Vanilla, Chocolate, and Raspberry Cake",
                         Description = "Vanilla Cake with Chocolate Buttercream and Raspberry filling",
-                        Ingredients = new Ingredients("Vanilla", "Chocolate", "Raspberry"),
+                        Ingredients = "Vanilla-Chocolate-Raspberry",
                         Size = "One three tiered cake",
-                        Price = 19.99
+                        Price = 19.99,
+                        BookId = 2,
+                        ChapterId = 4
                     }
                 );
 
@@ -1042,239 +1190,40 @@ namespace Ferris_Bakes.Models
             }
 
             context.ReciepeBook.AddRange(
-                
+
                 new ReciepeBook()
                 {
-                    Title = "Chocolate",
-                    Reciepes = new List<ReciepeModel>()
-                    {
-                        context.Reciepes.Find(1),
-                        context.Reciepes.Find(3),
-                        context.Reciepes.Find(8),
-                        context.Reciepes.Find(9),
-                        context.Reciepes.Find(61)
-                    },
-                    Chapters = new List<ReciepeBook>() {
+                    BookId = 1,
+                    Title = "Chocolate"
+                },
 
-                        new ReciepeBook()
-                        {
-                            Title = "Vanilla",
-                            Reciepes =
-                            {
-                                context.Reciepes.Find(12),
-                                context.Reciepes.Find(13),
-                                context.Reciepes.Find(18),
-                                context.Reciepes.Find(19),
-                                context.Reciepes.Find(20),
-                                context.Reciepes.Find(21)
-                            },
-                            Chapters = { }
-                        },
-
-                        new ReciepeBook()
-                        {
-                            Title = "Fruit",
-                            Reciepes =
-                            {
-                                context.Reciepes.Find(14),
-                                context.Reciepes.Find(15),
-                                context.Reciepes.Find(16),
-                                context.Reciepes.Find(17)
-                            },
-                            Chapters = { }
-                        },
-
-                        new ReciepeBook()
-                        {
-                            Title = "Misc",
-                            Reciepes =
-                            {
-                                context.Reciepes.Find(42),
-                                context.Reciepes.Find(43),
-                                context.Reciepes.Find(44),
-                                context.Reciepes.Find(45)
-                            },
-                            Chapters = { }
-                        }
-
-                    }
+                new ReciepeBook()
+                {
+                    BookId = 2,
+                    Title = "Vanilla"
 
                 },
 
                 new ReciepeBook()
                 {
-                    Title = "Vanilla",
-                    Reciepes = new List<ReciepeModel>()
-                    {
-                        context.Reciepes.Find(6),
-                        context.Reciepes.Find(7),
-                        context.Reciepes.Find(2)
-                    },
-                    Chapters = new List<ReciepeBook>(){
-
-                        new ReciepeBook()
-                        {
-                            Title = "Chocolate",
-                            Reciepes =
-                            {
-                                context.Reciepes.Find(10),
-                                context.Reciepes.Find(11),
-                                context.Reciepes.Find(70),
-                                context.Reciepes.Find(71),
-                                context.Reciepes.Find(72),
-                                context.Reciepes.Find(73)
-                            },
-                            Chapters = { }
-                        },
-
-                        new ReciepeBook()
-                        {
-                            Title = "Fruit",
-                            Reciepes =
-                            {
-                                context.Reciepes.Find(26),
-                                context.Reciepes.Find(27),
-                                context.Reciepes.Find(28),
-                                context.Reciepes.Find(29),
-                                context.Reciepes.Find(22),
-                                context.Reciepes.Find(23),
-                                context.Reciepes.Find(24),
-                                context.Reciepes.Find(25),
-                                context.Reciepes.Find(30),
-                                context.Reciepes.Find(31),
-                                context.Reciepes.Find(46),
-                                context.Reciepes.Find(47)
-                            },
-                            Chapters = { }
-
-                        }
-                    }
+                    BookId = 3,
+                    Title = "Fruit"
 
                 },
 
                 new ReciepeBook()
                 {
-                    Title = "Fruit",
-                    Reciepes = new List<ReciepeModel>()
-                    {
-                        context.Reciepes.Find(60)
-                    },
-                    Chapters = new List<ReciepeBook>()
-                    {
-                        new ReciepeBook()
-                        {
-                            Title = "Lemon",
-                            Reciepes =
-                            {
-                                context.Reciepes.Find(32),
-                                context.Reciepes.Find(33),
-                                context.Reciepes.Find(34),
-                                context.Reciepes.Find(35),
-                                context.Reciepes.Find(36),
-                                context.Reciepes.Find(37)
-                            },
-                            Chapters = { }
-                        },
-                        new ReciepeBook()
-                        {
-                            Title = "Strawberry",
-                            Reciepes =
-                            {
-                                context.Reciepes.Find(48),
-                                context.Reciepes.Find(55),
-                                context.Reciepes.Find(66)
-                            },
-                            Chapters = { }
-                        },
-                        new ReciepeBook()
-                        {
-                            Title = "Raspberry",
-                            Reciepes =
-                            {
-                                context.Reciepes.Find(49),
-                                context.Reciepes.Find(54)
-                            },
-                            Chapters = { }
-                        },
-                        new ReciepeBook()
-                        {
-                            Title = "Peach",
-                            Reciepes =
-                            {
-                                context.Reciepes.Find(50),
-                                context.Reciepes.Find(56),
-                                context.Reciepes.Find(63),
-                                context.Reciepes.Find(67)
-                            },
-                            Chapters = { }
-                        },
-                        new ReciepeBook()
-                        {
-                            Title = "Mango",
-                            Reciepes =
-                            {
-                                context.Reciepes.Find(51),
-                                context.Reciepes.Find(57)
-                            },
-                            Chapters = { }
-                        },
-                        new ReciepeBook()
-                        {
-                            Title = "BLueberry",
-                            Reciepes =
-                            {
-                                context.Reciepes.Find(52),
-                                context.Reciepes.Find(58),
-                                context.Reciepes.Find(64)
-                            },
-                            Chapters = { }
-                        },
-                        new ReciepeBook()
-                        {
-                            Title = "Blackberry",
-                            Reciepes =
-                            {
-                                context.Reciepes.Find(53),
-                                context.Reciepes.Find(59),
-                                context.Reciepes.Find(65)
-                            },
-                            Chapters = { }
-                        }
-
-
-                    }
-
+                    BookId = 4,
+                    Title = "Misc"
                 },
 
                 new ReciepeBook()
                 {
-                    Title = "Misc",
-                    Reciepes = new List<ReciepeModel>()
-                    {
-                        context.Reciepes.Find(5),
-                        context.Reciepes.Find(62),
-                        context.Reciepes.Find(40),
-                        context.Reciepes.Find(41),
-                        context.Reciepes.Find(38),
-                        context.Reciepes.Find(39),
-                        context.Reciepes.Find(4)
-                    },
-                    Chapters = new List<ReciepeBook>() { }
-
-                },
-
-                new ReciepeBook()
-                {
-                    Title = "Vegan",
-                    Reciepes = new List<ReciepeModel>()
-                    {
-                        context.Reciepes.Find(68),
-                        context.Reciepes.Find(69)
-                    },
-                    Chapters = new List<ReciepeBook>() { }
+                    BookId = 5,
+                    Title = "Vegan"
 
                 }
-            );
+            ) ;
             context.SaveChanges();
             
         }
@@ -1289,171 +1238,111 @@ namespace Ferris_Bakes.Models
             }
 
             context.Chapters.AddRange(
-                
 
-            new ReciepeBook()
+
+            new Chapter()
             {
                 Title = "Chocolate-Vanilla",
-                Reciepes = new List<ReciepeModel>()
-                {
-                    context.Reciepes.Find(12),
-                    context.Reciepes.Find(13),
-                    context.Reciepes.Find(18),
-                    context.Reciepes.Find(19),
-                    context.Reciepes.Find(20),
-                    context.Reciepes.Find(21)
-                },
-                Chapters = new List<ReciepeBook>(){ }
+                BookID = 1,
+                ChapterId = 1
             },
 
-            new ReciepeBook()
+            new Chapter()
             {
                 Title = "Chocolate-Fruit",
-                Reciepes = new List<ReciepeModel>()
-                {
-                    context.Reciepes.Find(14),
-                    context.Reciepes.Find(15),
-                    context.Reciepes.Find(16),
-                    context.Reciepes.Find(17)
-                },
-                Chapters = new List<ReciepeBook>() { }
+                BookID = 1,
+                ChapterId = 2
             },
 
-            new ReciepeBook()
+            new Chapter()
             {
                 Title = "Chocolate-Misc",
-                Reciepes = new List<ReciepeModel>()
-                {
-                    context.Reciepes.Find(42),
-                    context.Reciepes.Find(43),
-                    context.Reciepes.Find(44),
-                    context.Reciepes.Find(45)
-                },
-                Chapters = new List<ReciepeBook>() { }
+                BookID = 1,
+                ChapterId = 3
             },
 
-                
-            new ReciepeBook()
+
+            new Chapter()
             {
                 Title = "Vanilla-Chocolate",
-                Reciepes = new List<ReciepeModel>()
-                {
-                    context.Reciepes.Find(10),
-                    context.Reciepes.Find(11),
-                    context.Reciepes.Find(70),
-                    context.Reciepes.Find(71),
-                    context.Reciepes.Find(72),
-                    context.Reciepes.Find(73)
-                },
-                Chapters = new List<ReciepeBook>(){ }
+                BookID = 2,
+                ChapterId = 4
             },
 
-            new ReciepeBook()
+            new Chapter()
             {
                 Title = "Vanilla-Fruit",
-                Reciepes = new List<ReciepeModel>()
-                {
-                    context.Reciepes.Find(26),
-                    context.Reciepes.Find(27),
-                    context.Reciepes.Find(28),
-                    context.Reciepes.Find(29),
-                    context.Reciepes.Find(22),
-                    context.Reciepes.Find(23),
-                    context.Reciepes.Find(24),
-                    context.Reciepes.Find(25),
-                    context.Reciepes.Find(30),
-                    context.Reciepes.Find(31),
-                    context.Reciepes.Find(46),
-                    context.Reciepes.Find(47)
-                },
-                Chapters = new List<ReciepeBook>(){ }
-
+                BookID = 2,
+                ChapterId = 5
             },
 
-            new ReciepeBook()
+            new Chapter()
             {
                 Title = "Fruit-Lemon",
-                Reciepes = new List<ReciepeModel>()
-                {
-                    context.Reciepes.Find(32),
-                    context.Reciepes.Find(33),
-                    context.Reciepes.Find(34),
-                    context.Reciepes.Find(35),
-                    context.Reciepes.Find(36),
-                    context.Reciepes.Find(37)
-                },
-                Chapters = new List<ReciepeBook>(){ }
+                BookID = 3,
+                ChapterId = 6
             },
-            new ReciepeBook()
+            new Chapter()
             {
                 Title = "Fruit-Strawberry",
-                Reciepes = new List<ReciepeModel>()
-                {
-                    context.Reciepes.Find(48),
-                    context.Reciepes.Find(55),
-                    context.Reciepes.Find(66)
-                },
-                Chapters = new List<ReciepeBook>(){ }
+                BookID = 3,
+                ChapterId = 7
             },
-            new ReciepeBook()
+            new Chapter()
             {
                 Title = "Fruit-Raspberry",
-                Reciepes = new List<ReciepeModel>()
-                {
-                    context.Reciepes.Find(49),
-                    context.Reciepes.Find(54)
-                },
-                Chapters = new List<ReciepeBook>(){ }
+                BookID = 3,
+                ChapterId = 8
             },
-            new ReciepeBook()
+            new Chapter()
             {
                 Title = "Fruit-Peach",
-                Reciepes = new List<ReciepeModel>()
-                {
-                    context.Reciepes.Find(50),
-                    context.Reciepes.Find(56),
-                    context.Reciepes.Find(63),
-                    context.Reciepes.Find(67)
-                },
-                Chapters = new List<ReciepeBook>(){ }
+                BookID = 3,
+                ChapterId = 9
             },
-            new ReciepeBook()
+            new Chapter()
             {
                 Title = "Fruit-Mango",
-                Reciepes = new List<ReciepeModel>()
-                {
-                    context.Reciepes.Find(51),
-                    context.Reciepes.Find(57)
-                },
-                Chapters = new List<ReciepeBook>(){ }
+                BookID = 3,
+                ChapterId = 10
             },
-            new ReciepeBook()
+            new Chapter()
             {
-                Title = "Fruit-BLueberry",
-                Reciepes = new List<ReciepeModel>()
-                {
-                    context.Reciepes.Find(52),
-                    context.Reciepes.Find(58),
-                    context.Reciepes.Find(64)
-                },
-                Chapters = new List<ReciepeBook>(){ }
+                Title = "Fruit-Blueberry",
+                BookID = 3,
+                ChapterId = 11
             },
-            new ReciepeBook()
+            new Chapter()
             {
                 Title = "Fruit-Blackberry",
-                Reciepes = new List<ReciepeModel>()
-                {
-                    context.Reciepes.Find(53),
-                    context.Reciepes.Find(59),
-                    context.Reciepes.Find(65)
-                },
-                Chapters = new List<ReciepeBook>(){ }
+                BookID = 3,
+                ChapterId = 12
             }
 
-               
-            );
+
+            ) ;
             context.SaveChanges();
 
+        }
+
+        public static void SeedIngredients(FerrisBakesContext context)
+        {
+            // Look for any orders.
+            if (context.Ingredients.Any())
+            {
+                return;   // DB has been seeded
+            }
+
+            List<Ingredients> Resutls = new List<Ingredients>();
+
+            foreach (ReciepeModel r in context.Reciepes)
+            {
+                Ingredients temp = new Ingredients(r.ReciepeNumber, r.Ingredients);
+                Resutls.Add(temp);
+            }
+
+            context.AddRange(Resutls);
+            context.SaveChanges();
         }
 
     }
