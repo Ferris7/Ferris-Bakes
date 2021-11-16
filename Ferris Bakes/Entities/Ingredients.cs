@@ -192,6 +192,38 @@ namespace Ferris_Bakes.Entities
             return false;
         }
 
+        public int CompareLikes(Ingredients Likes)
+        {
+            int count = 0;
+
+            if (this.Chocolate && Likes.Chocolate)
+                count++;
+            if (this.Vanilla && Likes.Vanilla)
+                count++;
+            if (this.Strawberry && Likes.Strawberry)
+                count++;
+            if (this.Raspberry && Likes.Raspberry)
+                count++;
+            if (this.Peach && Likes.Peach)
+                count++;
+            if (this.Mango && Likes.Mango)
+                count++;
+            if (this.Blackberry && Likes.Blackberry)
+                count++;
+            if (this.Blueberry && Likes.Blueberry)
+                count++;
+            if (this.RedVelvet && Likes.RedVelvet)
+                count++;
+            if (this.Lemon && Likes.Lemon)
+                count++;
+            if (this.Spice && Likes.Spice)
+                count++;
+            if (this.Pecan && Likes.Pecan)
+                count++;
+
+            return count;
+        }
+
 
     }
 }

@@ -153,8 +153,10 @@ namespace Ferris_Bakes.Logic
 
                     Reciepes.AddRange(BookReader(Preference.Dislikes, Misc, ReciepeData, IngredientData));
                 }
-            }
 
+                LikeCalculator(Preference.Likes, ReciepeData, IngredientData);
+
+            }
 
             return Reciepes;
         }
@@ -195,6 +197,48 @@ namespace Ferris_Bakes.Logic
             }
 
             return Reciepes;
+        }
+
+        public void LikeCalculator(Ingredients Likes, List<ReciepeModel> RecipeList, List<Ingredients> IngredientsList)
+        {
+            List<int> Values = new List<int>(RecipeList.Count);
+
+            for (int i = 0; i < RecipeList.Count; i++)
+            {
+                Ingredients temp = new Ingredients();
+                temp = IngredientsList.Find(x => x.ReciepeID == RecipeList[i].ReciepeNumber);
+                Values.Add(temp.CompareLikes(Likes));
+            }
+
+            SelectionSort(Values, RecipeList);
+
+        }
+
+        public void SelectionSort(List<int> Values, List<ReciepeModel> RecipeList)
+        {
+            int max = Values[0];
+            int maxIndex = 0;
+
+            for (int i = 0; i < Values.Count; i++)
+            {
+                for (int j = i; j < Values.Count; j++)
+                {
+                    if (Values[j] > max)
+                    {
+                        max = Values[j];
+                        maxIndex = j;
+                    }
+                }
+
+                int temp = Values[maxIndex];
+                ReciepeModel tempR = RecipeList[maxIndex];
+
+                Values[maxIndex] = Values[i];
+                RecipeList[maxIndex] = RecipeList[maxIndex];
+
+                Values[i] = temp;
+                RecipeList[i] = tempR;
+            }
         }
     }
 }
