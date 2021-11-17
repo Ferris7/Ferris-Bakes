@@ -9,16 +9,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Ferris_Bakes.Data;
+using Ferris_Bakes.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Ferris_Bakes
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+        public Startup(IConfiguration configuration) => Configuration = configuration;
+
 
         public IConfiguration Configuration { get; }
 
@@ -26,7 +26,13 @@ namespace Ferris_Bakes
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+<<<<<<< Updated upstream
             services.AddDbContext<OrderModelContext>(options => options.UseSqlServer(Configuration.GetConnectionString("OrderContext")));
+=======
+            services.AddDbContext<FerrisBakesContext>(options => options.UseSqlServer(Configuration.GetConnectionString("FerrisBakesContext")));
+            services.AddDbContext<UserContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:UserContext"]));
+            services.AddIdentity<UserModel, IdentityRole>().AddEntityFrameworkStores<UserContext>().AddDefaultTokenProviders();
+>>>>>>> Stashed changes
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +53,7 @@ namespace Ferris_Bakes
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -54,6 +61,7 @@ namespace Ferris_Bakes
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }

@@ -1,4 +1,6 @@
-﻿@inject SignInManager<UserModel> SignInManager
+﻿@using Ferris_Bakes.Models
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<UserModel> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }

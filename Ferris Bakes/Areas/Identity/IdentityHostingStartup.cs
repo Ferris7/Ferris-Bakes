@@ -20,10 +20,10 @@ namespace Ferris_Bakes.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("UserContext")));
 
-                services.AddDefaultIdentity<UserModel>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddRoles<BackendRole>()
-                    .AddEntityFrameworkStores<UserContext>();
+                services.AddDefaultIdentity<UserModel>()
+                    .AddEntityFrameworkStores<UserContext>().AddDefaultTokenProviders().AddDefaultUI();
             });
+
         }
     }
 }

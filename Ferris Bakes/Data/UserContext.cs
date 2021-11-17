@@ -6,10 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Ferris_Bakes.Data
 {
-    public class UserContext : IdentityDbContext<
-        UserModel, BackendRole, string,
-        IdentityUserClaim<string>, BackendUserRole, IdentityUserLogin<string>,
-        IdentityRoleClaim<string>, IdentityUserToken<string> >
+    public class UserContext : IdentityDbContext<UserModel>
     {
         public UserContext()
         {
