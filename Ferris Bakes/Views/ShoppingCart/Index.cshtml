@@ -1,0 +1,243 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model ShoppingCartModel
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        .center {
+            margin: auto;
+        }
+
+        .cartItem {
+            padding: 15px;
+            background-color: #eee6f5;
+            display: flex;
+            align-items: center;
+            width: fit-content;
+            max-width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+        }
+
+        .details {
+            margin-left: 15px;
+        }
+
+        .orderImage {            
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+        }
+
+        .cartImg {
+            position: relative;
+            max-width: 200px;
+            align-items: center;
+        }
+
+        .title {
+            text-align: left;
+            font-size: 18px;
+        }
+
+        .price {
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+
+        input,
+        textarea {
+            border: 1px solid #eeeeee;
+            box-sizing: border-box;
+            margin: 0;
+            outline: none;
+            padding: 10px;
+        }
+
+            input[type="button"] {
+                -webkit-appearance: button;
+                cursor: pointer;
+            }
+
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+            }
+
+        .input-group {
+            clear: both;
+            margin: 15px 0;
+            position: relative;
+        }
+
+            .input-group input[type='button'] {
+                background-color: #eeeeee;
+                min-width: 38px;
+                width: auto;
+                transition: all 300ms ease;
+            }
+
+            .input-group .button-minus,
+            .input-group .button-plus {
+                font-weight: bold;
+                height: 38px;
+                padding: 0;
+                width: 38px;
+                position: relative;
+            }
+
+            .input-group .quantity-field {
+                position: relative;
+                height: 38px;
+                left: -6px;
+                text-align: center;
+                width: 62px;
+                display: inline-block;
+                font-size: 13px;
+                margin: 0 0 5px;
+                resize: vertical;
+            }
+
+        .button-plus {
+            left: -13px;
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield;
+            -webkit-appearance: none;
+        }
+
+        .top {
+            margin: auto;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    
+    <div class="center">
+        
+        <h3> You made it!</h3>
+
+        <form hidden>
+            <div class="cartItem">
+                <div class="cartImg">
+                    <img src="/bakes/square/no Photo.jpg" class="orderImage">
+                </div>
+                <div class="details">
+                    <p class="title"><b>Chocolate Chip Cookies</b></p>
+                    <p class="description">Chocolate Chip Cookies with 3 types of Chocolate.</p>
+                </div>
+                <div class="price">
+                    <div class="top">
+                        <p>$9.99</p>
+                    </div>
+                        
+                    <div class="input-group">
+                        <input type="button" value="-" class="button-minus" data-field="quantity">
+                        <input type="number" step="1" max="" value="1" name="quantity" class="quantity-field">
+                        <input type="button" value="+" class="button-plus" data-field="quantity">
+                    </div>
+                    <a asp-action="DeleteFromCart">Remove from Cart</a>
+                </div>
+            </div>
+
+        </form>
+
+        <div >
+        @for (int i = 0; i < Model.Cart.Count; i++)
+            {
+            <div class="cartItem">
+                <div class="cartImg">
+                    <img src="/bakes/square/no Photo.jpg" class="orderImage">
+                </div>
+                <div class="details">
+                    <p class="title"><b>@Model.ItemDesctiption[i].BakeName</b></p>
+                    <p class="description">@Model.ItemDesctiption[i].Description</p>
+                </div>
+                <div class="price">
+                    <div class="top">
+                        <p>$@Model.ItemDesctiption[i].Price</p>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="button" value="-" class="button-minus" data-field="quantity">
+                        <input type="number" step="1" max="" value="1" name="quantity" class="quantity-field" asp-for="Cart[i].Quantity">
+                        <input type="button" value="+" class="button-plus" data-field="quantity">
+                    </div>
+                    <input type="number" name="id" id="id" value="@Model.Cart[i].ProductId" hidden />
+                    <input class="page-link" id="delete" value="Remove from Cart" />
+                </div>
+                
+            </div>
+            }
+        </div>
+
+        
+    </div>
+
+    <script>
+        function incrementValue(e) {
+            e.preventDefault();
+            var fieldName = $(e.target).data('field');
+            var parent = $(e.target).closest('div');
+            var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+
+            if (!isNaN(currentVal)) {
+                parent.find('input[name=' + fieldName + ']').val(currentVal + 1);
+            } else {
+                parent.find('input[name=' + fieldName + ']').val(0);
+            }
+        }
+
+        function decrementValue(e) {
+            e.preventDefault();
+            var fieldName = $(e.target).data('field');
+            var parent = $(e.target).closest('div');
+            var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+
+            if (!isNaN(currentVal) && currentVal > 1) {
+                parent.find('input[name=' + fieldName + ']').val(currentVal - 1);
+            } else {
+                parent.find('input[name=' + fieldName + ']').val(0);
+            }
+        }
+
+        $('.input-group').on('click', '.button-plus', function (e) {
+            incrementValue(e);
+        });
+
+        $('.input-group').on('click', '.button-minus', function (e) {
+            decrementValue(e);
+        });
+
+
+        $(document).ready(function () {
+            $("#delete").click(function () {
+                $.ajax({
+                    type: 'POST',
+                    url: '/ShoppingCartController/Delete',
+                    data: { id: $("#id").val() },
+                    success: function (result) {
+                        alert(result);
+                    }
+                });
+            });
+        })
+    </script>
+
+</body>

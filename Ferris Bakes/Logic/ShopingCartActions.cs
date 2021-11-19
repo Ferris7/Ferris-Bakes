@@ -19,11 +19,10 @@ namespace Ferris_Bakes.Logic
         public void AddToCart(int id)
         {
             // Retrieve the product from the database.           
-            ShoppingCartId = GetCartId();
+            //ShoppingCartId = GetCartId();
 
             var cartItem = _db.Cart.SingleOrDefault(
-                c => c.CartId == ShoppingCartId
-                && c.ProductId == id);
+                c => c.ProductId == id);
             if (cartItem == null)
             {
                 // Create a new cart item if no cart item exists.                 
@@ -31,7 +30,7 @@ namespace Ferris_Bakes.Logic
                 {
                     ItemId = Guid.NewGuid().ToString(),
                     ProductId = id,
-                    CartId = ShoppingCartId,
+                    //CartId = ShoppingCartId,
                     Product = _db.SetOrder.SingleOrDefault(
                    p => p.BakeID == id),
                     Quantity = 1,
@@ -46,6 +45,22 @@ namespace Ferris_Bakes.Logic
                 // then add one to the quantity.                 
                 cartItem.Quantity++;
             }
+            _db.SaveChanges();
+        }
+
+        public void DeleteFromCart(int id)
+        {
+            // Retrieve the product from the database.           
+            //ShoppingCartId = GetCartId();
+
+            var cartItem = _db.Cart.SingleOrDefault(
+                c => c.CartId == ShoppingCartId
+                && c.ProductId == id);
+            if (cartItem != null)
+            {
+                _db.Cart.Remove(cartItem);
+            }
+           
             _db.SaveChanges();
         }
 
@@ -83,8 +98,7 @@ namespace Ferris_Bakes.Logic
         {
             ShoppingCartId = GetCartId();
 
-            return _db.Cart.Where(
-                c => c.CartId == ShoppingCartId).ToList();
+            return _db.Cart.ToList();
         }
     }
 }

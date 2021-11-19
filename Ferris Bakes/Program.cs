@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Ferris_Bakes.Data;
 using Ferris_Bakes.Models;
 using Microsoft.EntityFrameworkCore;
+using Ferris_Bakes.Logic;
 
 namespace Ferris_Bakes
 {
@@ -22,6 +23,9 @@ namespace Ferris_Bakes
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
+
+                ShoppingCartActions actions = new ShoppingCartActions();
+                actions.Dispose();
 
                 try
                 {

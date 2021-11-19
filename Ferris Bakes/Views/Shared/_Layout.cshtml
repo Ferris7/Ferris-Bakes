@@ -25,6 +25,13 @@
             padding: 16px;
             margin-bottom: 20px;
         }
+
+        .ShoppingCart {
+            margin-left: 15px;
+            max-width: 45px;
+            display: inline-flex;
+            align-items: center;
+        }
     </style>
 
 </head>
@@ -54,6 +61,8 @@
                     </ul>
                 </div>
                 <partial name="_LoginPartial" />
+
+                <a class="ShoppingCart" asp-controller="ShoppingCart" asp-action="Index"><img src="/pics/Shopping Cart.png" alt="Shppping Cart" style="width:100%"></a>
             </div>
         </nav>
 
