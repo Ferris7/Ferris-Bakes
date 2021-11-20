@@ -42,20 +42,23 @@ namespace Ferris_Bakes.Controllers
             }
         }
 
+
+        [HttpPost]
         public IActionResult Delete(int id)
         {
             ShoppingCartActions actions = new ShoppingCartActions();
 
             actions.DeleteFromCart(id);
-            return View("Index");
+            return Ok("Success");
         }
 
+        [HttpPost]
         public IActionResult Add(int id)
         {
             ShoppingCartActions actions = new ShoppingCartActions();
 
             actions.AddToCart(id);
-            return View("Index");
+            return Ok("Success");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

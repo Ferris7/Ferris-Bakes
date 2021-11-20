@@ -45,7 +45,8 @@ namespace Ferris_Bakes.Models
                     Frosting = "Bailey's",
                     FillFlavor = "Bailey's Ganache",
                     Description = "Chocolate and Bailey's flavored cake with a Bailey's buttercream. Filled with a Bailey's mousse and topped with a Chocolate Ganache.",
-                    Price = 34.99
+                    Price = 34.99,
+                    ImgPath = "/bakes/square/21st choc and baileys.jpg"
                 },
 
                 new SetOrderModel
@@ -57,7 +58,8 @@ namespace Ferris_Bakes.Models
                     Frosting = "Cream Cheese",
                     FillFlavor = null,
                     Description = "Red Velvet Cake with Cream Cheese frosting.",
-                    Price = 24.99
+                    Price = 24.99,
+                    ImgPath = "/bakes/square/dec red vel.jpeg"
                 },
 
                 new SetOrderModel
@@ -69,7 +71,8 @@ namespace Ferris_Bakes.Models
                     Frosting = null,
                     FillFlavor = "Blueberry",
                     Description = "Mini Lemon Bunt Cake with blueberry filling and icing on top.",
-                    Price = 9.99
+                    Price = 9.99,
+                    ImgPath = "/bakes/square/mini lemon bunt cakes.jpg"
                 },
 
                 new SetOrderModel
@@ -81,7 +84,8 @@ namespace Ferris_Bakes.Models
                     Frosting = null,
                     FillFlavor = null,
                     Description = "Sparkling Apple Cider Pound Cake with a sparkling apple cider icing.",
-                    Price = 19.99
+                    Price = 19.99,
+                    ImgPath = "/bakes/square/pound cake.jpeg"
                 },
 
                 new SetOrderModel
@@ -93,7 +97,8 @@ namespace Ferris_Bakes.Models
                     Frosting = "Chocolate",
                     FillFlavor = null,
                     Description = "Chocolate cake with chocolate icing.",
-                    Price = 19.99
+                    Price = 19.99,
+                    ImgPath = "/bakes/square/no Photo.jpg"
                 },
 
                 new SetOrderModel
@@ -105,7 +110,8 @@ namespace Ferris_Bakes.Models
                     Frosting = "Vanilla",
                     FillFlavor = null,
                     Description = "Vanilla cake with vanilla icing.",
-                    Price = 19.99
+                    Price = 19.99,
+                    ImgPath = "/bakes/square/no Photo.jpg"
                 },
 
                 new SetOrderModel
@@ -117,7 +123,8 @@ namespace Ferris_Bakes.Models
                     Frosting = null,
                     FillFlavor = null,
                     Description = "Chocolate Crinkle cookies covered in powered sugar.",
-                    Price = 14.99
+                    Price = 14.99,
+                    ImgPath = "/bakes/square/crinkle cookies.jpg"
                 },
 
                 new SetOrderModel
@@ -129,7 +136,8 @@ namespace Ferris_Bakes.Models
                     Frosting = null,
                     FillFlavor = null,
                     Description = "Red Velvet Crinkle cookies covered in powered sugar.",
-                    Price = 14.99
+                    Price = 14.99,
+                    ImgPath = "/bakes/square/no Photo.jpg"
                 },
 
                 new SetOrderModel
@@ -141,7 +149,8 @@ namespace Ferris_Bakes.Models
                     Frosting = null,
                     FillFlavor = null,
                     Description = "Chocolate Crinkle cookies.",
-                    Price = 9.99
+                    Price = 9.99,
+                    ImgPath = "/bakes/square/no Photo.jpg"
                 },
 
                 new SetOrderModel
@@ -153,7 +162,8 @@ namespace Ferris_Bakes.Models
                     Frosting = null,
                     FillFlavor = null,
                     Description = "Sugar cookies.",
-                    Price = 9.99
+                    Price = 9.99,
+                    ImgPath = "/bakes/square/no Photo.jpg"
                 },
 
                 new SetOrderModel
@@ -165,7 +175,8 @@ namespace Ferris_Bakes.Models
                     Frosting = "Lavendar",
                     FillFlavor = null,
                     Description = "Lemon Cupcakes with a lavendar buttercream.",
-                    Price = 19.99
+                    Price = 19.99,
+                    ImgPath = "/bakes/square/lemon cup.jpeg"
                 },
 
                 new SetOrderModel
@@ -177,7 +188,8 @@ namespace Ferris_Bakes.Models
                     Frosting = "Vanilla",
                     FillFlavor = "Strawberry",
                     Description = "Chocolate cupcakes with a strawberry filling and vanilla buttercream.",
-                    Price = 14.99
+                    Price = 14.99,
+                    ImgPath = "/bakes/square/choc straw cup.jpeg"
                 },
 
                 new SetOrderModel
@@ -189,7 +201,8 @@ namespace Ferris_Bakes.Models
                     Frosting = "Vanilla",
                     FillFlavor = null,
                     Description = "Vanilla cupcakes with vanilla buttercream.",
-                    Price = 9.99
+                    Price = 9.99,
+                    ImgPath = "/bakes/square/no Photo.jpg"
                 },
 
                 new SetOrderModel
@@ -201,7 +214,8 @@ namespace Ferris_Bakes.Models
                     Frosting = "Chocolate",
                     FillFlavor = null,
                     Description = "Chocolate cupcakes with chocolate buttercream.",
-                    Price = 9.99
+                    Price = 9.99,
+                    ImgPath = "/bakes/square/no Photo.jpg"
                 },
 
                 new SetOrderModel
@@ -213,7 +227,8 @@ namespace Ferris_Bakes.Models
                     Frosting = null,
                     FillFlavor = null,
                     Description = "Apple Pie made with Granny Smith apples and homemade pastry.",
-                    Price = 19.99
+                    Price = 19.99,
+                    ImgPath = "/bakes/square/apple pie.jpeg"
                 },
 
                 new SetOrderModel
@@ -225,7 +240,8 @@ namespace Ferris_Bakes.Models
                     Frosting = null,
                     FillFlavor = null,
                     Description = "Chocolate pie with merguine and handmade pastry.",
-                    Price = 19.99
+                    Price = 19.99,
+                    ImgPath = "/bakes/square/no Photo.jpg"
                 },
 
                 new SetOrderModel
@@ -237,67 +253,73 @@ namespace Ferris_Bakes.Models
                     Frosting = null,
                     FillFlavor = null,
                     Description = "Pinwheel shaped pastries with cream cheese and raspberry jam filling.",
-                    Price = 24.99
+                    Price = 24.99,
+                    ImgPath = "/bakes/square/pinwheel.jpg"
                 },
 
                 new SetOrderModel
                 {
                     BakeName = "Broken Glass Cupcakes",
-                    BakeType = "Cupcakes",
+                    BakeType = "Holiday",
                     Flavor = "Chocolate",
                     Size = 12,
                     Frosting = "Vanilla",
                     FillFlavor = null,
                     Description = "Chocolate cupcakes with vanilla buttercream topped with sugar glass and fake edible blood.",
-                    Price = 24.99
+                    Price = 24.99,
+                    ImgPath = "/bakes/square/bloody cups.jpeg"
                 },
 
                 new SetOrderModel
                 {
                     BakeName = "Pumpkin Cake",
-                    BakeType = "Cake",
+                    BakeType = "Holiday",
                     Flavor = "Chocolate",
                     Size = 1,
                     Frosting = "Cream Cheese",
                     FillFlavor = "Orange gelatin strings and white chocolate chips",
                     Description = "Pumpkin flavored and shaped caked with cream cheese frosting with orange geletain and white chocolate chips as pumpkin guts inside.",
-                    Price = 49.99
+                    Price = 49.99,
+                    ImgPath = "/bakes/square/pumpkin cake.JPG"
                 },
 
                 new SetOrderModel
                 {
                     BakeName = "Santa Hat Cupcakes",
-                    BakeType = "Cupcakes",
+                    BakeType = "Holiday",
                     Flavor = "Vanilla",
                     Size = 12,
                     Frosting = "White Chocolate",
                     FillFlavor = "Cranberry",
                     Description = "Vanilla cupcakes with white chocolate buttercream filled with cranberry filling.",
-                    Price = 14.99
+                    Price = 14.99,
+                    ImgPath = "/bakes/square/santa cupcakes.jpg"
                 },
 
                 new SetOrderModel
                 {
                     BakeName = "Peppermint Cupcakes",
-                    BakeType = "Cupcakes",
+                    BakeType = "Holiday",
                     Flavor = "Chocolate",
                     Size = 12,
                     Frosting = "Peppermint",
                     FillFlavor = null,
                     Description = "Chocolate cupcakes with a peppermint buttercream topped with a peppermint.",
-                    Price = 9.99
+                    Price = 9.99,
+                    ImgPath = "/bakes/square/peppermint cupcakes.jpg"
                 },
 
                 new SetOrderModel
                 {
                     BakeName = "Valentine's Day Cheesecake",
-                    BakeType = "Cake",
+                    BakeType = "Holiday",
                     Flavor = "Cheesecake",
                     Size = 1,
                     Frosting = null,
                     FillFlavor = null,
                     Description = "New York style cheesecake topped with chocolate covered strawberries and a chocolate heart mold.",
-                    Price = 39.99
+                    Price = 39.99,
+                    ImgPath = "/bakes/square/VDay cheesecake.jpg"
                 },
 
                 new SetOrderModel
@@ -309,7 +331,8 @@ namespace Ferris_Bakes.Models
                     Frosting = "Cream Cheese",
                     FillFlavor = null,
                     Description = "Cake pops made with Red Velvet cake and cream cheese frosting.",
-                    Price = 14.99
+                    Price = 14.99,
+                    ImgPath = "/bakes/square/cake pops.jpg"
                 },
 
                 new SetOrderModel
@@ -321,7 +344,8 @@ namespace Ferris_Bakes.Models
                     Frosting = null,
                     FillFlavor = null,
                     Description = "Raspberry Oat Bar.",
-                    Price = 9.99
+                    Price = 9.99,
+                    ImgPath = "/bakes/square/rasp bar.jpeg"
                 },
 
                 new SetOrderModel
@@ -333,7 +357,8 @@ namespace Ferris_Bakes.Models
                     Frosting = "Peppermint",
                     FillFlavor = null,
                     Description = "Chocolate and peppermint swiss rolls.",
-                    Price = 19.99
+                    Price = 19.99,
+                    ImgPath = "/bakes/square/swiss rolls.jpg"
                 },
 
                 new SetOrderModel
@@ -345,7 +370,8 @@ namespace Ferris_Bakes.Models
                     Frosting = null,
                     FillFlavor = null,
                     Description = "Tiger Stripped Pretzels",
-                    Price = 19.99
+                    Price = 19.99,
+                    ImgPath = "/bakes/square/tiger pretzels.jpg"
                 },
 
                 new SetOrderModel
@@ -357,7 +383,8 @@ namespace Ferris_Bakes.Models
                     Frosting = "Whipped Cream & Ganache",
                     FillFlavor = "Strawberry",
                     Description = "Chocolate cake with whipped cream, fresh strawberries, a strawberry galze, and chocolate ganache.",
-                    Price = 19.99
+                    Price = 19.99,
+                    ImgPath = "/bakes/square/trifold.jpeg"
                 }
 
             );

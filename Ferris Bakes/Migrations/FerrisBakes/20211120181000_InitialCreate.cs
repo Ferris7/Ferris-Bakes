@@ -112,7 +112,8 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                     Frosting = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FillFlavor = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Price = table.Column<double>(type: "float", nullable: false)
+                    Price = table.Column<double>(type: "float", nullable: false),
+                    ImgPath = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

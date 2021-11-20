@@ -226,6 +226,9 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                     b.Property<string>("Frosting")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImgPath")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<double>("Price")
                         .HasColumnType("float");
 

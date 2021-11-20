@@ -133,37 +133,14 @@
         
         <h3> You made it!</h3>
 
-        <form hidden>
-            <div class="cartItem">
-                <div class="cartImg">
-                    <img src="/bakes/square/no Photo.jpg" class="orderImage">
-                </div>
-                <div class="details">
-                    <p class="title"><b>Chocolate Chip Cookies</b></p>
-                    <p class="description">Chocolate Chip Cookies with 3 types of Chocolate.</p>
-                </div>
-                <div class="price">
-                    <div class="top">
-                        <p>$9.99</p>
-                    </div>
-                        
-                    <div class="input-group">
-                        <input type="button" value="-" class="button-minus" data-field="quantity">
-                        <input type="number" step="1" max="" value="1" name="quantity" class="quantity-field">
-                        <input type="button" value="+" class="button-plus" data-field="quantity">
-                    </div>
-                    <a asp-action="DeleteFromCart">Remove from Cart</a>
-                </div>
-            </div>
-
-        </form>
+        
 
         <div >
         @for (int i = 0; i < Model.Cart.Count; i++)
             {
             <div class="cartItem">
                 <div class="cartImg">
-                    <img src="/bakes/square/no Photo.jpg" class="orderImage">
+                    <img src="@Model.ItemDesctiption[i].ImgPath" class="orderImage">
                 </div>
                 <div class="details">
                     <p class="title"><b>@Model.ItemDesctiption[i].BakeName</b></p>
@@ -176,11 +153,11 @@
 
                     <div class="input-group">
                         <input type="button" value="-" class="button-minus" data-field="quantity">
-                        <input type="number" step="1" max="" value="1" name="quantity" class="quantity-field" asp-for="Cart[i].Quantity">
+                        <input type="number" step="1" max="" value="@Model.Cart[i].Quantity" name="quantity" class="quantity-field">
                         <input type="button" value="+" class="button-plus" data-field="quantity">
                     </div>
                     <input type="number" name="id" id="id" value="@Model.Cart[i].ProductId" hidden />
-                    <input class="page-link" id="delete" value="Remove from Cart" />
+                    <input class="nav-link" id="delete" type="button" value="Remove from Cart" />
                 </div>
                 
             </div>

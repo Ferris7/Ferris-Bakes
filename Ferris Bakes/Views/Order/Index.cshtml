@@ -2,7 +2,7 @@
     ViewData["Title"] = "Home Page";
 }
 
-@model SetOrderModel
+@model SetOrderListModel
 
 <head>
     <meta charset="utf-8">
@@ -163,345 +163,322 @@
         </div>
 
         <h1 class="center" id="Cakes">Cakes</h1>
-        <div class="row">
-            <div class="column3">
-                <div class="orderContainer">
-                    <input type="number" name="id" id="id" value="1" hidden/>
-                    <div class="imageCon">
-                        <img src="/bakes/square/21st bday.jpg" class="orderImage">
-                        <input class="orderBtn" id="order" type="button" value="Order Now!">
+        @for (int i = 0; i < Model.Cakes.Count; i+=3)
+        {
+            <div class="row">
+                <div class="column3">
+                    <div class="orderContainer">
+                        <input type="number" name="id" id="id" value="@Model.Cakes[i].BakeID" hidden />
+                        <div class="imageCon">
+                            <img src="@Model.Cakes[i].ImgPath" class="orderImage">
+                            <input class="orderBtn" id="order" type="button" value="Order Now!">
+                        </div>
+                        <h3>@Model.Cakes[i].BakeName</h3>
+                        <p class="price">$@Model.Cakes[i].Price</p>
+                        <p class="description">@Model.Cakes[i].Description</p>
                     </div>
-                    <h3>Bailey's and Chocolate Cake</h3>
-                    <p class="price">$35</p>
-                    <p class="description">Chocolate and Bailey's flavored cake with a Bailey's buttercream. Filled with a Bailey's mousse and topped with a Chocolate Ganache.</p>
                 </div>
-            </div>
 
-            <div class="column3">
-                <div class="orderContainer">
-                    <div class="imageCon">
-                        <img src="/bakes/square/dec red vel.jpeg" class="orderImage">
-                        <button class="orderBtn">Order Now!</button>
-                    </div>
-                    <h3>Red Velvet Cake</h3>
-                    <p class="price">$25</p>
-                    <p class="description">Red Velvet Cake with Lemon Cream Cheese frosting.</p>
-                </div>
-            </div>
+                <div class="column3">
 
-            <div class="column3">
-                <div class="orderContainer">
-                    <div class="imageCon">
-                        <img src="/bakes/square/mini lemon bunt cakes.jpg" class="orderImage">
-                        <button class="orderBtn">Order Now!</button>
-                    </div>
-                    <h3>Mini Lemon Bunt Cake</h3>
-                    <p class="price">$10 per 4 cakes</p>
-                    <p class="description">Mini Lemon Bunt Cake with blueberry filling and icing on top.</p>
+                    @if (i+1 < Model.Cakes.Count)
+                    {
+                        <div class="orderContainer">
+                            <input type="number" name="id" id="id" value="@Model.Cakes[i+1].BakeID" hidden />
+                            <div class="imageCon">
+                                <img src="@Model.Cakes[i+1].ImgPath" class="orderImage">
+                                <input class="orderBtn" id="order" type="button" value="Order Now!">
+                            </div>
+                            <h3>@Model.Cakes[i+1].BakeName</h3>
+                            <p class="price">$@Model.Cakes[i+1].Price</p>
+                            <p class="description">@Model.Cakes[i+1].Description</p>
+                        </div>
+                    }
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="column3">
-                <div class="orderContainer">
-                    <div class="imageCon">
-                        <img src="/bakes/square/pound cake.jpeg" class="orderImage">
-                        <button class="orderBtn">Order Now!</button>
-                    </div>
-                    <h3>Sparkling Apple Cider Pound Cake</h3>
-                    <p class="price">$20</p>
-                    <p class="description">Sparkling Apple Cider Pound Cake with a sparkling apple cider icing.</p>
-                </div>
-            </div>
+                <div class="column3">
+                    @if (i+2 < Model.Cakes.Count)
+                    {
 
-            <div class="column3">
-                <div class="orderContainer">
-                    <div class="imageCon">
-                        <img src="/bakes/square/no Photo.jpg" class="orderImage">
-                        <button class="orderBtn">Order Now!</button>
-                    </div>
-                    <h3>Chocolate Cake</h3>
-                    <p class="price">$20</p>
-                    <p class="description">Chocolate cake with chocolate icing.</p>
+                        <div class="orderContainer">
+                            <input type="number" name="id" id="id" value="@Model.Cakes[i+2].BakeID" hidden />
+                            <div class="imageCon">
+                                <img src="@Model.Cakes[i+2].ImgPath" class="orderImage">
+                                <input class="orderBtn" id="order" type="button" value="Order Now!">
+                            </div>
+                            <h3>@Model.Cakes[i + 2].BakeName</h3>
+                            <p class="price">$@Model.Cakes[i + 2].Price</p>
+                            <p class="description">@Model.Cakes[i + 2].Description</p>
+                        </div>
+                    }
                 </div>
-            </div>
 
-            <div class="column3">
-                <div class="orderContainer">
-                    <div class="imageCon">
-                        <img src="/bakes/square/no Photo.jpg" class="orderImage">
-                        <button class="orderBtn">Order Now!</button>
-                    </div>
-                    <h3>Vanilla Cake</h3>
-                    <p class="price">$20</p>
-                    <p class="description">Vanilla cake with vanilla icing.</p>
-                </div>
             </div>
-        </div>
+        }
 
         <h1 class="center" id="Cookies">Cookies</h1>
-        <div class="row">
-            <div class="column3">
-                <div class="orderContainer">
-                    <div class="imageCon">
-                        <img src="/bakes/square/crinkle cookies.jpg" class="orderImage">
-                        <button class="orderBtn">Order Now!</button>
+        @for (int i = 0; i < Model.Cookies.Count; i+=3)
+        {
+            <div class="row">
+                <div class="column3">
+                    <div class="orderContainer">
+                        <input type="number" name="id" id="id" value="@Model.Cookies[i].BakeID" hidden />
+                        <div class="imageCon">
+                            <img src="@Model.Cookies[i].ImgPath" class="orderImage">
+                            <input class="orderBtn" id="order" type="button" value="Order Now!">
+                        </div>
+                        <h3>@Model.Cookies[i].BakeName</h3>
+                        <p class="price">$@Model.Cookies[i].Price</p>
+                        <p class="description">@Model.Cookies[i].Description</p>
                     </div>
-                    <h3>Chocolate Crinkle Cookies</h3>
-                    <p class="price">$15</p>
-                    <p class="description">Chocolate Crinkle Cookies covered in powered sugar.</p>
                 </div>
-            </div>
 
-            <div class="column3">
-                <div class="orderContainer">
-                    <div class="imageCon">
-                        <img src="/bakes/square/no Photo.jpg" class="orderImage">
-                        <button class="orderBtn">Order Now!</button>
-                    </div>
-                    <h3>Red Velvet Crinkle Cookies</h3>
-                    <p class="price">$15</p>
-                    <p class="description">Red Velvet Crinkle Cookies covered in powered sugar.</p>
+                <div class="column3">
+
+                    @if (i+1 < Model.Cookies.Count)
+                    {
+                        <div class="orderContainer">
+                            <input type="number" name="id" id="id" value="@Model.Cookies[i+1].BakeID" hidden />
+                            <div class="imageCon">
+                                <img src="@Model.Cookies[i+1].ImgPath" class="orderImage">
+                                <input class="orderBtn" id="order" type="button" value="Order Now!">
+                            </div>
+                            <h3>@Model.Cookies[i+1].BakeName</h3>
+                            <p class="price">$@Model.Cookies[i+1].Price</p>
+                            <p class="description">@Model.Cookies[i+1].Description</p>
+                        </div>
+                    }
                 </div>
-            </div>
+                <div class="column3">
+                    @if (i+2 < Model.Cookies.Count)
+                    {
 
-            <div class="column3">
-                <div class="orderContainer">
-                    <div class="imageCon">
-                        <img src="/bakes/square/no Photo.jpg" class="orderImage">
-                        <button class="orderBtn">Order Now!</button>
-                    </div>
-                    <h3>Chocolate Chip Cookies</h3>
-                    <p class="price">$10</p>
-                    <p class="description">Chocolate Chip Cookies.</p>
+                        <div class="orderContainer">
+                            <input type="number" name="id" id="id" value="@Model.Cookies[i+2].BakeID" hidden />
+                            <div class="imageCon">
+                                <img src="@Model.Cookies[i+2].ImgPath" class="orderImage">
+                                <input class="orderBtn" id="order" type="button" value="Order Now!">
+                            </div>
+                            <h3>@Model.Cookies[i+2].BakeName</h3>
+                            <p class="price">$@Model.Cookies[i+2].Price</p>
+                            <p class="description">@Model.Cookies[i+2].Description</p>
+                        </div>
+                    }
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="column3">
-                <div class="orderContainer">
-                    <div class="imageCon">
-                        <img src="/bakes/square/no Photo.jpg" class="orderImage">
-                        <button class="orderBtn">Order Now!</button>
-                    </div>
-                    <h3>Sugar Cookies</h3>
-                    <p class="price">$10</p>
-                    <p class="description">Sugar Cookies.</p>
-                </div>
-            </div>
-
-            <div class="column3">
 
             </div>
-
-            <div class="column3">
-
-            </div>
-        </div>
+        }
 
         <h1 class="center" id="Cupcakes">Cupcakes</h1>
-        <div class="row">
-            <div class="column3">
-                <div class="orderContainer">
-                    <div class="imageCon">
-                        <img src="/bakes/square/lemon cup.jpeg" class="orderImage">
-                        <button class="orderBtn">Order Now!</button>
+        @for (int i = 0; i < Model.Cupcakes.Count; i+=3)
+        {
+            <div class="row">
+                <div class="column3">
+                    <div class="orderContainer">
+                        <input type="number" name="id" id="id" value="@Model.Cupcakes[i].BakeID" hidden />
+                        <div class="imageCon">
+                            <img src="@Model.Cupcakes[i].ImgPath" class="orderImage">
+                            <input class="orderBtn" id="order" type="button" value="Order Now!">
+                        </div>
+                        <h3>@Model.Cupcakes[i].BakeName</h3>
+                        <p class="price">$@Model.Cupcakes[i].Price</p>
+                        <p class="description">@Model.Cupcakes[i].Description</p>
                     </div>
-                    <h3>Lemon Cupcakes</h3>
-                    <p class="price">$20</p>
-                    <p class="description">Lemon Cupcakes with a lavendar buttercream.</p>
                 </div>
-            </div>
 
-            <div class="column3">
-                <div class="orderContainer">
-                    <div class="imageCon">
-                        <img src="/bakes/square/choc straw cup.jpeg" class="orderImage">
-                        <button class="orderBtn">Order Now!</button>
-                    </div>
-                    <h3>Chocolate-Strawberry Cupcakes</h3>
-                    <p class="price">$15</p>
-                    <p class="description">Chocolate cupcakes with a strawberry filling and vanilla buttercream.</p>
-                </div>
-            </div>
+                <div class="column3">
 
-            <div class="column3">
-                <div class="orderContainer">
-                    <div class="imageCon">
-                        <img src="/bakes/square/no Photo.jpg" class="orderImage">
-                        <button class="orderBtn">Order Now!</button>
-                    </div>
-                    <h3>Vanilla Cupcakes</h3>
-                    <p class="price">$10</p>
-                    <p class="description">Vanilla Cupcakes with vanilla buttercream.</p>
+                    @if (i+1 < Model.Cupcakes.Count)
+                    {
+                        <div class="orderContainer">
+                            <input type="number" name="id" id="id" value="@Model.Cupcakes[i+1].BakeID" hidden />
+                            <div class="imageCon">
+                                <img src="@Model.Cupcakes[i+1].ImgPath" class="orderImage">
+                                <input class="orderBtn" id="order" type="button" value="Order Now!">
+                            </div>
+                            <h3>@Model.Cupcakes[i+1].BakeName</h3>
+                            <p class="price">$@Model.Cupcakes[i+1].Price</p>
+                            <p class="description">@Model.Cupcakes[i+1].Description</p>
+                        </div>
+                    }
                 </div>
+                <div class="column3">
+                    @if (i+2 < Model.Cupcakes.Count)
+                    {
+
+                        <div class="orderContainer">
+                            <input type="number" name="id" id="id" value="@Model.Cupcakes[i+2].BakeID" hidden />
+                            <div class="imageCon">
+                                <img src="@Model.Cupcakes[i+2].ImgPath" class="orderImage">
+                                <input class="orderBtn" id="order" type="button" value="Order Now!">
+                            </div>
+                            <h3>@Model.Cupcakes[i+2].BakeName</h3>
+                            <p class="price">$@Model.Cupcakes[i+2].Price</p>
+                            <p class="description">@Model.Cupcakes[i+2].Description</p>
+                        </div>
+                    }
+                </div>
+
             </div>
-        </div>
+        }
 
         <h1 class="center" id="Pastry">Pastries</h1>
-        <div class="row">
-            <div class="column3">
-                <div class="orderContainer">
-                    <div class="imageCon">
-                        <img src="/bakes/square/apple pie.jpeg" class="orderImage">
-                        <button class="orderBtn">Order Now!</button>
+        @for (int i = 0; i < Model.Pastry.Count; i+=3)
+        {
+            <div class="row">
+                <div class="column3">
+                    <div class="orderContainer">
+                        <input type="number" name="id" id="id" value="@Model.Pastry[i].BakeID" hidden />
+                        <div class="imageCon">
+                            <img src="@Model.Pastry[i].ImgPath" class="orderImage">
+                            <input class="orderBtn" id="order" type="button" value="Order Now!">
+                        </div>
+                        <h3>@Model.Pastry[i].BakeName</h3>
+                        <p class="price">$@Model.Pastry[i].Price</p>
+                        <p class="description">@Model.Pastry[i].Description</p>
                     </div>
-                    <h3>Apple Pie</h3>
-                    <p class="price">$20</p>
-                    <p class="description">Apple Pie made with Granny Smith apples and homemade pastry.</p>
                 </div>
-            </div>
 
-            <div class="column3">
-                <div class="orderContainer">
-                    <div class="imageCon">
-                        <img src="/bakes/square/pinwheel.jpg" class="orderImage">
-                        <button class="orderBtn">Order Now!</button>
-                    </div>
-                    <h3>Pinwheel Pastries</h3>
-                    <p class="price">$25</p>
-                    <p class="description">Pinwheel shaped pastries with cream cheese and raspberry jam filling.</p>
+                <div class="column3">
+
+                    @if (i+1 < Model.Pastry.Count)
+                    {
+                        <div class="orderContainer">
+                            <input type="number" name="id" id="id" value="@Model.Pastry[i+1].BakeID" hidden />
+                            <div class="imageCon">
+                                <img src="@Model.Pastry[i+1].ImgPath" class="orderImage">
+                                <input class="orderBtn" id="order" type="button" value="Order Now!">
+                            </div>
+                            <h3>@Model.Pastry[i+1].BakeName</h3>
+                            <p class="price">$@Model.Pastry[i+1].Price</p>
+                            <p class="description">@Model.Pastry[i+1].Description</p>
+                        </div>
+                    }
                 </div>
-            </div>
+                <div class="column3">
+                    @if (i+2 < Model.Pastry.Count)
+                    {
 
-            <div class="column3">
+                        <div class="orderContainer">
+                            <input type="number" name="id" id="id" value="@Model.Pastry[i+2].BakeID" hidden />
+                            <div class="imageCon">
+                                <img src="@Model.Pastry[i+2].ImgPath" class="orderImage">
+                                <input class="orderBtn" id="order" type="button" value="Order Now!">
+                            </div>
+                            <h3>@Model.Pastry[i+2].BakeName</h3>
+                            <p class="price">$@Model.Pastry[i+2].Price</p>
+                            <p class="description">@Model.Pastry[i+2].Description</p>
+                        </div>
+                    }
+                </div>
+
             </div>
-        </div>
+        }
 
         <h1 class="center" id="Holiday">Holiday</h1>
-        <div class="row">
-            <div class="column3">
-                <div class="orderContainer">
-                    <div class="imageCon">
-                        <img src="/bakes/square/bloody cups.jpeg" class="orderImage">
-                        <button class="orderBtn">Order Now!</button>
+        @for (int i = 0; i < Model.Holiday.Count; i+=3)
+        {
+            <div class="row">
+                <div class="column3">
+                    <div class="orderContainer">
+                        <input type="number" name="id" id="id" value="@Model.Holiday[i].BakeID" hidden />
+                        <div class="imageCon">
+                            <img src="@Model.Holiday[i].ImgPath" class="orderImage">
+                            <input class="orderBtn" id="order" type="button" value="Order Now!">
+                        </div>
+                        <h3>@Model.Holiday[i].BakeName</h3>
+                        <p class="price">$@Model.Holiday[i].Price</p>
+                        <p class="description">@Model.Holiday[i].Description</p>
                     </div>
-                    <h3>Broken Glass Cupcakes</h3>
-                    <p class="price">$25</p>
-                    <p class="description">Chocolate cupcakes with vanilla buttercream topped with sugar glass and fake edible blood.</p>
                 </div>
-            </div>
 
-            <div class="column3">
-                <div class="orderContainer">
-                    <div class="imageCon">
-                        <img src="/bakes/square/pumpkin cake.jpg" class="orderImage">
-                        <button class="orderBtn">Order Now!</button>
-                    </div>
-                    <h3>Pumpkin Cake</h3>
-                    <p class="price">$50</p>
-                    <p class="description">Pumpkin flavored and shaped caked with cream cheese frosting with orange geletain and white chocolate chips as pumpkin guts inside.</p>
-                </div>
-            </div>
+                <div class="column3">
 
-            <div class="column3">
-                <div class="orderContainer">
-                    <div class="imageCon">
-                        <img src="/bakes/square/santa cupcakes.jpg" class="orderImage">
-                        <button class="orderBtn">Order Now!</button>
-                    </div>
-                    <h3>Santa hat Cupcakes</h3>
-                    <p class="price">$15</p>
-                    <p class="description">Vanilla cupcakes with white chocolate buttercream filled with cranberry filling.</p>
+                    @if (i+1 < Model.Holiday.Count)
+                    {
+                        <div class="orderContainer">
+                            <input type="number" name="id" id="id" value="@Model.Holiday[i+1].BakeID" hidden />
+                            <div class="imageCon">
+                                <img src="@Model.Holiday[i+1].ImgPath" class="orderImage">
+                                <input class="orderBtn" id="order" type="button" value="Order Now!">
+                            </div>
+                            <h3>@Model.Holiday[i+1].BakeName</h3>
+                            <p class="price">$@Model.Holiday[i+1].Price</p>
+                            <p class="description">@Model.Holiday[i+1].Description</p>
+                        </div>
+                    }
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="column3">
-                <div class="orderContainer">
-                    <div class="imageCon">
-                        <img src="/bakes/square/peppermint cupcakes.jpg" class="orderImage">
-                        <button class="orderBtn">Order Now!</button>
-                    </div>
-                    <h3>Peppermint  Cupcakes</h3>
-                    <p class="price">$10</p>
-                    <p class="description">Chocolate cupcakes with a peppermint buttercream topped with a peppermint.</p>
+                <div class="column3">
+                    @if (i+2 < Model.Holiday.Count)
+                    {
+
+                        <div class="orderContainer">
+                            <input type="number" name="id" id="id" value="@Model.Holiday[i+2].BakeID" hidden />
+                            <div class="imageCon">
+                                <img src="@Model.Holiday[i+2].ImgPath" class="orderImage">
+                                <input class="orderBtn" id="order" type="button" value="Order Now!">
+                            </div>
+                            <h3>@Model.Holiday[i+2].BakeName</h3>
+                            <p class="price">$@Model.Holiday[i+2].Price</p>
+                            <p class="description">@Model.Holiday[i+2].Description</p>
+                        </div>
+                    }
                 </div>
-            </div>
-            <div class="column3">
-                <div class="orderContainer">
-                    <div class="imageCon">
-                        <img src="/bakes/square/VDay cheesecake.jpg" class="orderImage">
-                        <button class="orderBtn">Order Now!</button>
-                    </div>
-                    <h3>Valentine's Day Cheesecake</h3>
-                    <p class="price">$40</p>
-                    <p class="description">New York style cheesecake topped with chocolate covered strawberries and a chocolate heart mold.</p>
-                </div>
-            </div>
-            <div class="column3">
 
             </div>
-        </div>
+        }
 
         <h1 class="center" id="Misc">Misc.</h1>
-        <div class="row">
-            <div class="column3">
-                <div class="orderContainer">
-                    <div class="imageCon">
-                        <img src="/bakes/square/cake pops.jpg" class="orderImage">
-                        <button class="orderBtn">Order Now!</button>
+        @for (int i = 0; i < Model.Misc.Count; i+=3)
+        {
+            <div class="row">
+                <div class="column3">
+                    <div class="orderContainer">
+                        <input type="number" name="id" id="id" value="@Model.Misc[i].BakeID" hidden />
+                        <div class="imageCon">
+                            <img src="@Model.Misc[i].ImgPath" class="orderImage">
+                            <input class="orderBtn" id="order" type="button" value="Order Now!">
+                        </div>
+                        <h3>@Model.Misc[i].BakeName</h3>
+                        <p class="price">$@Model.Misc[i].Price</p>
+                        <p class="description">@Model.Misc[i].Description</p>
                     </div>
-                    <h3>Cake pops</h3>
-                    <p class="price">$15 per 15</p>
-                    <p class="description">Cake pops red velvet and cream cheese & lemon and lavendar flavored.</p>
                 </div>
-            </div>
 
-            <div class="column3">
-                <div class="orderContainer">
-                    <div class="imageCon">
-                        <img src="/bakes/square/rasp bar.jpeg" class="orderImage">
-                        <button class="orderBtn">Order Now!</button>
-                    </div>
-                    <h3>Raspberry Oat Bar</h3>
-                    <p class="price">$10</p>
-                    <p class="description">Raspberry Out Bar.</p>
+                <div class="column3">
+
+                    @if (i+1 < Model.Misc.Count)
+                    {
+                        <div class="orderContainer">
+                            <input type="number" name="id" id="id" value="@Model.Misc[i+1].BakeID" hidden />
+                            <div class="imageCon">
+                                <img src="@Model.Misc[i+1].ImgPath" class="orderImage">
+                                <input class="orderBtn" id="order" type="button" value="Order Now!">
+                            </div>
+                            <h3>@Model.Misc[i+1].BakeName</h3>
+                            <p class="price">$@Model.Misc[i+1].Price</p>
+                            <p class="description">@Model.Misc[i+1].Description</p>
+                        </div>
+                    }
                 </div>
-            </div>
+                <div class="column3">
+                    @if (i+2 < Model.Misc.Count)
+                    {
 
-            <div class="column3">
-                <div class="orderContainer">
-                    <div class="imageCon">
-                        <img src="/bakes/square/swiss rolls.jpg" class="orderImage">
-                        <button class="orderBtn">Order Now!</button>
-                    </div>
-                    <h3>Swiss Rolls</h3>
-                    <p class="price">$20</p>
-                    <p class="description">Chocolate and peppermint swiss rolls.</p>
+                        <div class="orderContainer">
+                            <input type="number" name="id" id="id" value="@Model.Misc[i+2].BakeID" hidden />
+                            <div class="imageCon">
+                                <img src="@Model.Cakes[i+2].ImgPath" class="orderImage">
+                                <input class="orderBtn" id="order" type="button" value="Order Now!">
+                            </div>
+                            <h3>@Model.Misc[i+2].BakeName</h3>
+                            <p class="price">$@Model.Misc[i+2].Price</p>
+                            <p class="description">@Model.Misc[i+2].Description</p>
+                        </div>
+                    }
                 </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="column3">
-                <div class="orderContainer">
-                    <div class="imageCon">
-                        <img src="/bakes/square/tiger pretzels.jpg" class="orderImage">
-                        <button class="orderBtn">Order Now!</button>
-                    </div>
-                    <h3>Tiger Pretzels</h3>
-                    <p class="price">$20</p>
-                    <p class="description">Tiger striped pretzels.</p>
-                </div>
-            </div>
-
-            <div class="column3">
-                <div class="orderContainer">
-                    <div class="imageCon">
-                        <img src="/bakes/square/trifold.jpeg" class="orderImage">
-                        <button class="orderBtn">Order Now!</button>
-                    </div>
-                    <h3>Chocolate Strawberry Trifold</h3>
-                    <p class="price">$25</p>
-                    <p class="description">Chocolate cake with whipped cream, fresh strawberries, and chocolate ganache.</p>
-                </div>
-            </div>
-
-            <div class="column3">
 
             </div>
-        </div>
+        }
 
     </div>
 
@@ -531,7 +508,7 @@
             $("#order").click(function () {
                 $.ajax({
                     type: 'POST',
-                    url: '/ShoppingCartController/Add',
+                    url: '/ShoppingCart/Add',
                     data: { id: $("#id").val() },
                     success: function (result) {
                         alert(result);

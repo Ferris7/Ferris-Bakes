@@ -18,5 +18,6 @@ namespace Ferris_Bakes.Models
         public string FillFlavor { get; set; }
         public string Description { get; set; }
         public double Price { get; set; }
+        public string ImgPath { get; set; }
     } 
 }

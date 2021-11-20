@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ferris_Bakes.Migrations.FerrisBakes
 {
     [DbContext(typeof(FerrisBakesContext))]
-    [Migration("20211116021014_InitialCreate")]
+    [Migration("20211120181000_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -226,6 +226,9 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Frosting")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImgPath")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Price")
