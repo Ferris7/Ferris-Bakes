@@ -7,8 +7,8 @@ using Microsoft.EntityFrameworkCore;
 namespace Ferris_Bakes.Data
 {
     public class UserContext : IdentityDbContext<
-        UserModel, BackendRole, string,
-        IdentityUserClaim<string>, BackendUserRole, IdentityUserLogin<string>,
+        UserModel, CustomerRole, string,
+        IdentityUserClaim<string>, CustomerUserRole, IdentityUserLogin<string>,
         IdentityRoleClaim<string>, IdentityUserToken<string> >
     {
         public UserContext()
@@ -54,7 +54,7 @@ namespace Ferris_Bakes.Data
                 .IsRequired();
             });
 
-            builder.Entity<BackendRole>(b =>
+            builder.Entity<CustomerRole>(b =>
             {
                 // Each Role can have many entries in the UserRole join table
                 b.HasMany(e => e.UserRoles)
@@ -63,7 +63,7 @@ namespace Ferris_Bakes.Data
                     .IsRequired();
             });
 
-            var roles = new[] { new BackendRole("Admin") };
+            var roles = new[] { new CustomerRole("Admin") };
 
             var users = new[]
             {
@@ -83,7 +83,7 @@ namespace Ferris_Bakes.Data
 
             var userRoles = new[]
             {
-                new BackendUserRole
+                new CustomerUserRole
                 {
                     UserId = users[0].Id,
                     RoleId = roles[0].Id
@@ -91,8 +91,8 @@ namespace Ferris_Bakes.Data
             };
 
             builder.Entity<UserModel>().HasData(users);
-            builder.Entity<BackendRole>().HasData(roles);
-            builder.Entity<BackendUserRole>().HasData(userRoles);
+            builder.Entity<CustomerRole>().HasData(roles);
+            builder.Entity<CustomerUserRole>().HasData(userRoles);
         }
     }
 }

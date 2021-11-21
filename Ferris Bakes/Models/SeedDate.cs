@@ -22,6 +22,8 @@ namespace Ferris_Bakes.Models
                 SeedChapters(context);
                 SeedReciepeBooks(context);
                 SeedIngredients(context);
+
+                clearCart(context);
             }
 
         }
@@ -1370,6 +1372,22 @@ namespace Ferris_Bakes.Models
 
             context.AddRange(Resutls);
             context.SaveChanges();
+        }
+
+        public static void clearCart(FerrisBakesContext context)
+        {
+            if (context.Cart.Any())
+            {
+                foreach (CartItemModel c in context.Cart)
+                {
+                    if (c != null)
+                    {
+                        context.Cart.Remove(c);
+                    }
+                }
+
+                context.SaveChanges();
+            }
         }
 
     }

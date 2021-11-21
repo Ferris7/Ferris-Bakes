@@ -130,12 +130,10 @@
         
         <h3 style="text-align: center">Your Cart</h3>
 
-        
-
         <div >
-        @for (int i = 0; i < Model.Cart.Count; i++)
+           @for (int i = 0; i < Model.Cart.Count; i++)
             {
-            <div class="cartItem">
+            <div class="cartItem" id="item @Model.Cart[i].ProductId">
                 <div class="cartImg">
                     <img src="@Model.ItemDesctiption[i].ImgPath" class="orderImage">
                 </div>
@@ -158,6 +156,13 @@
                 
             </div>
             }
+
+            @if (Model.Cart.Count == 0)
+            {
+                <p>There are currently no items in your cart. Click the order button at the top to find some items.</p>
+            }
+
+
         </div>
 
         
@@ -200,11 +205,13 @@
 
 
         function deleteFromCart(bakeId) {
+            var idName = "#item " + bakeId;
             $.ajax({
                 type: 'POST',
                 url: '/ShoppingCart/Delete',
                 data: { id: bakeId },
-                success: function (result) {
+                success: function (result) {                    
+                    $(idName).remove();
                     alert(result);
                 }
             });

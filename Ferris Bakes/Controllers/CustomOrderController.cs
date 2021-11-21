@@ -109,12 +109,12 @@ namespace Ferris_Bakes.Controllers
 
             data.date = DateTime.Now;
 
-            /*using (var context = new OrderModelContext())
+            using (var context = new FerrisBakesContext())
             {
 
                 context.Order.Add(data);  //Context.Order.ToList
                 context.SaveChanges();
-            }*/
+            }
 
             return View(data);
         }

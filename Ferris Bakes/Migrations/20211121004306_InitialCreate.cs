@@ -26,7 +26,8 @@ namespace Ferris_Bakes.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DOB = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -157,17 +158,17 @@ namespace Ferris_Bakes.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "d23dac9d-5167-4673-97c4-a7ac7917122f", "73634f98-13a2-4a55-846b-efcfc0bf90f2", "Admin", null });
+                values: new object[] { "2f2facad-80f5-4ced-bb05-736571ab5da9", "09a5db02-2d63-4b78-89d4-48fbd98c79a5", "Admin", null });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "DOB", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "Name", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "002ba858-d3ff-4d47-bf71-9705ef38e9a1", 0, "b116cd6f-146f-478a-b90c-06a81c9098e4", new DateTime(2000, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), "fdehar1@lsu.edu", true, false, null, "Ferris DeHart", null, "fdehar1@lsu.edu", "AQAAAAEAACcQAAAAEDH/BYWDzXd5E42++nDB5Y6FNh2Ww3E0aD2Pj3CFXYjXY7bSd/4oAIpdCPifiQT6Qg==", null, false, "cc7276dc-d47d-450a-9dbe-0661534103e7", false, "fdehar1@lsu.edu" });
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "DOB", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { "af892b97-4f43-402d-916b-5a103e369461", 0, "e547d65b-9d52-4a4a-8a38-5736ca032fc4", new DateTime(2000, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), "fdehar1@lsu.edu", true, "Ferris", "DeHart", false, null, null, "fdehar1@lsu.edu", "AQAAAAEAACcQAAAAEEBLeP86ct+SVjZNHyYIC9asZ+5l8DC5tilESRKpAhzUAGKdOEYz0RR0WiGZ07NL0w==", null, false, "399b7e8f-a2bb-4170-9844-41310eca0c90", false, "fdehar1@lsu.edu" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "d23dac9d-5167-4673-97c4-a7ac7917122f", "002ba858-d3ff-4d47-bf71-9705ef38e9a1" });
+                values: new object[] { "2f2facad-80f5-4ced-bb05-736571ab5da9", "af892b97-4f43-402d-916b-5a103e369461" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

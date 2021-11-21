@@ -21,7 +21,7 @@ namespace Ferris_Bakes.Areas.Identity
                         context.Configuration.GetConnectionString("UserContext")));
 
                 services.AddDefaultIdentity<UserModel>()
-                .AddRoles<BackendRole>()
+                .AddRoles<CustomerRole>()
                     .AddEntityFrameworkStores<UserContext>();
             });
         }

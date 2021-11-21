@@ -58,41 +58,30 @@
                     {
                         <h2 class="noBotMargin">Filling: @Model.fillFlavor</h2>
                     }
-                <div class="topMarg">
+                    <div class="topMarg">
 
-                    <div class="row3">
-                        <div class="form-inline">
-                            <label for="Size">First Name:</label>
-                            <span class="tab"></span>
-                            <input asp-for="customerFirstName" class="form-control" placeholder="Enter Your Name" id="costumerName">
+                        <div class="row3">
                         </div>
                         <div class="form-inline">
                             <label for="Size">Last Name:</label>
                             <span class="tab"></span>
                             <input asp-for="customerLastName" class="form-control" placeholder="Enter Your Name" id="costumerName">
+                                       name="DueDate" value=DateTime.Today
+                                       min="DateTime.Today+3" max="2024-12-01T00:00">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row3">
-                        <div class="form-inline">
-                            <label for="Size">Date Requested By:</label>
-                            <span class="tab"></span>
-                            <input asp-for="dueDate" class="form-control" type="datetime-local" id="dueDate"
-                                   name="DueDate" value=DateTime.Today
-                                   min="DateTime.Today+3" max="2024-12-01T00:00">
+
+                        <div class="form-group">
+                            <label for="comment">Comments/Special Requests:</label>
+                            <textarea asp-for="comment" class="form-control" rows="5" id="comment"></textarea>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="comment">Comments/Special Requests:</label>
-                        <textarea asp-for="comment" class="form-control" rows="5" id="comment"></textarea>
-                    </div>
+                        <div class="text-center">
+                            <h3> Click below to submit your order! </h3>
+                            <input type="submit" class="btn btn-info" id="betterButton" value="Order Now!" asp-area="Details" asp-controller="CustomOrder" asp-action="OrderPlaced" />
+                        </div>
 
-                    <div class="text-center">
-                        <h3> Click below to submit your order! </h3>
-                        <input type="submit" class="btn btn-info" id="betterButton" value="Order Now!" asp-area="Details" asp-controller="CustomOrder" asp-action="OrderPlaced" />
                     </div>
-
-                </div>
                 </div>
             </form>
         </div>

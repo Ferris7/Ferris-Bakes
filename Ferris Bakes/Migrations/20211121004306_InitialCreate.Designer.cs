@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ferris_Bakes.Migrations
 {
     [DbContext(typeof(UserContext))]
-    [Migration("20211102013114_InitialCreate")]
+    [Migration("20211121004306_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,8 +50,8 @@ namespace Ferris_Bakes.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "d23dac9d-5167-4673-97c4-a7ac7917122f",
-                            ConcurrencyStamp = "73634f98-13a2-4a55-846b-efcfc0bf90f2",
+                            Id = "2f2facad-80f5-4ced-bb05-736571ab5da9",
+                            ConcurrencyStamp = "09a5db02-2d63-4b78-89d4-48fbd98c79a5",
                             Name = "Admin"
                         });
                 });
@@ -73,8 +73,8 @@ namespace Ferris_Bakes.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "002ba858-d3ff-4d47-bf71-9705ef38e9a1",
-                            RoleId = "d23dac9d-5167-4673-97c4-a7ac7917122f"
+                            UserId = "af892b97-4f43-402d-916b-5a103e369461",
+                            RoleId = "2f2facad-80f5-4ced-bb05-736571ab5da9"
                         });
                 });
 
@@ -100,14 +100,17 @@ namespace Ferris_Bakes.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
@@ -151,18 +154,19 @@ namespace Ferris_Bakes.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "002ba858-d3ff-4d47-bf71-9705ef38e9a1",
+                            Id = "af892b97-4f43-402d-916b-5a103e369461",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b116cd6f-146f-478a-b90c-06a81c9098e4",
+                            ConcurrencyStamp = "e547d65b-9d52-4a4a-8a38-5736ca032fc4",
                             DOB = new DateTime(2000, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "fdehar1@lsu.edu",
                             EmailConfirmed = true,
+                            FirstName = "Ferris",
+                            LastName = "DeHart",
                             LockoutEnabled = false,
-                            Name = "Ferris DeHart",
                             NormalizedUserName = "fdehar1@lsu.edu",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDH/BYWDzXd5E42++nDB5Y6FNh2Ww3E0aD2Pj3CFXYjXY7bSd/4oAIpdCPifiQT6Qg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEBLeP86ct+SVjZNHyYIC9asZ+5l8DC5tilESRKpAhzUAGKdOEYz0RR0WiGZ07NL0w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "cc7276dc-d47d-450a-9dbe-0661534103e7",
+                            SecurityStamp = "399b7e8f-a2bb-4170-9844-41310eca0c90",
                             TwoFactorEnabled = false,
                             UserName = "fdehar1@lsu.edu"
                         });

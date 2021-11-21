@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Ferris_Bakes.Data;
 using Microsoft.EntityFrameworkCore;
+using Ferris_Bakes.Logic;
 
 namespace Ferris_Bakes
 {

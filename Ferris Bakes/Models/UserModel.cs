@@ -27,26 +27,26 @@ namespace Ferris_Bakes.Models
         public virtual ICollection<IdentityUserClaim<string>> Claims { get; set; }
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
         public virtual ICollection<IdentityUserToken<string>> Tokens { get; set; }
-        public virtual ICollection<BackendUserRole> UserRoles { get; set; }
+        public virtual ICollection<CustomerUserRole> UserRoles { get; set; }
     }
 
-    public class BackendRole : IdentityRole
+    public class CustomerRole : IdentityRole
     {
-        public virtual ICollection<BackendUserRole> UserRoles { get; set; }
+        public virtual ICollection<CustomerUserRole> UserRoles { get; set; }
 
-        public BackendRole() : base()
+        public CustomerRole() : base()
         { 
         }
 
-        public BackendRole(string roleName) : base(roleName)
+        public CustomerRole(string roleName) : base(roleName)
         {
         }
     }
 
-    public class BackendUserRole : IdentityUserRole<string>
+    public class CustomerUserRole : IdentityUserRole<string>
     {
         public virtual UserModel User { get; set; }
-        public virtual BackendRole Role { get; set; }
+        public virtual CustomerRole Role { get; set; }
     }
 
 }
