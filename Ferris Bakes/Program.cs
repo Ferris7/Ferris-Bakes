@@ -24,9 +24,6 @@ namespace Ferris_Bakes
             {
                 var services = scope.ServiceProvider;
 
-                ShoppingCartActions actions = new ShoppingCartActions();
-                actions.Dispose();
-
                 try
                 {
                     SeedData.Initialize(services);

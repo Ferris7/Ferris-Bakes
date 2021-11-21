@@ -10,7 +10,7 @@ namespace Ferris_Bakes.Logic
 {
     public class ShoppingCartActions : IDisposable
     {
-        public string ShoppingCartId { get; set; }
+        //public string ShoppingCartId { get; set; }
 
         private FerrisBakesContext _db = new FerrisBakesContext();
 
@@ -54,8 +54,7 @@ namespace Ferris_Bakes.Logic
             //ShoppingCartId = GetCartId();
 
             var cartItem = _db.Cart.SingleOrDefault(
-                c => c.CartId == ShoppingCartId
-                && c.ProductId == id);
+                c => c.ProductId == id);
             if (cartItem != null)
             {
                 _db.Cart.Remove(cartItem);
@@ -96,7 +95,7 @@ namespace Ferris_Bakes.Logic
 
         public List<CartItemModel> GetCartItems()
         {
-            ShoppingCartId = GetCartId();
+            //ShoppingCartId = GetCartId();
 
             return _db.Cart.ToList();
         }

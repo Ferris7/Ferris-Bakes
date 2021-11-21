@@ -168,10 +168,9 @@
             <div class="row">
                 <div class="column3">
                     <div class="orderContainer">
-                        <input type="number" name="id" id="id" value="@Model.Cakes[i].BakeID" hidden />
                         <div class="imageCon">
                             <img src="@Model.Cakes[i].ImgPath" class="orderImage">
-                            <input class="orderBtn" id="order" type="button" value="Order Now!">
+                            <button class="orderBtn" onclick="addToCart(@Model.Cakes[i].BakeID)">Order Now!</button>
                         </div>
                         <h3>@Model.Cakes[i].BakeName</h3>
                         <p class="price">$@Model.Cakes[i].Price</p>
@@ -184,10 +183,9 @@
                     @if (i+1 < Model.Cakes.Count)
                     {
                         <div class="orderContainer">
-                            <input type="number" name="id" id="id" value="@Model.Cakes[i+1].BakeID" hidden />
                             <div class="imageCon">
                                 <img src="@Model.Cakes[i+1].ImgPath" class="orderImage">
-                                <input class="orderBtn" id="order" type="button" value="Order Now!">
+                                <button class="orderBtn" onclick="addToCart(@Model.Cakes[i+1].BakeID)">Order Now!</button>
                             </div>
                             <h3>@Model.Cakes[i+1].BakeName</h3>
                             <p class="price">$@Model.Cakes[i+1].Price</p>
@@ -200,10 +198,9 @@
                     {
 
                         <div class="orderContainer">
-                            <input type="number" name="id" id="id" value="@Model.Cakes[i+2].BakeID" hidden />
                             <div class="imageCon">
                                 <img src="@Model.Cakes[i+2].ImgPath" class="orderImage">
-                                <input class="orderBtn" id="order" type="button" value="Order Now!">
+                                <button class="orderBtn" onclick="addToCart(@Model.Cakes[i+2].BakeID)">Order Now!</button>
                             </div>
                             <h3>@Model.Cakes[i + 2].BakeName</h3>
                             <p class="price">$@Model.Cakes[i + 2].Price</p>
@@ -221,10 +218,9 @@
             <div class="row">
                 <div class="column3">
                     <div class="orderContainer">
-                        <input type="number" name="id" id="id" value="@Model.Cookies[i].BakeID" hidden />
                         <div class="imageCon">
                             <img src="@Model.Cookies[i].ImgPath" class="orderImage">
-                            <input class="orderBtn" id="order" type="button" value="Order Now!">
+                            <button class="orderBtn" onclick="addToCart(@Model.Cookies[i].BakeID)">Order Now!</button>
                         </div>
                         <h3>@Model.Cookies[i].BakeName</h3>
                         <p class="price">$@Model.Cookies[i].Price</p>
@@ -237,10 +233,9 @@
                     @if (i+1 < Model.Cookies.Count)
                     {
                         <div class="orderContainer">
-                            <input type="number" name="id" id="id" value="@Model.Cookies[i+1].BakeID" hidden />
                             <div class="imageCon">
                                 <img src="@Model.Cookies[i+1].ImgPath" class="orderImage">
-                                <input class="orderBtn" id="order" type="button" value="Order Now!">
+                                <button class="orderBtn" onclick="addToCart(@Model.Cookies[i+1].BakeID)">Order Now!</button>
                             </div>
                             <h3>@Model.Cookies[i+1].BakeName</h3>
                             <p class="price">$@Model.Cookies[i+1].Price</p>
@@ -253,10 +248,9 @@
                     {
 
                         <div class="orderContainer">
-                            <input type="number" name="id" id="id" value="@Model.Cookies[i+2].BakeID" hidden />
                             <div class="imageCon">
                                 <img src="@Model.Cookies[i+2].ImgPath" class="orderImage">
-                                <input class="orderBtn" id="order" type="button" value="Order Now!">
+                                <button class="orderBtn" onclick="addToCart(@Model.Cookies[i+2].BakeID)">Order Now!</button>
                             </div>
                             <h3>@Model.Cookies[i+2].BakeName</h3>
                             <p class="price">$@Model.Cookies[i+2].Price</p>
@@ -274,10 +268,9 @@
             <div class="row">
                 <div class="column3">
                     <div class="orderContainer">
-                        <input type="number" name="id" id="id" value="@Model.Cupcakes[i].BakeID" hidden />
                         <div class="imageCon">
                             <img src="@Model.Cupcakes[i].ImgPath" class="orderImage">
-                            <input class="orderBtn" id="order" type="button" value="Order Now!">
+                            <button class="orderBtn" onclick="addToCart(@Model.Cupcakes[i].BakeID)">Order Now!</button>
                         </div>
                         <h3>@Model.Cupcakes[i].BakeName</h3>
                         <p class="price">$@Model.Cupcakes[i].Price</p>
@@ -290,10 +283,9 @@
                     @if (i+1 < Model.Cupcakes.Count)
                     {
                         <div class="orderContainer">
-                            <input type="number" name="id" id="id" value="@Model.Cupcakes[i+1].BakeID" hidden />
                             <div class="imageCon">
                                 <img src="@Model.Cupcakes[i+1].ImgPath" class="orderImage">
-                                <input class="orderBtn" id="order" type="button" value="Order Now!">
+                                <button class="orderBtn" onclick="addToCart(@Model.Cupcakes[i+1].BakeID)">Order Now!</button>
                             </div>
                             <h3>@Model.Cupcakes[i+1].BakeName</h3>
                             <p class="price">$@Model.Cupcakes[i+1].Price</p>
@@ -306,10 +298,9 @@
                     {
 
                         <div class="orderContainer">
-                            <input type="number" name="id" id="id" value="@Model.Cupcakes[i+2].BakeID" hidden />
                             <div class="imageCon">
                                 <img src="@Model.Cupcakes[i+2].ImgPath" class="orderImage">
-                                <input class="orderBtn" id="order" type="button" value="Order Now!">
+                                <button class="orderBtn" onclick="addToCart(@Model.Cupcakes[i+2].BakeID)">Order Now!</button>
                             </div>
                             <h3>@Model.Cupcakes[i+2].BakeName</h3>
                             <p class="price">$@Model.Cupcakes[i+2].Price</p>
@@ -327,10 +318,9 @@
             <div class="row">
                 <div class="column3">
                     <div class="orderContainer">
-                        <input type="number" name="id" id="id" value="@Model.Pastry[i].BakeID" hidden />
                         <div class="imageCon">
                             <img src="@Model.Pastry[i].ImgPath" class="orderImage">
-                            <input class="orderBtn" id="order" type="button" value="Order Now!">
+                            <button class="orderBtn" onclick="addToCart(@Model.Pastry[i].BakeID)">Order Now!</button>
                         </div>
                         <h3>@Model.Pastry[i].BakeName</h3>
                         <p class="price">$@Model.Pastry[i].Price</p>
@@ -343,10 +333,9 @@
                     @if (i+1 < Model.Pastry.Count)
                     {
                         <div class="orderContainer">
-                            <input type="number" name="id" id="id" value="@Model.Pastry[i+1].BakeID" hidden />
                             <div class="imageCon">
                                 <img src="@Model.Pastry[i+1].ImgPath" class="orderImage">
-                                <input class="orderBtn" id="order" type="button" value="Order Now!">
+                                <button class="orderBtn" onclick="addToCart(@Model.Pastry[i+1].BakeID)">Order Now!</button>
                             </div>
                             <h3>@Model.Pastry[i+1].BakeName</h3>
                             <p class="price">$@Model.Pastry[i+1].Price</p>
@@ -359,10 +348,9 @@
                     {
 
                         <div class="orderContainer">
-                            <input type="number" name="id" id="id" value="@Model.Pastry[i+2].BakeID" hidden />
                             <div class="imageCon">
                                 <img src="@Model.Pastry[i+2].ImgPath" class="orderImage">
-                                <input class="orderBtn" id="order" type="button" value="Order Now!">
+                                <button class="orderBtn" onclick="addToCart(@Model.Pastry[i+2].BakeID)">Order Now!</button>
                             </div>
                             <h3>@Model.Pastry[i+2].BakeName</h3>
                             <p class="price">$@Model.Pastry[i+2].Price</p>
@@ -380,10 +368,9 @@
             <div class="row">
                 <div class="column3">
                     <div class="orderContainer">
-                        <input type="number" name="id" id="id" value="@Model.Holiday[i].BakeID" hidden />
                         <div class="imageCon">
                             <img src="@Model.Holiday[i].ImgPath" class="orderImage">
-                            <input class="orderBtn" id="order" type="button" value="Order Now!">
+                            <button class="orderBtn" onclick="addToCart(@Model.Holiday[i].BakeID)">Order Now!</button>
                         </div>
                         <h3>@Model.Holiday[i].BakeName</h3>
                         <p class="price">$@Model.Holiday[i].Price</p>
@@ -396,10 +383,9 @@
                     @if (i+1 < Model.Holiday.Count)
                     {
                         <div class="orderContainer">
-                            <input type="number" name="id" id="id" value="@Model.Holiday[i+1].BakeID" hidden />
                             <div class="imageCon">
                                 <img src="@Model.Holiday[i+1].ImgPath" class="orderImage">
-                                <input class="orderBtn" id="order" type="button" value="Order Now!">
+                                <button class="orderBtn" onclick="addToCart(@Model.Holiday[i+1].BakeID)">Order Now!</button>
                             </div>
                             <h3>@Model.Holiday[i+1].BakeName</h3>
                             <p class="price">$@Model.Holiday[i+1].Price</p>
@@ -412,10 +398,9 @@
                     {
 
                         <div class="orderContainer">
-                            <input type="number" name="id" id="id" value="@Model.Holiday[i+2].BakeID" hidden />
                             <div class="imageCon">
                                 <img src="@Model.Holiday[i+2].ImgPath" class="orderImage">
-                                <input class="orderBtn" id="order" type="button" value="Order Now!">
+                                <button class="orderBtn" onclick="addToCart(@Model.Holiday[i+2].BakeID)">Order Now!</button>
                             </div>
                             <h3>@Model.Holiday[i+2].BakeName</h3>
                             <p class="price">$@Model.Holiday[i+2].Price</p>
@@ -433,10 +418,9 @@
             <div class="row">
                 <div class="column3">
                     <div class="orderContainer">
-                        <input type="number" name="id" id="id" value="@Model.Misc[i].BakeID" hidden />
                         <div class="imageCon">
                             <img src="@Model.Misc[i].ImgPath" class="orderImage">
-                            <input class="orderBtn" id="order" type="button" value="Order Now!">
+                            <button class="orderBtn" onclick="addToCart(@Model.Misc[i].BakeID)">Order Now!</button>
                         </div>
                         <h3>@Model.Misc[i].BakeName</h3>
                         <p class="price">$@Model.Misc[i].Price</p>
@@ -449,10 +433,9 @@
                     @if (i+1 < Model.Misc.Count)
                     {
                         <div class="orderContainer">
-                            <input type="number" name="id" id="id" value="@Model.Misc[i+1].BakeID" hidden />
                             <div class="imageCon">
                                 <img src="@Model.Misc[i+1].ImgPath" class="orderImage">
-                                <input class="orderBtn" id="order" type="button" value="Order Now!">
+                                <button class="orderBtn" onclick="addToCart(@Model.Misc[i+1].BakeID)">Order Now!</button>
                             </div>
                             <h3>@Model.Misc[i+1].BakeName</h3>
                             <p class="price">$@Model.Misc[i+1].Price</p>
@@ -465,10 +448,9 @@
                     {
 
                         <div class="orderContainer">
-                            <input type="number" name="id" id="id" value="@Model.Misc[i+2].BakeID" hidden />
                             <div class="imageCon">
                                 <img src="@Model.Cakes[i+2].ImgPath" class="orderImage">
-                                <input class="orderBtn" id="order" type="button" value="Order Now!">
+                                <button class="orderBtn" onclick="addToCart(@Model.Cakes[i+2].BakeID)">Order Now!</button>
                             </div>
                             <h3>@Model.Misc[i+2].BakeName</h3>
                             <p class="price">$@Model.Misc[i+2].Price</p>
@@ -503,19 +485,17 @@
             document.documentElement.scrollTop = 0;
         }
 
-        
-        $(document).ready(function () {
-            $("#order").click(function () {
-                $.ajax({
-                    type: 'POST',
-                    url: '/ShoppingCart/Add',
-                    data: { id: $("#id").val() },
-                    success: function (result) {
-                        alert(result);
-                    }
-                });
-            });                  
-        })
+       
+        function addToCart(bakeId) {
+            $.ajax({
+                type: 'POST',
+                url: '/ShoppingCart/Add',
+                data: { id: bakeId },
+                success: function (result) {
+                    alert(result);
+                }
+            });
+        };                  
 
     </script>
 

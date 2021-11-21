@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ferris_Bakes.Migrations.FerrisBakes
 {
     [DbContext(typeof(FerrisBakesContext))]
-    [Migration("20211120181000_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20211120205520_InitalCreate")]
+    partial class InitalCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -8,11 +8,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/site.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <style>
         .center {
@@ -35,7 +34,7 @@
             margin-left: 15px;
         }
 
-        .orderImage {            
+        .orderImage {
             margin-left: auto;
             margin-right: auto;
             width: 80%;
@@ -122,8 +121,6 @@
         .top {
             margin: auto;
         }
-
-
     </style>
 </head>
 
@@ -131,7 +128,7 @@
     
     <div class="center">
         
-        <h3> You made it!</h3>
+        <h3 style="text-align: center">Your Cart</h3>
 
         
 
@@ -156,8 +153,7 @@
                         <input type="number" step="1" max="" value="@Model.Cart[i].Quantity" name="quantity" class="quantity-field">
                         <input type="button" value="+" class="button-plus" data-field="quantity">
                     </div>
-                    <input type="number" name="id" id="id" value="@Model.Cart[i].ProductId" hidden />
-                    <input class="nav-link" id="delete" type="button" value="Remove from Cart" />
+                    <input class="link-danger" type="button" onclick="deleteFromCart(@Model.Cart[i].ProductId)" value="Remove From Cart">
                 </div>
                 
             </div>
@@ -177,7 +173,7 @@
             if (!isNaN(currentVal)) {
                 parent.find('input[name=' + fieldName + ']').val(currentVal + 1);
             } else {
-                parent.find('input[name=' + fieldName + ']').val(0);
+                parent.find('input[name=' + fieldName + ']').val(1);
             }
         }
 
@@ -190,7 +186,7 @@
             if (!isNaN(currentVal) && currentVal > 1) {
                 parent.find('input[name=' + fieldName + ']').val(currentVal - 1);
             } else {
-                parent.find('input[name=' + fieldName + ']').val(0);
+                parent.find('input[name=' + fieldName + ']').val(1);
             }
         }
 
@@ -203,18 +199,16 @@
         });
 
 
-        $(document).ready(function () {
-            $("#delete").click(function () {
-                $.ajax({
-                    type: 'POST',
-                    url: '/ShoppingCartController/Delete',
-                    data: { id: $("#id").val() },
-                    success: function (result) {
-                        alert(result);
-                    }
-                });
+        function deleteFromCart(bakeId) {
+            $.ajax({
+                type: 'POST',
+                url: '/ShoppingCart/Delete',
+                data: { id: bakeId },
+                success: function (result) {
+                    alert(result);
+                }
             });
-        })
+        };
     </script>
 
 </body>
