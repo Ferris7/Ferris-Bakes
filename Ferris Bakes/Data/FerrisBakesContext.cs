@@ -17,16 +17,6 @@ namespace Ferris_Bakes.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            /*modelBuilder.Entity<ReciepeBook>()
-                .HasMany(r => r.Reciepes);
-            modelBuilder.Entity<ReciepeBook>()
-                .HasMany(r => r.Chapters);*
-            modelBuilder.Entity<ReciepeBook>()
-                .HasKey(rb => rb.BookId);
-            modelBuilder.Entity<ReciepeModel>()
-                .HasKey(r => r.ReciepeNumber);
-            modelBuilder.Entity<Chapter>()
-                .HasKey(c => c.ChapterId);*/
             modelBuilder.Entity<Ingredients>()
                 .HasKey(i => i.ReciepeID);
 
@@ -41,12 +31,43 @@ namespace Ferris_Bakes.Data
                 .Property(i => i.ChapterId)
                 .ValueGeneratedNever();
 
+            modelBuilder.Entity<CartItemModel>()
+                .HasOne<SetOrderModel>(c => c.Product)
+                .WithOne()
+                .HasForeignKey<CartItemModel>(c => c.ProductId
+                );
+
+            /*modelBuilder.Entity<CartItemModel>()
+                .HasOne<CustomOrderModel>(c => c.CustomProduct)
+                .WithOne()
+                .HasForeignKey<CartItemModel>(c => c.CustomProductId
+                );*/
+
+            modelBuilder.Entity<CustomOrderModel>()
+                .HasKey(i => i.CustomBakeID);
+
+            modelBuilder.Entity<SetOrderModel>()
+                .HasKey(i => i.BakeID);
+
+            modelBuilder.Entity<DatabaseSetOrder>()
+                .HasKey(i => i.DBkey);
+
+            modelBuilder.Entity<DatabaseCustomOrder>()
+                .HasKey(i => i.DBkey);
+
+            modelBuilder.Entity<DatabaseCustomOrder>()
+                .HasOne<CustomOrderModel>()
+                .WithMany()
+                .HasForeignKey(d => d.CustomOrderId);
 
         }
 
-        public DbSet<CustomOrderModel> Order { get; set; }
-        public DbSet<SetOrderModel> SetOrder { get; set; }
+        public DbSet<DatabaseSetOrder> SetOrders { get; set; }
+        public DbSet<DatabaseCustomOrder> CustomOrders { get; set; }
+        public DbSet<CustomOrderModel> CustomOrderList { get; set; }
+        public DbSet<SetOrderModel> SetOrderList { get; set; }
         public DbSet<CartItemModel> Cart { get; set; }
+        public DbSet<CustomCartItemModel> CustomCart { get; set; }
         public DbSet<ReciepeModel> Reciepes { get; set; }
         public DbSet<ReciepeBook> ReciepeBook { get; set; }
         public DbSet<Chapter> Chapters { get; set; }

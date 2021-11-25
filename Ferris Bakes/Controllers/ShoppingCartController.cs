@@ -31,24 +31,106 @@ namespace Ferris_Bakes.Controllers
                 ShoppingCartActions actions = new ShoppingCartActions();
 
                 temp.Cart = actions.GetCartItems();
-                temp.ItemDesctiption = new List<SetOrderModel>();
+                temp.CustomCart = actions.GetCustomCartItems();
+                temp.ItemDescription = new List<SetOrderModel>();
 
                 foreach ( CartItemModel c in temp.Cart)
                 {
-                    temp.ItemDesctiption.Add(context.SetOrder.Find(c.ProductId));
+                    temp.ItemDescription.Add(context.SetOrderList.Find(c.ProductId));
+                }
+
+                foreach (CustomCartItemModel c in temp.CustomCart)
+                {
+                    temp.CustomItemDescription.Add(context.CustomOrderList.Find(c.CustomProductId));
                 }
 
                 return View(temp);
             }
         }
 
+        public IActionResult Checkout()
+        {
+            return View();
+        }
+
+        public IActionResult OrderPlaced(CheckoutOrderModel model)
+        {
+            using (var context = new FerrisBakesContext())
+            {
+                foreach (CartItemModel m in context.Cart)
+                {
+                    var cartItem = context.SetOrderList.SingleOrDefault(
+                    c => c.BakeID == m.ProductId);
+
+                    if (cartItem != null)
+                    {
+                        context.SetOrders.Add(setOrderConvert(model, cartItem));
+                    }
+
+                    context.Cart.Remove(m);
+                }
+
+                foreach (CustomCartItemModel m in context.CustomCart)
+                {
+                    var cartItem = context.CustomOrderList.SingleOrDefault(
+                    c => c.CustomBakeID == m.CustomProductId);
+
+                    if (cartItem != null)
+                    {
+                        context.CustomOrders.Add(customOrderConvert(model, cartItem));
+                    }
+
+                    context.CustomCart.Remove(m);
+                }
+
+                context.SaveChanges();
+
+            }
+
+            return View(model);
+        }
+
+        public DatabaseSetOrder setOrderConvert(CheckoutOrderModel order, SetOrderModel cartItem)
+        {
+            DatabaseSetOrder db = new DatabaseSetOrder();
+            db.SetOrderId = cartItem.BakeID;
+            db.CustomerFirstName = order.CustomerFirstName;
+            db.CustomerLastName = order.CustomerLastName;
+            db.CustomerEmail = order.CustomerEmail;
+            db.CustomerPhoneNumber = order.CustomerPhoneNumber;
+            db.DueDate = order.DueDate;
+
+            return db;
+        }
+
+        public DatabaseCustomOrder customOrderConvert(CheckoutOrderModel order, CustomOrderModel cartItem)
+        {
+            DatabaseCustomOrder db = new DatabaseCustomOrder();
+            db.CustomOrderId = cartItem.CustomBakeID;
+            db.CustomerFirstName = order.CustomerFirstName;
+            db.CustomerLastName = order.CustomerLastName;
+            db.CustomerEmail = order.CustomerEmail;
+            db.CustomerPhoneNumber = order.CustomerPhoneNumber;
+            db.DueDate = order.DueDate;
+
+            return db;
+        }
 
         [HttpPost]
         public IActionResult Delete(int id)
         {
             ShoppingCartActions actions = new ShoppingCartActions();
 
-            actions.DeleteFromCart(id);
+            actions.DeleteFromSetCart(id);
+            return Ok("Success");
+        }
+
+        [HttpPost]
+        public IActionResult CustomDelete(int id)
+        {
+            ShoppingCartActions actions = new ShoppingCartActions();
+
+            actions.DeleteFromCustomCart(id);
             return Ok("Success");
         }
 
@@ -57,7 +139,7 @@ namespace Ferris_Bakes.Controllers
         {
             ShoppingCartActions actions = new ShoppingCartActions();
 
-            actions.AddToCart(id);
+            actions.AddToSetCart(id);
             return Ok("Success");
         }
 

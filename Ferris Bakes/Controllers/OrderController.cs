@@ -25,7 +25,7 @@ namespace Ferris_Bakes.Controllers
             {
                 SetOrderListModel temp = new SetOrderListModel();
 
-                foreach (SetOrderModel Bake in context.SetOrder)
+                foreach (SetOrderModel Bake in context.SetOrderList)
                 {
                     switch (Bake.BakeType)
                     {

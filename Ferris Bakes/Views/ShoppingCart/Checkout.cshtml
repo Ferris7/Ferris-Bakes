@@ -1,8 +1,9 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+        ViewData["Title"] = "Home Page";
 }
 
-@model CustomOrderModel
+@model CheckoutOrderModel
+
 
 <head>
     <meta charset="utf-8">
@@ -39,46 +40,46 @@
                 <h1 class="display-4">Order Delicious Bakes Here!</h1>
             </div>
 
-            <form asp-controller="CustomOrder" asp-action="Details" method="post">
+            <form asp-controller="ShoppingCart" asp-action="OrderPlaced" method="post">
                 <div class="form" id="formWidth">
 
-                    <input asp-for="bake" value="@Model.bake" type="hidden" />
-                    <input asp-for="flavor" value="@Model.flavor" type="hidden" />
-                    <input asp-for="Frosting" value="@Model.Frosting" type="hidden" />
-                    <input asp-for="fillFlavor" value="@Model.fillFlavor" type="hidden" />
-
-                    <h2 class="noBotMargin">Bake Type: @Model.bake</h2>
-                    <h2 class="noBotMargin">Flavor: @Model.flavor</h2>
-
-                    @if (@Model.Frosting != null)
-                    {
-                        <h2 class="noBotMargin">Frosting: @Model.Frosting</h2>
-                    }
-                    @if (@Model.fillFlavor != null)
-                    {
-                        <h2 class="noBotMargin">Filling: @Model.fillFlavor</h2>
-                    }
                     <div class="topMarg">
 
                         <div class="row3">
+                            <div class="form-inline">
+                                <label for="CustomerFirstName">First Name:</label>
+                                <span class="tab"></span>
+                                <input asp-for="CustomerFirstName" class="form-control" placeholder="Enter your first name" id="costumerName">
+                            </div>
+                            <div class="form-inline">
+                                <label for="CustomerLastName">Last Name:</label>
+                                <span class="tab"></span>
+                                <input asp-for="CustomerLastName" class="form-control" placeholder="Enter your last name" id="costumerName">
+                            </div>
                         </div>
-                        <div class="form-inline">
-                            <label for="Size">Last Name:</label>
+                        <div class="row3">
+                            <label for="CustomerEmail">Email:</label>
                             <span class="tab"></span>
-                            <input asp-for="customerLastName" class="form-control" placeholder="Enter Your Name" id="costumerName">
+                            <input asp-for="CustomerEmail" class="form-control" placeholder="Enter your email" />
+                        </div>
+                        <div class="row3">
+                            <label for="CustomerPhoneNumber">Phone Number:</label>
+                            <span class="tab"></span>
+                            <input asp-for="CustomerPhoneNumber" class="form-control" placeholder="Enter your phone number" />
+                        </div>
+                        <div class="row3">
+                            <div class="form-inline">
+                                <label for="Size">Date Requested By:</label>
+                                <span class="tab"></span>
+                                <input asp-for="DueDate" class="form-control" type="datetime-local" id="dueDate"
                                        name="DueDate" value=DateTime.Today
                                        min="DateTime.Today+3" max="2024-12-01T00:00">
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="comment">Comments/Special Requests:</label>
-                            <textarea asp-for="comment" class="form-control" rows="5" id="comment"></textarea>
-                        </div>
-
                         <div class="text-center">
                             <h3> Click below to submit your order! </h3>
-                            <input type="submit" class="btn btn-info" id="betterButton" value="Order Now!" asp-area="Details" asp-controller="CustomOrder" asp-action="OrderPlaced" />
+                            <input type="submit" class="btn btn-info" id="betterButton" value="Order Now!" asp-controller="ShoppingCart" asp-action="OrderPlaced" />
                         </div>
 
                     </div>
@@ -94,25 +95,3 @@
     </div>
 
 </body>
-
-<script>
-    function setFilling() {
-        var checkBox = document.getElementById("customCheck");
-        var text = document.getElementById("fillingCheck");
-        if (checkBox.checked == true) {
-            text.style.display = "block";
-        } else {
-            text.style.display = "none";
-        }
-    }
-
-    function delay() {
-        var x = document.getElementById("delayOne");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-
-</script>

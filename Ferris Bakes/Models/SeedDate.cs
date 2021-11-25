@@ -32,12 +32,12 @@ namespace Ferris_Bakes.Models
         {
            
             // Look for any orders.
-            if (context.SetOrder.Any())
+            if (context.SetOrderList.Any())
             {
                 return;   // DB has been seeded
             }
 
-            context.SetOrder.AddRange(
+            context.SetOrderList.AddRange(
                 new SetOrderModel
                 {
                     BakeName = "Chocolate and Bailey's Cake",

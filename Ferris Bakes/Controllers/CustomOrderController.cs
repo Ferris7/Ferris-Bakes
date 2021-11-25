@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Ferris_Bakes.Logic;
 
 namespace Ferris_Bakes.Controllers
 {
@@ -98,25 +99,50 @@ namespace Ferris_Bakes.Controllers
 
             ViewData["Bake"] = data.bake;
 
-            ViewData["ID"] = data.orderNumber;
+            ViewData["ID"] = data.CustomBakeID;
 
-            return View("OrderPlaced", data);
+            
+
+            return View();
         }
 
         public IActionResult OrderPlaced(CustomOrderModel data)
         {
             //put in database
 
-            data.date = DateTime.Now;
-
             using (var context = new FerrisBakesContext())
             {
 
-                context.Order.Add(data);  //Context.Order.ToList
+                context.CustomOrderList.Add(data);  //Context.Order.ToList
+
+                var cartItem = context.CustomCart.SingleOrDefault(
+                    c => c.CustomProductId == data.CustomBakeID);
+                if (cartItem == null)
+                {
+                    // Create a new cart item if no cart item exists.                 
+                    cartItem = new CustomCartItemModel
+                    {
+                        ItemId = Guid.NewGuid().ToString(),
+                        CustomProductId = data.CustomBakeID,
+                        CustomProduct = context.CustomOrderList.SingleOrDefault(
+                        p => p.CustomBakeID == data.CustomBakeID),
+                        Quantity = data.size,
+                        DateCreated = DateTime.Now
+                    };
+
+                    context.CustomCart.Add(cartItem);
+                }
+                else
+                {
+                    // If the item does exist in the cart,                  
+                    // then add one to the quantity.                 
+                    cartItem.Quantity++;
+                }
+
                 context.SaveChanges();
             }
 
-            return View(data);
+            return View();
         }
 
 

@@ -22,7 +22,7 @@ namespace Ferris_Bakes.Controllers
         // GET: OrderModels
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Order.ToListAsync());
+            return View(await _context.CustomOrderList.ToListAsync());
         }
 
         // GET: OrderModels/Details/5
@@ -33,8 +33,8 @@ namespace Ferris_Bakes.Controllers
                 return NotFound();
             }
 
-            var orderModel = await _context.Order
-                .FirstOrDefaultAsync(m => m.orderNumber == id);
+            var orderModel = await _context.CustomOrderList
+                .FirstOrDefaultAsync(m => m.CustomBakeID == id);
             if (orderModel == null)
             {
                 return NotFound();
@@ -73,7 +73,7 @@ namespace Ferris_Bakes.Controllers
                 return NotFound();
             }
 
-            var orderModel = await _context.Order.FindAsync(id);
+            var orderModel = await _context.CustomOrderList.FindAsync(id);
             if (orderModel == null)
             {
                 return NotFound();
@@ -88,7 +88,7 @@ namespace Ferris_Bakes.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("orderNumber,bake,flavor,size,filling,fillFlavor,comment,customerName,date,dueDate")] CustomOrderModel orderModel)
         {
-            if (id != orderModel.orderNumber)
+            if (id != orderModel.CustomBakeID)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace Ferris_Bakes.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!OrderModelExists(orderModel.orderNumber))
+                    if (!OrderModelExists(orderModel.CustomBakeID))
                     {
                         return NotFound();
                     }
@@ -124,8 +124,8 @@ namespace Ferris_Bakes.Controllers
                 return NotFound();
             }
 
-            var orderModel = await _context.Order
-                .FirstOrDefaultAsync(m => m.orderNumber == id);
+            var orderModel = await _context.CustomOrderList
+                .FirstOrDefaultAsync(m => m.CustomBakeID == id);
             if (orderModel == null)
             {
                 return NotFound();
@@ -139,15 +139,15 @@ namespace Ferris_Bakes.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var orderModel = await _context.Order.FindAsync(id);
-            _context.Order.Remove(orderModel);
+            var orderModel = await _context.CustomOrderList.FindAsync(id);
+            _context.CustomOrderList.Remove(orderModel);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool OrderModelExists(int id)
         {
-            return _context.Order.Any(e => e.orderNumber == id);
+            return _context.CustomOrderList.Any(e => e.CustomBakeID == id);
         }
     }
 }

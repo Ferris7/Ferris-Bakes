@@ -10,36 +10,36 @@
     <h2>List of Orders:</h2>
 
     
-    @foreach (var Order in Model.OrderList)
+    @for (int i = 0; i < Model.CustomOrderList.Count; i++)
     {
         <div class="card">
             <div class="card-header">
-                <label asp-for="@Order.orderNumber">Order Number: </label>
-                <input asp-for="@Order.orderNumber" readonly />
+                <label asp-for="@Model.dbCustom[i].CustomOrderId">Order Number: </label>
+                <input asp-for="@Model.dbCustom[i].CustomOrderId" readonly />
             </div>
             <div class="card-body">
-                <label asp-for="@Order.bake">Bake: </label>
-                <input asp-for="@Order.bake" readonly />
-                <label asp-for="@Order.flavor">Flavor: </label>
-                <input asp-for="@Order.flavor" readonly />
-                <label asp-for="@Order.Frosting">Frosting: </label>
-                <input asp-for="@Order.Frosting" readonly />
-                <label asp-for="@Order.filling">Filling: </label>
-                <input asp-for="@Order.filling" readonly />
-                <label asp-for="@Order.fillFlavor">Filling Flavor: </label>
-                <input asp-for="@Order.fillFlavor" readonly />
-                <label asp-for="@Order.size">Size/Quantity: </label>
-                <input asp-for="@Order.size" readonly />
-                <label asp-for="@Order.comment">Comments: </label>
-                <input asp-for="@Order.comment" readonly />
-                <label asp-for="@Order.customerFirstName">Name: </label>
-                <input asp-for="@Order.customerFirstName" readonly />
-                <label asp-for="@Order.customerLastName">Name: </label>
-                <input asp-for="@Order.customerLastName" readonly />
-                <label asp-for="@Order.date">Date Submitted: </label>
-                <input asp-for="@Order.date" readonly />
-                <label asp-for="@Order.dueDate">Date Requested: </label>
-                <input asp-for="@Order.dueDate" readonly />
+                <label asp-for="@Model.CustomOrderList[i].bake">Bake: </label>
+                <input asp-for="@Model.CustomOrderList[i].bake" readonly />
+                <label asp-for="@Model.CustomOrderList[i].flavor">Flavor: </label>
+                <input asp-for="@Model.CustomOrderList[i].flavor" readonly />
+                <label asp-for="@Model.CustomOrderList[i].Frosting">Frosting: </label>
+                <input asp-for="@Model.CustomOrderList[i].Frosting" readonly />
+                <label asp-for="@Model.CustomOrderList[i].filling">Filling: </label>
+                <input asp-for="@Model.CustomOrderList[i].filling" readonly />
+                <label asp-for="@Model.CustomOrderList[i].fillFlavor">Filling Flavor: </label>
+                <input asp-for="@Model.CustomOrderList[i].fillFlavor" readonly />
+                <label asp-for="@Model.CustomOrderList[i].size">Size/Quantity: </label>
+                <input asp-for="@Model.CustomOrderList[i].size" readonly />
+                <label asp-for="@Model.CustomOrderList[i].comment">Comments: </label>
+                <input asp-for="@Model.CustomOrderList[i].comment" readonly />
+                <label asp-for="@Model.dbCustom[i].CustomerFirstName">Name: </label>
+                <input asp-for="@Model.dbCustom[i].CustomerFirstName" readonly />
+                <label asp-for="@Model.dbCustom[i].CustomerLastName">Name: </label>
+                <input asp-for="@Model.dbCustom[i].CustomerLastName" readonly />
+                <label asp-for="@Model.dbCustom[i].DatePlaced">Date Submitted: </label>
+                <input asp-for="@Model.dbCustom[i].DatePlaced" readonly />
+                <label asp-for="@Model.dbCustom[i].DueDate">Date Requested: </label>
+                <input asp-for="@Model.dbCustom[i].DueDate" readonly />
             </div>
         </div>
     }
