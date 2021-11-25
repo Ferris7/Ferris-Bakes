@@ -64,10 +64,12 @@ namespace Ferris_Bakes.Data
 
         public DbSet<DatabaseSetOrder> SetOrders { get; set; }
         public DbSet<DatabaseCustomOrder> CustomOrders { get; set; }
+        public DbSet<DatabaseRecipeOrder> RecipeOrders { get; set; }
         public DbSet<CustomOrderModel> CustomOrderList { get; set; }
         public DbSet<SetOrderModel> SetOrderList { get; set; }
         public DbSet<CartItemModel> Cart { get; set; }
         public DbSet<CustomCartItemModel> CustomCart { get; set; }
+        public DbSet<ReciepeModel> RecipeCart { get; set; }
         public DbSet<ReciepeModel> Reciepes { get; set; }
         public DbSet<ReciepeBook> ReciepeBook { get; set; }
         public DbSet<Chapter> Chapters { get; set; }

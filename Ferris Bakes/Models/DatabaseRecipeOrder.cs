@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ferris_Bakes.Models
 {
-    public class DatabaseSetOrder
+    public class DatabaseRecipeOrder
     {
         [Key]
         public int DBkey { get; set; }
