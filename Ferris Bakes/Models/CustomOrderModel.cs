@@ -11,7 +11,7 @@ namespace Ferris_Bakes.Models
     {
         [Key]
         public int CustomBakeID { get; set; }
-        //public int OrderNum { get; set; }
+        public string ConfirmationNumber { get; set; }
         public string bake { get; set; }
         public string flavor { get; set; }
         [NotMapped] public List<string> flavorOptions { get; set; }
@@ -23,6 +23,8 @@ namespace Ferris_Bakes.Models
         public string comment { get; set; }
         public string customerFirstName { get; set; }
         public string customerLastName { get; set; }
+        public string CustomerEmail { get; set; }
+        public string CustomerPhone { get; set; }
         public DateTime date { get; set; }
         public DateTime dueDate { get; set; }
 
@@ -31,8 +33,6 @@ namespace Ferris_Bakes.Models
         public List<string> FrostingList = new List<string> { "Baileys", "Blueberry", "Chocolate", "Cream Cheese", "Lavendar", "None", "Strawberry", "Vanilla" };
 
         public List<string> FillingList = new List<string> { "Blackberry", "Blueberry", "Mango", "Peach", "Strawberry", "Raspberry"};
-
-        //public DatabaseCustomOrder dbOrder { get; set; }
     
         public void calculatePrice()
         {

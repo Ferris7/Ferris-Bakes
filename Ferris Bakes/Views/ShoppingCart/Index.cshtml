@@ -131,63 +131,48 @@
         <h3 style="text-align: center">Your Cart</h3>
 
         <div>
-            @for (int i = 0; i < Model.Cart.Count; i++)
+            @foreach (CartItemModel m in Model.Cart)
             {
-                <div class="cartItem" id="item @Model.Cart[i].ProductId">
+                <div class="cartItem" id="@m.ItemId">
                     <div class="cartImg">
-                        <img src="@Model.ItemDescription[i].ImgPath" class="orderImage">
+                        <img src="@m.imgPath" class="orderImage">
                     </div>
                     <div class="details">
-                        <p class="title"><b>@Model.ItemDescription[i].BakeName</b></p>
-                        <p class="description">@Model.ItemDescription[i].Description</p>
+                        <p class="title"><b>@m.Title</b></p>
+                        <p class="description">@m.Description</p>
                     </div>
                     <div class="price">
                         <div class="top">
-                            <p>$@Model.ItemDescription[i].Price</p>
+                            <p>$@m.Price</p>
                         </div>
 
                         <div class="input-group">
                             <input type="button" value="-" class="button-minus" data-field="quantity">
-                            <input type="number" step="1" max="" value="@Model.Cart[i].Quantity" name="quantity" class="quantity-field">
+                            <input type="number" step="1" max="" value="@m.Quantity" name="quantity" class="quantity-field">
                             <input type="button" value="+" class="button-plus" data-field="quantity">
                         </div>
-                        <input class="link-danger" type="button" onclick="deleteFromCart(@Model.Cart[i].ProductId)" value="Remove From Cart">
+                        @if (m.SetOrder)
+                        {
+                            <input class="link-danger" type="button" onclick="deleteFromCart(@m.ProductId, 1, '@m.ItemId')" value="Remove From Cart">
+                        }
+                        else
+                        { 
+                            <input class="link-danger" type="button" onclick="deleteFromCart(@m.RecipeId, 0, '@m.ItemId')" value="Remove From Cart">
+                        }
+
                     </div>
 
                 </div>
-            }
-            @for (int i = 0; i < Model.CustomCart.Count; i++)
-            {
-                <div class="cartItem" id="item @Model.CustomCart[i].CustomProductId">
-                    <div class="cartImg">
-                        <img src="/bakes/square/no Photo.jpg" class="orderImage">
-                    </div>
-                    <div class="details">
-                        <p class="title"><b>@Model.CustomItemDescription[i].bake</b></p>
-                        <p class="description">Flavor: @Model.CustomItemDescription[i].flavor,</p>
-                    </div>
-                    <div class="price">
-                        <div class="top">
-                            <p>$@Model.CustomItemDescription[i].Price</p>
-                        </div>
-
-                        <div class="input-group">
-                            <input type="button" value="-" class="button-minus" data-field="quantity">
-                            <input type="number" step="1" max="" value="@Model.CustomCart[i].Quantity" name="quantity" class="quantity-field">
-                            <input type="button" value="+" class="button-plus" data-field="quantity">
-                        </div>
-                        <input class="link-danger" type="button" onclick="deleteFromCustomCart(@Model.CustomCart[i].CustomProductId)" value="Remove From Cart">
-                    </div>
-
-                </div>
+               
             }
 
-            @if (Model.Cart.Count == 0 && Model.CustomCart.Count == 0)
+
+            @if (Model.Cart.Count == 0)
             {
                 <p>There are currently no items in your cart. Click the order button at the top to find some items.</p>
             }
 
-
+            <p style="font-size: 16px; text-align: left">Total Price: $@Model.calculatePrice()</p>
         </div>
 
         
@@ -229,31 +214,19 @@
         });
 
 
-        function deleteFromCart(bakeId) {
-            var idName = "#item " + bakeId;
+        function deleteFromCart(bakeId, prod, itemId) {
             $.ajax({
                 type: 'POST',
                 url: '/ShoppingCart/Delete',
-                data: { id: bakeId },
+                data: { id: bakeId, prod: prod },
                 success: function (result) {                    
-                    $(idName).remove();
+                    $(document.getElementById(itemId)).remove();
                     alert(result);
                 }
             });
         };
 
-        function deleteFromCustomCart(bakeId) {
-            var idName = "#item " + bakeId;
-            $.ajax({
-                type: 'POST',
-                url: '/ShoppingCart/CustomDelete',
-                data: { id: bakeId },
-                success: function (result) {
-                    $(idName).remove();
-                    alert(result);
-                }
-            });
-        };
+
     </script>
 
 </body>

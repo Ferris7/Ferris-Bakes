@@ -22,7 +22,7 @@ namespace Ferris_Bakes.Controllers
         // GET: OrderModels
         public async Task<IActionResult> Index()
         {
-            return View(await _context.CustomOrderList.ToListAsync());
+            return View(await _context.CustomOrders.ToListAsync());
         }
 
         // GET: OrderModels/Details/5
@@ -33,7 +33,7 @@ namespace Ferris_Bakes.Controllers
                 return NotFound();
             }
 
-            var orderModel = await _context.CustomOrderList
+            var orderModel = await _context.CustomOrders
                 .FirstOrDefaultAsync(m => m.CustomBakeID == id);
             if (orderModel == null)
             {
@@ -73,7 +73,7 @@ namespace Ferris_Bakes.Controllers
                 return NotFound();
             }
 
-            var orderModel = await _context.CustomOrderList.FindAsync(id);
+            var orderModel = await _context.CustomOrders.FindAsync(id);
             if (orderModel == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace Ferris_Bakes.Controllers
                 return NotFound();
             }
 
-            var orderModel = await _context.CustomOrderList
+            var orderModel = await _context.CustomOrders
                 .FirstOrDefaultAsync(m => m.CustomBakeID == id);
             if (orderModel == null)
             {
@@ -139,15 +139,15 @@ namespace Ferris_Bakes.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var orderModel = await _context.CustomOrderList.FindAsync(id);
-            _context.CustomOrderList.Remove(orderModel);
+            var orderModel = await _context.CustomOrders.FindAsync(id);
+            _context.CustomOrders.Remove(orderModel);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool OrderModelExists(int id)
         {
-            return _context.CustomOrderList.Any(e => e.CustomBakeID == id);
+            return _context.CustomOrders.Any(e => e.CustomBakeID == id);
         }
     }
 }

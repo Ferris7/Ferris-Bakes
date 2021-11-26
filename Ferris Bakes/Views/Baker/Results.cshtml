@@ -97,7 +97,7 @@
                     <p class="price">@Model.Results[i].Price</p>
                     <p class="size">@Model.Results[i].Size</p>
                     <p class="description">@Model.Results[i].Description</p>
-                    <button class="btn btn-info" id="betterButton">Order Now!</button>
+                    <button class="btn btn-info" onclick="addToCart(@Model.Results[i].ReciepeNumber)" id="betterButton">Order Now!</button>
                 </div>
             </div>
             <div class="column3">
@@ -108,7 +108,7 @@
                         <p class="price">@Model.Results[i + 1].Price</p>
                         <p class="size">@Model.Results[i + 1].Size</p>
                         <p class="description">@Model.Results[i + 1].Description</p>
-                        <button class="btn btn-info" id="betterButton">Order Now!</button>
+                        <button class="btn btn-info" onclick="addToCart(@Model.Results[i].ReciepeNumber)" id="betterButton">Order Now!</button>
                     </div>
                 }
 
@@ -121,10 +121,24 @@
                         <p class="price">@Model.Results[i + 2].Price</p>
                         <p class="size">@Model.Results[i + 2].Size</p>
                         <p class="description">@Model.Results[i + 2].Description</p>
-                        <button class="btn btn-info" id="betterButton">Order Now!</button>
+                        <button class="btn btn-info" onclick="addToCart(@Model.Results[i].ReciepeNumber)" id="betterButton">Order Now!</button>
                     </div>
                 }
             </div>
         </div>
     }
+
+    <script>
+        function addToCart(bakeId) {
+            $.ajax({
+                type: 'POST',
+                url: '/ShoppingCart/AddRecipe',
+                data: { id: bakeId },
+                success: function (result) {
+                    alert(result);
+                }
+            });
+        };
+    </script>
+
 </body>

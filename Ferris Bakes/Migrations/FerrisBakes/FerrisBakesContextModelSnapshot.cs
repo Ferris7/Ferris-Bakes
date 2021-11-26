@@ -92,42 +92,36 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.HasKey("ItemId");
+                    b.Property<int>("RecipeId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("ProductId")
-                        .IsUnique();
+                    b.Property<bool>("RecipeOrder")
+                        .HasColumnType("bit");
 
-                    b.ToTable("Cart");
-                });
+                    b.Property<bool>("SetOrder")
+                        .HasColumnType("bit");
 
-            modelBuilder.Entity("Ferris_Bakes.Models.CustomCartItemModel", b =>
-                {
-                    b.Property<string>("ItemId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("CartId")
+                    b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CustomProductId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
+                    b.Property<string>("imgPath")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ItemId");
 
-                    b.HasIndex("CustomProductId");
-
-                    b.ToTable("CustomCart");
+                    b.ToTable("Cart");
                 });
 
             modelBuilder.Entity("Ferris_Bakes.Models.CustomOrderModel", b =>
@@ -136,6 +130,15 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ConfirmationNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerPhone")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Frosting")
                         .HasColumnType("nvarchar(max)");
@@ -175,42 +178,6 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
 
                     b.HasKey("CustomBakeID");
 
-                    b.ToTable("CustomOrderList");
-                });
-
-            modelBuilder.Entity("Ferris_Bakes.Models.DatabaseCustomOrder", b =>
-                {
-                    b.Property<int>("DBkey")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CustomOrderId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CustomerEmail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CustomerFirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CustomerLastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CustomerPhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DatePlaced")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DueDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("OrderNumber")
-                        .HasColumnType("int");
-
-                    b.HasKey("DBkey");
-
                     b.ToTable("CustomOrders");
                 });
 
@@ -236,14 +203,29 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                     b.Property<DateTime>("DatePlaced")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("DueDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("OrderNumber")
                         .HasColumnType("int");
 
+                    b.Property<bool>("RecipeOrder")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("RecipeOrderId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("SetOrder")
+                        .HasColumnType("bit");
+
                     b.Property<int>("SetOrderId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("DBkey");
 
@@ -338,28 +320,6 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                     b.HasKey("BakeID");
 
                     b.ToTable("SetOrderList");
-                });
-
-            modelBuilder.Entity("Ferris_Bakes.Models.CartItemModel", b =>
-                {
-                    b.HasOne("Ferris_Bakes.Models.SetOrderModel", "Product")
-                        .WithOne()
-                        .HasForeignKey("Ferris_Bakes.Models.CartItemModel", "ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("Ferris_Bakes.Models.CustomCartItemModel", b =>
-                {
-                    b.HasOne("Ferris_Bakes.Models.CustomOrderModel", "CustomProduct")
-                        .WithMany()
-                        .HasForeignKey("CustomProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("CustomProduct");
                 });
 #pragma warning restore 612, 618
         }

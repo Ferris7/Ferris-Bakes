@@ -11,8 +11,18 @@ namespace Ferris_Bakes.Models
         [Key]
         public int OrderID {get; set;}
         public List<CartItemModel> Cart { get; set; }
-        public List<SetOrderModel> ItemDescription { get; set; }
-        public List<CustomCartItemModel> CustomCart { get; set; } 
-        public List<CustomOrderModel> CustomItemDescription { get; set; }
+        public double TotalPrice { get; set; }
+
+        public double calculatePrice()
+        {
+            TotalPrice = 0;
+
+            foreach (CartItemModel m in Cart)
+            {
+                TotalPrice += m.Price;
+            }
+
+            return TotalPrice;
+        }
     }
 }

@@ -8,6 +8,28 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Cart",
+                columns: table => new
+                {
+                    ItemId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    CartId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
+                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    SetOrder = table.Column<bool>(type: "bit", nullable: false),
+                    RecipeOrder = table.Column<bool>(type: "bit", nullable: false),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    RecipeId = table.Column<int>(type: "int", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Price = table.Column<double>(type: "float", nullable: false),
+                    imgPath = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cart", x => x.ItemId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Chapters",
                 columns: table => new
                 {
@@ -21,11 +43,12 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                 });
 
             migrationBuilder.CreateTable(
-                name: "CustomOrderList",
+                name: "CustomOrders",
                 columns: table => new
                 {
                     CustomBakeID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    ConfirmationNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     bake = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     flavor = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     size = table.Column<int>(type: "int", nullable: false),
@@ -36,32 +59,14 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                     comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     customerFirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     customerLastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CustomerEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CustomerPhone = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     dueDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CustomOrderList", x => x.CustomBakeID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "CustomOrders",
-                columns: table => new
-                {
-                    DBkey = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    OrderNumber = table.Column<int>(type: "int", nullable: false),
-                    CustomOrderId = table.Column<int>(type: "int", nullable: false),
-                    CustomerFirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CustomerLastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CustomerEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CustomerPhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DatePlaced = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DueDate = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CustomOrders", x => x.DBkey);
+                    table.PrimaryKey("PK_CustomOrders", x => x.CustomBakeID);
                 });
 
             migrationBuilder.CreateTable(
@@ -148,7 +153,12 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                     DBkey = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     OrderNumber = table.Column<int>(type: "int", nullable: false),
+                    SetOrder = table.Column<bool>(type: "bit", nullable: false),
+                    RecipeOrder = table.Column<bool>(type: "bit", nullable: false),
                     SetOrderId = table.Column<int>(type: "int", nullable: false),
+                    RecipeOrderId = table.Column<int>(type: "int", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CustomerFirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CustomerLastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CustomerEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -160,59 +170,6 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                 {
                     table.PrimaryKey("PK_SetOrders", x => x.DBkey);
                 });
-
-            migrationBuilder.CreateTable(
-                name: "CustomCart",
-                columns: table => new
-                {
-                    ItemId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    CartId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Quantity = table.Column<int>(type: "int", nullable: false),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CustomProductId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CustomCart", x => x.ItemId);
-                    table.ForeignKey(
-                        name: "FK_CustomCart_CustomOrderList_CustomProductId",
-                        column: x => x.CustomProductId,
-                        principalTable: "CustomOrderList",
-                        principalColumn: "CustomBakeID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Cart",
-                columns: table => new
-                {
-                    ItemId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    CartId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Quantity = table.Column<int>(type: "int", nullable: false),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Cart", x => x.ItemId);
-                    table.ForeignKey(
-                        name: "FK_Cart_SetOrderList_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "SetOrderList",
-                        principalColumn: "BakeID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Cart_ProductId",
-                table: "Cart",
-                column: "ProductId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_CustomCart_CustomProductId",
-                table: "CustomCart",
-                column: "CustomProductId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -222,9 +179,6 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
 
             migrationBuilder.DropTable(
                 name: "Chapters");
-
-            migrationBuilder.DropTable(
-                name: "CustomCart");
 
             migrationBuilder.DropTable(
                 name: "CustomOrders");
@@ -239,13 +193,10 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                 name: "Reciepes");
 
             migrationBuilder.DropTable(
-                name: "SetOrders");
-
-            migrationBuilder.DropTable(
                 name: "SetOrderList");
 
             migrationBuilder.DropTable(
-                name: "CustomOrderList");
+                name: "SetOrders");
         }
     }
 }

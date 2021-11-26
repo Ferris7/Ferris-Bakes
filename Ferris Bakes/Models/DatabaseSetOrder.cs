@@ -12,7 +12,12 @@ namespace Ferris_Bakes.Models
         [Key]
         public int DBkey { get; set; }
         public int OrderNumber { get; set; }
+        public bool SetOrder { get; set; }
+        public bool RecipeOrder { get; set; }
         public int SetOrderId { get; set; }
+        public int RecipeOrderId { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
         public string CustomerFirstName { get; set; }
         public string CustomerLastName { get; set; }
         public string CustomerEmail { get; set; }

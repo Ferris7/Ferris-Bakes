@@ -30,7 +30,7 @@ namespace Ferris_Bakes.Data
             modelBuilder.Entity<Chapter>()
                 .Property(i => i.ChapterId)
                 .ValueGeneratedNever();
-
+            /*
             modelBuilder.Entity<CartItemModel>()
                 .HasOne<SetOrderModel>(c => c.Product)
                 .WithOne()
@@ -52,24 +52,20 @@ namespace Ferris_Bakes.Data
             modelBuilder.Entity<DatabaseSetOrder>()
                 .HasKey(i => i.DBkey);
 
-            modelBuilder.Entity<DatabaseCustomOrder>()
+           /* modelBuilder.Entity<DatabaseCustomOrder>()
                 .HasKey(i => i.DBkey);
 
             modelBuilder.Entity<DatabaseCustomOrder>()
                 .HasOne<CustomOrderModel>()
                 .WithMany()
-                .HasForeignKey(d => d.CustomOrderId);
+                .HasForeignKey(d => d.CustomOrderId);*/
 
         }
 
         public DbSet<DatabaseSetOrder> SetOrders { get; set; }
-        public DbSet<DatabaseCustomOrder> CustomOrders { get; set; }
-        public DbSet<DatabaseRecipeOrder> RecipeOrders { get; set; }
-        public DbSet<CustomOrderModel> CustomOrderList { get; set; }
+        public DbSet<CustomOrderModel> CustomOrders { get; set; }
         public DbSet<SetOrderModel> SetOrderList { get; set; }
         public DbSet<CartItemModel> Cart { get; set; }
-        public DbSet<CustomCartItemModel> CustomCart { get; set; }
-        public DbSet<ReciepeModel> RecipeCart { get; set; }
         public DbSet<ReciepeModel> Reciepes { get; set; }
         public DbSet<ReciepeBook> ReciepeBook { get; set; }
         public DbSet<Chapter> Chapters { get; set; }

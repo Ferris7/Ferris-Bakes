@@ -99,11 +99,11 @@ namespace Ferris_Bakes.Controllers
 
             ViewData["Bake"] = data.bake;
 
-            ViewData["ID"] = data.CustomBakeID;
+            data.ConfirmationNumber = Guid.NewGuid().ToString();
 
-            
+            ViewData["ID"] = data.ConfirmationNumber;
 
-            return View();
+            return View("OrderPlaced", data);
         }
 
         public IActionResult OrderPlaced(CustomOrderModel data)
@@ -112,32 +112,7 @@ namespace Ferris_Bakes.Controllers
 
             using (var context = new FerrisBakesContext())
             {
-
-                context.CustomOrderList.Add(data);  //Context.Order.ToList
-
-                var cartItem = context.CustomCart.SingleOrDefault(
-                    c => c.CustomProductId == data.CustomBakeID);
-                if (cartItem == null)
-                {
-                    // Create a new cart item if no cart item exists.                 
-                    cartItem = new CustomCartItemModel
-                    {
-                        ItemId = Guid.NewGuid().ToString(),
-                        CustomProductId = data.CustomBakeID,
-                        CustomProduct = context.CustomOrderList.SingleOrDefault(
-                        p => p.CustomBakeID == data.CustomBakeID),
-                        Quantity = data.size,
-                        DateCreated = DateTime.Now
-                    };
-
-                    context.CustomCart.Add(cartItem);
-                }
-                else
-                {
-                    // If the item does exist in the cart,                  
-                    // then add one to the quantity.                 
-                    cartItem.Quantity++;
-                }
+                context.CustomOrders.Add(data);  //Context.Order.ToList
 
                 context.SaveChanges();
             }

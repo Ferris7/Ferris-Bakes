@@ -15,8 +15,7 @@ namespace Ferris_Bakes.Controllers
             using (var context = new FerrisBakesContext())
             {
                 
-                AdminModel temp = new AdminModel { dbCustom = context.CustomOrders.ToList(),
-                                                   dbSet = context.SetOrders.ToList()};
+                AdminModel temp = new AdminModel { dbSet = context.SetOrders.ToList()};
 
                 foreach (DatabaseSetOrder s in context.SetOrders)
                 {
@@ -30,19 +29,7 @@ namespace Ferris_Bakes.Controllers
 
                 }
 
-                foreach (DatabaseCustomOrder s in context.CustomOrders)
-                {
-                    var CustItem = context.CustomOrderList.SingleOrDefault(
-                    c => c.CustomBakeID == s.CustomOrderId);
-
-                    if (CustItem != null)
-                    {
-                        temp.CustomOrderList.Add(CustItem);
-                    }
-
-                }
-
-                return View(temp);
+               return View(temp);
             }
         }
     }

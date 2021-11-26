@@ -31,18 +31,6 @@ namespace Ferris_Bakes.Controllers
                 ShoppingCartActions actions = new ShoppingCartActions();
 
                 temp.Cart = actions.GetCartItems();
-                temp.CustomCart = actions.GetCustomCartItems();
-                temp.ItemDescription = new List<SetOrderModel>();
-
-                foreach ( CartItemModel c in temp.Cart)
-                {
-                    temp.ItemDescription.Add(context.SetOrderList.Find(c.ProductId));
-                }
-
-                foreach (CustomCartItemModel c in temp.CustomCart)
-                {
-                    temp.CustomItemDescription.Add(context.CustomOrderList.Find(c.CustomProductId));
-                }
 
                 return View(temp);
             }
@@ -59,30 +47,14 @@ namespace Ferris_Bakes.Controllers
             {
                 foreach (CartItemModel m in context.Cart)
                 {
-                    var cartItem = context.SetOrderList.SingleOrDefault(
-                    c => c.BakeID == m.ProductId);
 
-                    if (cartItem != null)
+                    if (m != null)
                     {
-                        context.SetOrders.Add(setOrderConvert(model, cartItem));
-                    }
+                        context.SetOrders.Add(setOrderConvert(model, m));
+                    }                   
 
                     context.Cart.Remove(m);
                 }
-
-                foreach (CustomCartItemModel m in context.CustomCart)
-                {
-                    var cartItem = context.CustomOrderList.SingleOrDefault(
-                    c => c.CustomBakeID == m.CustomProductId);
-
-                    if (cartItem != null)
-                    {
-                        context.CustomOrders.Add(customOrderConvert(model, cartItem));
-                    }
-
-                    context.CustomCart.Remove(m);
-                }
-
                 context.SaveChanges();
 
             }
@@ -90,47 +62,31 @@ namespace Ferris_Bakes.Controllers
             return View(model);
         }
 
-        public DatabaseSetOrder setOrderConvert(CheckoutOrderModel order, SetOrderModel cartItem)
+
+        public DatabaseSetOrder setOrderConvert(CheckoutOrderModel order, CartItemModel cartItem)
         {
             DatabaseSetOrder db = new DatabaseSetOrder();
-            db.SetOrderId = cartItem.BakeID;
+            db.OrderNumber = order.OrderNumber;
+            db.RecipeOrderId = cartItem.RecipeId;
+            db.Title = cartItem.Title;
+            db.Description = cartItem.Description;
+            db.SetOrderId = cartItem.ProductId;
             db.CustomerFirstName = order.CustomerFirstName;
             db.CustomerLastName = order.CustomerLastName;
             db.CustomerEmail = order.CustomerEmail;
             db.CustomerPhoneNumber = order.CustomerPhoneNumber;
-            db.DueDate = order.DueDate;
-
-            return db;
-        }
-
-        public DatabaseCustomOrder customOrderConvert(CheckoutOrderModel order, CustomOrderModel cartItem)
-        {
-            DatabaseCustomOrder db = new DatabaseCustomOrder();
-            db.CustomOrderId = cartItem.CustomBakeID;
-            db.CustomerFirstName = order.CustomerFirstName;
-            db.CustomerLastName = order.CustomerLastName;
-            db.CustomerEmail = order.CustomerEmail;
-            db.CustomerPhoneNumber = order.CustomerPhoneNumber;
+            db.DatePlaced = DateTime.Now;
             db.DueDate = order.DueDate;
 
             return db;
         }
 
         [HttpPost]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int id, int prod)
         {
             ShoppingCartActions actions = new ShoppingCartActions();
 
-            actions.DeleteFromSetCart(id);
-            return Ok("Success");
-        }
-
-        [HttpPost]
-        public IActionResult CustomDelete(int id)
-        {
-            ShoppingCartActions actions = new ShoppingCartActions();
-
-            actions.DeleteFromCustomCart(id);
+            actions.DeleteFromSetCart(id, prod);
             return Ok("Success");
         }
 
@@ -140,6 +96,15 @@ namespace Ferris_Bakes.Controllers
             ShoppingCartActions actions = new ShoppingCartActions();
 
             actions.AddToSetCart(id);
+            return Ok("Success");
+        }
+
+        [HttpPost]
+        public IActionResult AddRecipe(int id)
+        {
+            ShoppingCartActions actions = new ShoppingCartActions();
+
+            actions.AddToRecipeCart(id);
             return Ok("Success");
         }
 

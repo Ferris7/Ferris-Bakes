@@ -14,8 +14,8 @@
     {
         <div class="card">
             <div class="card-header">
-                <label asp-for="@Model.dbCustom[i].CustomOrderId">Order Number: </label>
-                <input asp-for="@Model.dbCustom[i].CustomOrderId" readonly />
+                <label asp-for="@Model.CustomOrderList[i].CustomBakeID">Order Number: </label>
+                <input asp-for="@Model.CustomOrderList[i].CustomBakeID" readonly />
             </div>
             <div class="card-body">
                 <label asp-for="@Model.CustomOrderList[i].bake">Bake: </label>
@@ -32,14 +32,14 @@
                 <input asp-for="@Model.CustomOrderList[i].size" readonly />
                 <label asp-for="@Model.CustomOrderList[i].comment">Comments: </label>
                 <input asp-for="@Model.CustomOrderList[i].comment" readonly />
-                <label asp-for="@Model.dbCustom[i].CustomerFirstName">Name: </label>
-                <input asp-for="@Model.dbCustom[i].CustomerFirstName" readonly />
-                <label asp-for="@Model.dbCustom[i].CustomerLastName">Name: </label>
-                <input asp-for="@Model.dbCustom[i].CustomerLastName" readonly />
-                <label asp-for="@Model.dbCustom[i].DatePlaced">Date Submitted: </label>
-                <input asp-for="@Model.dbCustom[i].DatePlaced" readonly />
-                <label asp-for="@Model.dbCustom[i].DueDate">Date Requested: </label>
-                <input asp-for="@Model.dbCustom[i].DueDate" readonly />
+                <label asp-for="@Model.CustomOrderList[i].customerFirstName">Name: </label>
+                <input asp-for="@Model.CustomOrderList[i].customerFirstName" readonly />
+                <label asp-for="@Model.CustomOrderList[i].customerLastName">Name: </label>
+                <input asp-for="@Model.CustomOrderList[i].customerLastName" readonly />
+                <label asp-for="@Model.CustomOrderList[i].date">Date Submitted: </label>
+                <input asp-for="@Model.CustomOrderList[i].date" readonly />
+                <label asp-for="@Model.CustomOrderList[i].dueDate">Date Requested: </label>
+                <input asp-for="@Model.CustomOrderList[i].dueDate" readonly />
             </div>
         </div>
     }

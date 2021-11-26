@@ -25,16 +25,22 @@ namespace Ferris_Bakes.Logic
                 c => c.ProductId == id);
             if (cartItem == null)
             {
+                SetOrderModel temp = _db.SetOrderList.SingleOrDefault(
+                   p => p.BakeID == id);
                 // Create a new cart item if no cart item exists.                 
                 cartItem = new CartItemModel
                 {
                     ItemId = Guid.NewGuid().ToString(),
+                    SetOrder = true,
                     ProductId = id,
+                    RecipeId = -1,
                     //CartId = ShoppingCartId,
-                    Product = _db.SetOrderList.SingleOrDefault(
-                   p => p.BakeID == id),
+                    Title = temp.BakeName,
+                    Description = temp.Description,
                     Quantity = 1,
-                    DateCreated = DateTime.Now
+                    DateCreated = DateTime.Now,
+                    Price = temp.Price,
+                    imgPath = temp.ImgPath
                 };
 
                 _db.Cart.Add(cartItem);
@@ -48,33 +54,68 @@ namespace Ferris_Bakes.Logic
             _db.SaveChanges();
         }
 
-        public void DeleteFromSetCart(int id)
+        public void AddToRecipeCart(int id)
         {
             // Retrieve the product from the database.           
             //ShoppingCartId = GetCartId();
 
             var cartItem = _db.Cart.SingleOrDefault(
-                c => c.ProductId == id);
-            if (cartItem != null)
+                c => c.RecipeId == id);
+            if (cartItem == null)
             {
-                _db.Cart.Remove(cartItem);
+                ReciepeModel temp = _db.Reciepes.SingleOrDefault(
+                   p => p.ReciepeNumber == id);
+                // Create a new cart item if no cart item exists.                 
+                cartItem = new CartItemModel
+                {
+                    ItemId = Guid.NewGuid().ToString(),
+                    RecipeId = id,
+                    ProductId = -1,
+                    RecipeOrder = true,
+                    //CartId = ShoppingCartId,
+                    Title = temp.Title,
+                    Description = temp.Description,
+                    Quantity = 1,
+                    DateCreated = DateTime.Now,
+                    Price = temp.Price,
+                    imgPath = "/bakes/square/no Photo.jpg"
+                };
+
+                _db.Cart.Add(cartItem);
             }
-                      
+            else
+            {
+                // If the item does exist in the cart,                  
+                // then add one to the quantity.                 
+                cartItem.Quantity++;
+            }
             _db.SaveChanges();
         }
 
-        public void DeleteFromCustomCart(int id)
+        public void DeleteFromSetCart(int id, int prod)
         {
             // Retrieve the product from the database.           
             //ShoppingCartId = GetCartId();
 
-            var cartItem = _db.CustomCart.SingleOrDefault(
-                c => c.CustomProductId == id);
-            if (cartItem != null)
+            if (prod == 1)
             {
-                _db.CustomCart.Remove(cartItem);
+                var cartItem = _db.Cart.SingleOrDefault(
+                                c => c.ProductId == id);
+                if (cartItem != null)
+                {
+                    _db.Cart.Remove(cartItem);
+                }
             }
-
+            else
+            {
+                var cartItem = _db.Cart.SingleOrDefault(
+                c => c.RecipeId == id);
+                if (cartItem != null)
+                {
+                    _db.Cart.Remove(cartItem);
+                }
+            }           
+                      
             _db.SaveChanges();
         }
 
@@ -113,13 +154,6 @@ namespace Ferris_Bakes.Logic
             //ShoppingCartId = GetCartId();
 
             return _db.Cart.ToList();
-        }
-
-        public List<CustomCartItemModel> GetCustomCartItems()
-        {
-            //ShoppingCartId = GetCartId();
-
-            return _db.CustomCart.ToList();
         }
     }
 }
