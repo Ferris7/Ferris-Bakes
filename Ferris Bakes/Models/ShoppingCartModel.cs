@@ -13,7 +13,7 @@ namespace Ferris_Bakes.Models
         public List<CartItemModel> Cart { get; set; }
         public double TotalPrice { get; set; }
 
-        public double calculatePrice()
+        public string calculatePrice()
         {
             TotalPrice = 0;
 
@@ -22,7 +22,7 @@ namespace Ferris_Bakes.Models
                 TotalPrice += m.Price;
             }
 
-            return TotalPrice;
+            return String.Format("{0:0.00}", TotalPrice);
         }
     }
 }

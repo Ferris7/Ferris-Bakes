@@ -90,6 +90,9 @@ namespace Ferris_Bakes.Controllers
                 _ => "Size is in individual items.",
             };
 
+            data.calculatePrice();
+
+
             return View("Details", data);
             //return View(data);
         }
@@ -100,15 +103,9 @@ namespace Ferris_Bakes.Controllers
             ViewData["Bake"] = data.bake;
 
             data.ConfirmationNumber = Guid.NewGuid().ToString();
+            data.date = DateTime.Now;
 
             ViewData["ID"] = data.ConfirmationNumber;
-
-            return View("OrderPlaced", data);
-        }
-
-        public IActionResult OrderPlaced(CustomOrderModel data)
-        {
-            //put in database
 
             using (var context = new FerrisBakesContext())
             {
@@ -116,6 +113,15 @@ namespace Ferris_Bakes.Controllers
 
                 context.SaveChanges();
             }
+
+            return View("OrderPlaced", data);
+        }
+
+        public IActionResult OrderPlaced()
+        {
+            //put in database
+
+            
 
             return View();
         }

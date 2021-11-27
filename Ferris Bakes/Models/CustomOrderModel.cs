@@ -34,9 +34,34 @@ namespace Ferris_Bakes.Models
 
         public List<string> FillingList = new List<string> { "Blackberry", "Blueberry", "Mango", "Peach", "Strawberry", "Raspberry"};
     
-        public void calculatePrice()
+        public string calculatePrice()
         {
-            this.Price = 19.99;
+            Price = 9.99;
+
+            if (bake == "Cupcake")
+                Price += 5;
+            else if (bake == "Cake")
+                Price += 10;
+            else if (bake == "Pastry")
+                Price += 10;
+
+            if (fillFlavor != null)
+                Price += 5;
+
+            if (flavor == "Lemon")
+                Price += 2;
+            else if (flavor == "Jam & Cream Cheese Pinwheel")
+                Price += 5;
+            else if (flavor == "Cheesecake")
+                Price += 5;
+            
+            if (Frosting == "Lavendar")
+                Price += 2;
+
+            if (Frosting == "Baileys" || flavor == "Chocolate With Baileys")
+                Price += 5;
+
+            return String.Format("{0:0.00}", Price);
         }
     } 
 }
