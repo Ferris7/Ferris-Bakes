@@ -16,6 +16,8 @@ namespace Ferris_Bakes.Controllers
             {
                 
                 AdminModel temp = new AdminModel { dbSet = context.SetOrders.ToList()};
+                temp.SetOrderList = new List<SetOrderModel>();
+                temp.CustomOrderList = new List<CustomOrderModel>();
 
                 foreach (DatabaseSetOrder s in context.SetOrders)
                 {
@@ -27,6 +29,11 @@ namespace Ferris_Bakes.Controllers
                         temp.SetOrderList.Add(setItem);
                     }
 
+                }
+
+                foreach (CustomOrderModel c in context.CustomOrders)
+                {
+                    temp.CustomOrderList.Add(c);
                 }
 
                return View(temp);
