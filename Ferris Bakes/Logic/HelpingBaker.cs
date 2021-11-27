@@ -76,9 +76,6 @@ namespace Ferris_Bakes.Logic
 
                 else
                 {
-                    
-
-
                     if (!Preference.Dislikes.Chocolate)
                     {
                         if (!Preference.Dislikes.Vanilla)
@@ -154,7 +151,7 @@ namespace Ferris_Bakes.Logic
                     Reciepes.AddRange(BookReader(Preference.Dislikes, Misc, ReciepeData, IngredientData));
                 }
 
-                LikeCalculator(Preference.Likes, ReciepeData, IngredientData);
+                LikeCalculator(Preference.Likes, Reciepes, IngredientData);
 
             }
 
@@ -216,11 +213,11 @@ namespace Ferris_Bakes.Logic
 
         public void SelectionSort(List<int> Values, List<ReciepeModel> RecipeList)
         {
-            int max = Values[0];
-            int maxIndex = 0;
-
             for (int i = 0; i < Values.Count; i++)
             {
+                int max = Values[i];
+                int maxIndex = i;
+
                 for (int j = i; j < Values.Count; j++)
                 {
                     if (Values[j] > max)
