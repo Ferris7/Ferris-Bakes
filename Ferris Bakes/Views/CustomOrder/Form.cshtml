@@ -34,17 +34,17 @@
                 <div class="form" id="formWidth">
                     <div class="form" id="delayTwo">
                         <div class="form-group">
-                            <h2 style="margin-bottom:15px">Bake Type: @Model.bake</h2>
-                            <h2><label asp-for="flavorOptions">Flavors:</label></h2>
+                            <h2 style="margin-bottom:15px">Bake Type: @Model.Bake</h2>
+                            <h2><label asp-for="FlavorOptions">Flavors:</label></h2>
                         </div>
-                        @Html.DropDownListFor(m => m.flavor, Model.flavorOptions.Select(x => new SelectListItem(x, x)), "Select a Flavor", new { @class = "selector form-control" })
+                        @Model.Bake
                         <br />
                     </div>
 
-                    <input asp-for="bake" value="@Model.bake" type="hidden" />
+                    <input asp-for="FlavorOptions" value="@Model.Bake" type="hidden" />
 
 
-                    @if (Model.bake == "Cake" || Model.bake == "Cupcake")
+                    @if (Model.Bake == "Cake" || Model.Bake == "Cupcake")
                     {
                         <div>
                             <div class="form-group">
@@ -56,9 +56,9 @@
                         <br />
                     }
 
-                    @if (Model.filling)
+                    @if (Model.Filling)
                     {
-                        @if (Model.bake == "Cake" || Model.bake == "Cupcake")
+                        @if (Model.Bake == "Cake" || Model.Bake == "Cupcake")
                         {
                             <div class="custom-control custom-checkbox" style="margin: 20px 0px 10px;">
                                 <input type="checkbox" class="custom-control-input" id="customCheck" name="fillingCheck" onclick="setFilling()">
@@ -75,9 +75,9 @@
 
                         <div id="fillingCheck">
                             <div class="form-group">
-                                <h2><label asp-for="fillFlavor">Select Filling:</label></h2>
+                                <h2><label asp-for="FillFlavor">Select Filling:</label></h2>
                             </div>
-                            @Html.DropDownListFor(m => m.fillFlavor, Model.FillingList.Select(x => new SelectListItem(x, x)), "Select a Filling", new { @class = "selector form-control" })
+                            @Html.DropDownListFor(m => m.FillFlavor, Model.FillingList.Select(x => new SelectListItem(x, x)), "Select a Filling", new { @class = "selector form-control" })
                         </div>
 
 

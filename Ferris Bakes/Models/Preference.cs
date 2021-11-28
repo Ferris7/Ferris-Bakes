@@ -15,12 +15,12 @@ namespace Ferris_Bakes.Models
         [NotMapped] public List<ReciepeModel> Results { get; set; }
 
         public bool Vegan { get; set; }
-        public bool set { get; set; }
 
         public Preference()
         {
-            Likes = new Ingredients();
-            Dislikes = new Ingredients();
+            Likes = new();
+            Dislikes = new();
+            Results = new();
         }
 
     }

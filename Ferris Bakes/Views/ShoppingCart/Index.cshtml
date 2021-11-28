@@ -23,8 +23,7 @@
             background-color: #eee6f5;
             display: flex;
             align-items: center;
-            width: fit-content;
-            max-width: 70%;
+            width: 70%;
             margin-left: auto;
             margin-right: auto;
             margin-top: 20px;
@@ -32,6 +31,9 @@
 
         .details {
             margin-left: 15px;
+            margin-top: auto;
+            margin-block: auto;
+            flex: 1;
         }
 
         .orderImage {
@@ -44,6 +46,7 @@
             position: relative;
             max-width: 200px;
             align-items: center;
+            flex: 1;
         }
 
         .title {
@@ -79,6 +82,8 @@
             clear: both;
             margin: 15px 0;
             position: relative;
+            display: flex;
+            justify-content: flex-end;
         }
 
             .input-group input[type='button'] {
@@ -120,7 +125,24 @@
 
         .top {
             margin: auto;
+            text-align: center;
         }
+
+        .blend {
+            background-color: #eee6f5;
+            border: 0px;
+        }
+
+        .together {
+            display: flex;
+            flex: 1;
+        }
+
+        .totalPrice {
+            font-size: 18px;
+            text-align: left;
+        }
+
     </style>
 </head>
 
@@ -134,12 +156,14 @@
             @foreach (CartItemModel m in Model.Cart)
             {
                 <div class="cartItem" id="@m.ItemId">
-                    <div class="cartImg">
-                        <img src="@m.imgPath" class="orderImage">
-                    </div>
-                    <div class="details">
-                        <p class="title"><b>@m.Title</b></p>
-                        <p class="description">@m.Description</p>
+                    <div class="together">
+                        <div class="cartImg">
+                            <img src="@m.ImgPath" class="orderImage">
+                        </div>
+                        <div class="details">
+                            <p class="title"><b>@m.Title</b></p>
+                            <p class="description">@m.Description</p>
+                        </div>
                     </div>
                     <div class="price">
                         <div class="top">
@@ -153,28 +177,38 @@
                         </div>
                         @if (m.SetOrder)
                         {
-                            <input class="link-danger" type="button" onclick="deleteFromCart(@m.ProductId, 1, '@m.ItemId')" value="Remove From Cart">
+                            <input class="link-danger blend" type="button" onclick="deleteFromCart(@m.ProductId, 1, '@m.ItemId')" value="Remove From Cart">
                         }
                         else
-                        { 
-                            <input class="link-danger" type="button" onclick="deleteFromCart(@m.RecipeId, 0, '@m.ItemId')" value="Remove From Cart">
+                        {
+                            <input class="link-danger blend" type="button" onclick="deleteFromCart(@m.RecipeId, 0, '@m.ItemId')" value="Remove From Cart">
                         }
 
                     </div>
 
                 </div>
-               
-            }
 
+            }
 
             @if (Model.Cart.Count == 0)
             {
-                <p>There are currently no items in your cart. Click the order button at the top to find some items.</p>
+                <div class="cartItem" style="display:block;">
+                    <p class="totalPrice">There are currently no items in your cart. Click the order button at the top to find some items.</p>
+                </div>
             }
+            else
+            {
+                <div class="cartItem" style="display:block;">
+                    <p class="totalPrice">Total Price: </p>
+                    <p class="totalPrice" style="text-align: right">$@Model.CalculatePrice()</p>
 
-            <p style="font-size: 16px; text-align: left">Total Price: $@Model.calculatePrice()</p>
+                </div>
+
+                <div class="cartItem" style="display:block; margin-top:0px;">
+                    <button class="btn btn-info" id="betterButton" asp-controller="ShoppingCart" asp-action="Checkout">Checkout</button>
+                </div>
+            }
         </div>
-
         
     </div>
 

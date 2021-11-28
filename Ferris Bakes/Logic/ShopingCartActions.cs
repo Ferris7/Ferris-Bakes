@@ -8,11 +8,11 @@ using Microsoft.AspNetCore.Http;
 
 namespace Ferris_Bakes.Logic
 {
-    public class ShoppingCartActions : IDisposable
+    public class ShoppingCartActions 
     {
         //public string ShoppingCartId { get; set; }
 
-        private FerrisBakesContext _db = new FerrisBakesContext();
+        private readonly FerrisBakesContext _db = new();
 
         public const string CartSessionKey = "CartId";
 
@@ -40,7 +40,7 @@ namespace Ferris_Bakes.Logic
                     Quantity = 1,
                     DateCreated = DateTime.Now,
                     Price = temp.Price,
-                    imgPath = temp.ImgPath
+                    ImgPath = temp.ImgPath
                 };
 
                 _db.Cart.Add(cartItem);
@@ -78,7 +78,7 @@ namespace Ferris_Bakes.Logic
                     Quantity = 1,
                     DateCreated = DateTime.Now,
                     Price = temp.Price,
-                    imgPath = "/bakes/square/no Photo.jpg"
+                    ImgPath = "/bakes/square/no Photo.jpg"
                 };
 
                 _db.Cart.Add(cartItem);
@@ -117,15 +117,6 @@ namespace Ferris_Bakes.Logic
             }           
                       
             _db.SaveChanges();
-        }
-
-        public void Dispose()
-        {
-            if (_db != null)
-            {
-                _db.Dispose();
-                _db = null;
-            }
         }
 
         public string GetCartId()

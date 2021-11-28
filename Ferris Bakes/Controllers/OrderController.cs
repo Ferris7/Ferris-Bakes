@@ -21,54 +21,52 @@ namespace Ferris_Bakes.Controllers
 
         public IActionResult Index()
         {
-            using (var context = new FerrisBakesContext())
+            using var context = new FerrisBakesContext();
+            SetOrderListModel temp = new();
+
+            foreach (SetOrderModel Bake in context.SetOrderList)
             {
-                SetOrderListModel temp = new SetOrderListModel();
-
-                foreach (SetOrderModel Bake in context.SetOrderList)
+                switch (Bake.BakeType)
                 {
-                    switch (Bake.BakeType)
-                    {
-                        case "Cake":
-                            {
-                                temp.Cakes.Add(Bake);
-                                break;
-                            }
-                        case "Cookies":
-                            {
-                                temp.Cookies.Add(Bake);
-                                break;
-                            }
-                        case "Cupcakes":
-                            {
-                                temp.Cupcakes.Add(Bake);
-                                break;
-                            }
-                        case "Pastry":
-                            {
-                                temp.Pastry.Add(Bake);
-                                break;
-                            }
-                        case "Holiday":
-                            {
-                                temp.Holiday.Add(Bake);
-                                break;
-                            }
-                        case "Misc":
-                            {
-                                temp.Misc.Add(Bake);
-                                break;
-                            }
-                        default:
-                            {
-                                Debug.Print("Bad Bake type");
-                                break;
-                            }
-                    }
+                    case "Cake":
+                        {
+                            temp.Cakes.Add(Bake);
+                            break;
+                        }
+                    case "Cookies":
+                        {
+                            temp.Cookies.Add(Bake);
+                            break;
+                        }
+                    case "Cupcakes":
+                        {
+                            temp.Cupcakes.Add(Bake);
+                            break;
+                        }
+                    case "Pastry":
+                        {
+                            temp.Pastry.Add(Bake);
+                            break;
+                        }
+                    case "Holiday":
+                        {
+                            temp.Holiday.Add(Bake);
+                            break;
+                        }
+                    case "Misc":
+                        {
+                            temp.Misc.Add(Bake);
+                            break;
+                        }
+                    default:
+                        {
+                            Debug.Print("Bad Bake type");
+                            break;
+                        }
                 }
-
-                return View(temp);
             }
+
+            return View(temp);
         }
 
         public IActionResult Privacy()

@@ -116,7 +116,7 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("imgPath")
+                    b.Property<string>("ImgPath")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ItemId");
@@ -146,34 +146,34 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
-                    b.Property<string>("bake")
+                    b.Property<string>("Bake")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("comment")
+                    b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("customerFirstName")
+                    b.Property<string>("CustomerFirstName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("customerLastName")
+                    b.Property<string>("CustomerLastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("date")
+                    b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("dueDate")
+                    b.Property<DateTime>("DueDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("fillFlavor")
+                    b.Property<string>("FillFlavor")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("filling")
+                    b.Property<bool>("Filling")
                         .HasColumnType("bit");
 
-                    b.Property<string>("flavor")
+                    b.Property<string>("Flavor")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("size")
+                    b.Property<int>("Size")
                         .HasColumnType("int");
 
                     b.HasKey("CustomBakeID");

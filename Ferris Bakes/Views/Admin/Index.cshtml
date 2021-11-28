@@ -9,7 +9,8 @@
 <body>
     <h2>List of Orders:</h2>
 
-    
+    <h4>Custom Orders</h4>
+
     @for (int i = 0; i < Model.CustomOrderList.Count; i++)
     {
         <div class="card">
@@ -18,29 +19,34 @@
                 <input asp-for="@Model.CustomOrderList[i].CustomBakeID" readonly />
             </div>
             <div class="card-body">
-                <label asp-for="@Model.CustomOrderList[i].bake">Bake: </label>
-                <input asp-for="@Model.CustomOrderList[i].bake" readonly />
-                <label asp-for="@Model.CustomOrderList[i].flavor">Flavor: </label>
-                <input asp-for="@Model.CustomOrderList[i].flavor" readonly />
+                <label asp-for="@Model.CustomOrderList[i].Bake">Bake: </label>
+                <input asp-for="@Model.CustomOrderList[i].Bake" readonly />
+                <label asp-for="@Model.CustomOrderList[i].Flavor">Flavor: </label>
+                <input asp-for="@Model.CustomOrderList[i].Flavor" readonly />
                 <label asp-for="@Model.CustomOrderList[i].Frosting">Frosting: </label>
                 <input asp-for="@Model.CustomOrderList[i].Frosting" readonly />
-                <label asp-for="@Model.CustomOrderList[i].fillFlavor">Filling Flavor: </label>
-                <input asp-for="@Model.CustomOrderList[i].fillFlavor" readonly />
-                <label asp-for="@Model.CustomOrderList[i].size">Size/Quantity: </label>
-                <input asp-for="@Model.CustomOrderList[i].size" readonly />
-                <label asp-for="@Model.CustomOrderList[i].comment">Comments: </label>
-                <input asp-for="@Model.CustomOrderList[i].comment" readonly />
-                <label asp-for="@Model.CustomOrderList[i].customerFirstName">Name: </label>
-                <input asp-for="@Model.CustomOrderList[i].customerFirstName" readonly />
-                <label asp-for="@Model.CustomOrderList[i].customerLastName">Name: </label>
-                <input asp-for="@Model.CustomOrderList[i].customerLastName" readonly />
-                <label asp-for="@Model.CustomOrderList[i].date">Date Submitted: </label>
-                <input asp-for="@Model.CustomOrderList[i].date" readonly />
-                <label asp-for="@Model.CustomOrderList[i].dueDate">Date Requested: </label>
-                <input asp-for="@Model.CustomOrderList[i].dueDate" readonly />
+                <label asp-for="@Model.CustomOrderList[i].FillFlavor">Filling Flavor: </label>
+                <input asp-for="@Model.CustomOrderList[i].FillFlavor" readonly />
+                <label asp-for="@Model.CustomOrderList[i].Size">Size/Quantity: </label>
+                <input asp-for="@Model.CustomOrderList[i].Size" readonly />
+                <label asp-for="@Model.CustomOrderList[i].Comment">Comments: </label>
+                <input asp-for="@Model.CustomOrderList[i].Comment" readonly />
+                <label asp-for="@Model.CustomOrderList[i].CustomerFirstName">First Name: </label>
+                <input asp-for="@Model.CustomOrderList[i].CustomerFirstName" readonly />
+                <label asp-for="@Model.CustomOrderList[i].CustomerLastName">Last Name: </label>
+                <input asp-for="@Model.CustomOrderList[i].CustomerLastName" readonly />
+                <label asp-for="@Model.CustomOrderList[i].Date">Date Submitted: </label>
+                <input asp-for="@Model.CustomOrderList[i].Date" readonly />
+                <label asp-for="@Model.CustomOrderList[i].DueDate">Date Requested: </label>
+                <input asp-for="@Model.CustomOrderList[i].DueDate" readonly />
             </div>
         </div>
     }
         
+    <h4>Set Orders</h4>
+    @foreach (DatabaseSetOrder s in Model.DBSet)
+            {
+
+            }
 
     </body>

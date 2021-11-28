@@ -13,18 +13,16 @@ namespace Ferris_Bakes.Models
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
-            using (var context = new FerrisBakesContext(
+            using var context = new FerrisBakesContext(
                serviceProvider.GetRequiredService<
-                   DbContextOptions<FerrisBakesContext>>()))
-            {
-                SeedSetOrder(context);
-                SeedReciepes(context);
-                SeedChapters(context);
-                SeedReciepeBooks(context);
-                SeedIngredients(context);
+                   DbContextOptions<FerrisBakesContext>>());
+            SeedSetOrder(context);
+            SeedReciepes(context);
+            SeedChapters(context);
+            SeedReciepeBooks(context);
+            SeedIngredients(context);
 
-                clearCart(context);
-            }
+            ClearCart(context);
 
         }
         
@@ -72,7 +70,7 @@ namespace Ferris_Bakes.Models
                     Size = 4,
                     Frosting = null,
                     FillFlavor = "Blueberry",
-                    Description = "Mini Lemon Bunt Cake with blueberry filling and icing on top.",
+                    Description = "Mini Lemon Bunt Cake with blueberry Filling and icing on top.",
                     Price = 9.99,
                     ImgPath = "/bakes/square/mini lemon bunt cakes.jpg"
                 },
@@ -189,7 +187,7 @@ namespace Ferris_Bakes.Models
                     Size = 12,
                     Frosting = "Vanilla",
                     FillFlavor = "Strawberry",
-                    Description = "Chocolate cupcakes with a strawberry filling and vanilla buttercream.",
+                    Description = "Chocolate cupcakes with a strawberry Filling and vanilla buttercream.",
                     Price = 14.99,
                     ImgPath = "/bakes/square/choc straw cup.jpeg"
                 },
@@ -254,7 +252,7 @@ namespace Ferris_Bakes.Models
                     Size = 24,
                     Frosting = null,
                     FillFlavor = null,
-                    Description = "Pinwheel shaped pastries with cream cheese and raspberry jam filling.",
+                    Description = "Pinwheel shaped pastries with cream cheese and raspberry jam Filling.",
                     Price = 24.99,
                     ImgPath = "/bakes/square/pinwheel.jpg"
                 },
@@ -293,7 +291,7 @@ namespace Ferris_Bakes.Models
                     Size = 12,
                     Frosting = "White Chocolate",
                     FillFlavor = "Cranberry",
-                    Description = "Vanilla cupcakes with white chocolate buttercream filled with cranberry filling.",
+                    Description = "Vanilla cupcakes with white chocolate buttercream filled with cranberry Filling.",
                     Price = 14.99,
                     ImgPath = "/bakes/square/santa cupcakes.jpg"
                 },
@@ -549,7 +547,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Chocolate and Strawberry Cupcakes",
-                        Description = "Chocolate Cupcakes with Chocolate Buttercream and Strawberry filling",
+                        Description = "Chocolate Cupcakes with Chocolate Buttercream and Strawberry Filling",
                         Ingredients = "Chocolate-Strawberry",
                         Size = "One Dozen",
                         Price = 14.99,
@@ -560,7 +558,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Chocolate and Strawberry Cake",
-                        Description = "Chocolate Cake with Chocolate Buttercream and Strawberry filling",
+                        Description = "Chocolate Cake with Chocolate Buttercream and Strawberry Filling",
                         Ingredients = "Chocolate-Strawberry",
                         Size = "One three tiered cake",
                         Price = 19.99,
@@ -571,7 +569,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Chocolate and Raspberry Cupcakes",
-                        Description = "Chocolate Cupcakes with Chocolate Buttercream and Raspberry filling",
+                        Description = "Chocolate Cupcakes with Chocolate Buttercream and Raspberry Filling",
                         Ingredients = "Chocolate-Raspberry",
                         Size = "One Dozen",
                         Price = 14.99,
@@ -582,7 +580,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Chocolate and Raspberry Cake",
-                        Description = "Chocolate Cake with Chocolate Buttercream and Raspberry filling",
+                        Description = "Chocolate Cake with Chocolate Buttercream and Raspberry Filling",
                         Ingredients = "Chocolate-Raspberry",
                         Size = "One three tiered cake",
                         Price = 19.99,
@@ -593,7 +591,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Chocolate, Vanilla, and Strawbery Cupcakes",
-                        Description = "Chocolate Cupcakes with Vanilla Buttercream and Strawberry filling",
+                        Description = "Chocolate Cupcakes with Vanilla Buttercream and Strawberry Filling",
                         Ingredients = "Chocolate-Vanilla-Strawberry",
                         Size = "One Dozen",
                         Price = 14.99,
@@ -604,7 +602,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Chocolate, Vanilla, and Strawberry Cake",
-                        Description = "Chocolate Cake with Vanilla Buttercream and Strawberry filling",
+                        Description = "Chocolate Cake with Vanilla Buttercream and Strawberry Filling",
                         Ingredients = "Chocolate-Vanilla-Strawberry",
                         Size = "One three tiered cake",
                         Price = 19.99,
@@ -615,7 +613,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Chocolate, Vanilla, and Raspberry Cupcakes",
-                        Description = "Chocolate Cupcakes with Vanilla Buttercream and Raspberry filling",
+                        Description = "Chocolate Cupcakes with Vanilla Buttercream and Raspberry Filling",
                         Ingredients = "Chocolate-Vanilla-Raspberry",
                         Size = "One Dozen",
                         Price = 14.99,
@@ -626,7 +624,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Chocolate, Vanilla, and Raspberry Cake",
-                        Description = "Chocolate Cake with Vanilla Buttercream and Raspberry filling",
+                        Description = "Chocolate Cake with Vanilla Buttercream and Raspberry Filling",
                         Ingredients = "Vanilla-Raspberry",
                         Size = "One three tiered cake",
                         Price = 19.99,
@@ -637,7 +635,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Vanilla and Strawberry Cupcakes",
-                        Description = "Vanilla Cupcakes with Vanilla Buttercream and Strawberry filling",
+                        Description = "Vanilla Cupcakes with Vanilla Buttercream and Strawberry Filling",
                         Ingredients = "Vanilla-Strawberry",
                         Size = "One Dozen",
                         Price = 14.99,
@@ -648,7 +646,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Vanilla and Strawberry Cake",
-                        Description = "Vanilla Cake with Vanilla Buttercream and Strawberry filling",
+                        Description = "Vanilla Cake with Vanilla Buttercream and Strawberry Filling",
                         Ingredients = "Vanilla-Strawberry",
                         Size = "One three tiered cake",
                         Price = 19.99,
@@ -659,7 +657,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Vanilla and Raspberry Cupcakes",
-                        Description = "Vanilla Cupcakes with Vanilla Buttercream and Raspberry filling",
+                        Description = "Vanilla Cupcakes with Vanilla Buttercream and Raspberry Filling",
                         Ingredients = "Vanilla-Raspberry",
                         Size = "One Dozen",
                         Price = 14.99,
@@ -670,7 +668,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Vanilla and Raspberry Cake",
-                        Description = "Vanilla Cake with Vanilla Buttercream and Raspberry filling",
+                        Description = "Vanilla Cake with Vanilla Buttercream and Raspberry Filling",
                         Ingredients = "Vanilla-Raspberry",
                         Size = "One three tiered cake",
                         Price = 19.99,
@@ -681,7 +679,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Vanilla and Peach Cupcakes",
-                        Description = "Vanilla Cupcakes with Vanilla Buttercream and Peach filling",
+                        Description = "Vanilla Cupcakes with Vanilla Buttercream and Peach Filling",
                         Ingredients = "Vanilla-Peach",
                         Size = "One Dozen",
                         Price = 14.99,
@@ -692,7 +690,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Vanilla and Peach Cake",
-                        Description = "Vanilla Cake with Vanilla Buttercream and Peach filling",
+                        Description = "Vanilla Cake with Vanilla Buttercream and Peach Filling",
                         Ingredients = "Vanilla-Peach",
                         Size = "One three tiered cake",
                         Price = 19.99,
@@ -703,7 +701,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Vanilla and Mango Cupcakes",
-                        Description = "Vanilla Cupcakes with Vanilla Buttercream and Mango filling",
+                        Description = "Vanilla Cupcakes with Vanilla Buttercream and Mango Filling",
                         Ingredients = "Vanilla-Mango",
                         Size = "One Dozen",
                         Price = 14.99,
@@ -714,7 +712,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Vanilla and Mango Cake",
-                        Description = "Vanilla Cake with Vanilla Buttercream and Mango filling",
+                        Description = "Vanilla Cake with Vanilla Buttercream and Mango Filling",
                         Ingredients = "Vanilla-Mango",
                         Size = "One three tiered cake",
                         Price = 19.99,
@@ -725,7 +723,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Vanilla and Blueberry Cupcakes",
-                        Description = "Vanilla Cupcakes with Vanilla Buttercream and Blueberry filling",
+                        Description = "Vanilla Cupcakes with Vanilla Buttercream and Blueberry Filling",
                         Ingredients = "Vanilla-Blueberry",
                         Size = "One Dozen",
                         Price = 14.99,
@@ -736,7 +734,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Vanilla and Blueberry Cake",
-                        Description = "Vanilla Cake with Vanilla Buttercream and Blueberry filling",
+                        Description = "Vanilla Cake with Vanilla Buttercream and Blueberry Filling",
                         Ingredients = "Vanilla-Blueberry",
                         Size = "One three tiered cake",
                         Price = 19.99,
@@ -868,7 +866,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Chocolate and Bailey's Cake",
-                        Description = "Chocolate Cake with Bailey's Buttercream with Bailey's ganache filling",
+                        Description = "Chocolate Cake with Bailey's Buttercream with Bailey's ganache Filling",
                         Ingredients = "Chocolate",
                         Size = "One three tiered cake",
                         Price = 19.99,
@@ -901,7 +899,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Vanilla Cranberry Cupcakes",
-                        Description = "Vanilla Cupcakes with White Chocolate Buttercream with Cranberry filling",
+                        Description = "Vanilla Cupcakes with White Chocolate Buttercream with Cranberry Filling",
                         Ingredients = "Vanilla-Chocolate",
                         Size = "One Dozen",
                         Price = 14.99,
@@ -912,7 +910,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Vanilla Cranberry Cake",
-                        Description = "Vanilla Cake with White Chocolate Buttercream with Cranberry filling",
+                        Description = "Vanilla Cake with White Chocolate Buttercream with Cranberry Filling",
                         Ingredients = "Vanilla-Chocolate",
                         Size = "One three tiered cake",
                         Price = 19.99,
@@ -989,7 +987,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Raspberry Oat Bars",
-                        Description = "Oat Bars with a Raspberry filling",
+                        Description = "Oat Bars with a Raspberry Filling",
                         Ingredients = "Raspberry",
                         Size = "One Dozen",
                         Price = 14.99,
@@ -1000,7 +998,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Strawberry Oat Bars",
-                        Description = "Oat Bars with a Strawberry filling",
+                        Description = "Oat Bars with a Strawberry Filling",
                         Ingredients = "Strawberry",
                         Size = "One Dozen",
                         Price = 14.99,
@@ -1011,7 +1009,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Peach Oat Bars",
-                        Description = "Oat Bars with a Peach filling",
+                        Description = "Oat Bars with a Peach Filling",
                         Ingredients = "Peach",
                         Size = "One Dozen",
                         Price = 14.99,
@@ -1022,7 +1020,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Mango Oat Bars",
-                        Description = "Oat Bars with a Mango filling",
+                        Description = "Oat Bars with a Mango Filling",
                         Ingredients = "Mango",
                         Size = "One Dozen",
                         Price = 14.99,
@@ -1033,7 +1031,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Blueberry Oat Bars",
-                        Description = "Oat Bars with a Blueberry filling",
+                        Description = "Oat Bars with a Blueberry Filling",
                         Ingredients = "Peach",
                         Size = "One Dozen",
                         Price = 14.99,
@@ -1044,7 +1042,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Blackberry Oat Bars",
-                        Description = "Oat Bars with a Blackberry filling",
+                        Description = "Oat Bars with a Blackberry Filling",
                         Ingredients = "Blackberry",
                         Size = "One Dozen",
                         Price = 14.99,
@@ -1164,7 +1162,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Vanilla, Chocolate, and Strawbery Cupcakes",
-                        Description = "Vanilla Cupcakes with Chocolate Buttercream and Strawberry filling",
+                        Description = "Vanilla Cupcakes with Chocolate Buttercream and Strawberry Filling",
                         Ingredients = "Vanilla-Chocolate-Strawberry",
                         Size = "One Dozen",
                         Price = 14.99,
@@ -1175,7 +1173,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Vanilla, Chocolate, and Strawberry Cake",
-                        Description = "Vanilla Cake with Chocolate Buttercream and Strawberry filling",
+                        Description = "Vanilla Cake with Chocolate Buttercream and Strawberry Filling",
                         Ingredients = "Vanilla-Chocolate-Strawberry",
                         Size = "One three tiered cake",
                         Price = 19.99,
@@ -1186,7 +1184,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Vanilla, Chocolate, and Raspberry Cupcakes",
-                        Description = "Vanilla Cupcakes with Chocolate Buttercream and Raspberry filling",
+                        Description = "Vanilla Cupcakes with Chocolate Buttercream and Raspberry Filling",
                         Ingredients = "Vanilla-Chocolate-Raspberry",
                         Size = "One Dozen",
                         Price = 14.99,
@@ -1197,7 +1195,7 @@ namespace Ferris_Bakes.Models
                     new ReciepeModel()
                     {
                         Title = "Vanilla, Chocolate, and Raspberry Cake",
-                        Description = "Vanilla Cake with Chocolate Buttercream and Raspberry filling",
+                        Description = "Vanilla Cake with Chocolate Buttercream and Raspberry Filling",
                         Ingredients = "Vanilla-Chocolate-Raspberry",
                         Size = "One three tiered cake",
                         Price = 19.99,
@@ -1362,11 +1360,11 @@ namespace Ferris_Bakes.Models
                 return;   // DB has been seeded
             }
 
-            List<Ingredients> Resutls = new List<Ingredients>();
+            List<Ingredients> Resutls = new();
 
             foreach (ReciepeModel r in context.Reciepes)
             {
-                Ingredients temp = new Ingredients(r.ReciepeNumber, r.Ingredients);
+                Ingredients temp = new(r.ReciepeNumber, r.Ingredients);
                 Resutls.Add(temp);
             }
 
@@ -1374,7 +1372,7 @@ namespace Ferris_Bakes.Models
             context.SaveChanges();
         }
 
-        public static void clearCart(FerrisBakesContext context)
+        public static void ClearCart(FerrisBakesContext context)
         {
             if (context.Cart.Any())
             {

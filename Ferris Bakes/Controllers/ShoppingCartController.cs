@@ -23,17 +23,15 @@ namespace Ferris_Bakes.Controllers
         public IActionResult Index()
         {
 
-            using (var context = new FerrisBakesContext())
-            {
+            using var context = new FerrisBakesContext();
 
-                ShoppingCartModel temp = new ShoppingCartModel();
+            ShoppingCartModel temp = new();
 
-                ShoppingCartActions actions = new ShoppingCartActions();
+            ShoppingCartActions actions = new();
 
-                temp.Cart = actions.GetCartItems();
+            temp.Cart = actions.GetCartItems();
 
-                return View(temp);
-            }
+            return View(temp);
         }
 
         public IActionResult Checkout()
@@ -50,7 +48,7 @@ namespace Ferris_Bakes.Controllers
 
                     if (m != null)
                     {
-                        context.SetOrders.Add(setOrderConvert(model, m));
+                        context.SetOrders.Add(SetOrderConvert(model, m));
                     }                   
 
                     context.Cart.Remove(m);
@@ -63,9 +61,9 @@ namespace Ferris_Bakes.Controllers
         }
 
 
-        public DatabaseSetOrder setOrderConvert(CheckoutOrderModel order, CartItemModel cartItem)
+        public DatabaseSetOrder SetOrderConvert(CheckoutOrderModel order, CartItemModel cartItem)
         {
-            DatabaseSetOrder db = new DatabaseSetOrder();
+            DatabaseSetOrder db = new();
             db.OrderNumber = order.OrderNumber;
             db.RecipeOrderId = cartItem.RecipeId;
             db.Title = cartItem.Title;
@@ -84,7 +82,7 @@ namespace Ferris_Bakes.Controllers
         [HttpPost]
         public IActionResult Delete(int id, int prod)
         {
-            ShoppingCartActions actions = new ShoppingCartActions();
+            ShoppingCartActions actions = new();
 
             actions.DeleteFromSetCart(id, prod);
             return Ok("Success");
@@ -93,7 +91,7 @@ namespace Ferris_Bakes.Controllers
         [HttpPost]
         public IActionResult Add(int id)
         {
-            ShoppingCartActions actions = new ShoppingCartActions();
+            ShoppingCartActions actions = new();
 
             actions.AddToSetCart(id);
             return Ok("Success");
@@ -102,7 +100,7 @@ namespace Ferris_Bakes.Controllers
         [HttpPost]
         public IActionResult AddRecipe(int id)
         {
-            ShoppingCartActions actions = new ShoppingCartActions();
+            ShoppingCartActions actions = new();
 
             actions.AddToRecipeCart(id);
             return Ok("Success");

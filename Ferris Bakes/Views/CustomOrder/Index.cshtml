@@ -37,7 +37,7 @@
                     <div class="form-group">
                         <h2><label asp-for="BakeList">Available Bakes:</label></h2>
                     </div>
-                    @Html.DropDownListFor(m => m.bake, Model.BakeList.Select(x => new SelectListItem(x, x)), "Select a Bake", new { @class = "selector form-control" })
+                    @Html.DropDownListFor(m => m.Bake, Model.BakeList.Select(x => new SelectListItem(x, x)), "Select a Bake", new { @class = "selector form-control" })
                     <br />
                     <input type="submit" class="btn btn-info" id="betterButton" value="Next" />
                 </div>

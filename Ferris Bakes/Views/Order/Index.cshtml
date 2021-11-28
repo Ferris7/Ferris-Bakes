@@ -23,6 +23,7 @@
         .row {
             display: flex;
             width: 100%;
+            margin: auto;
         }
 
         .center {
@@ -43,11 +44,11 @@
 
         .orderContainer {
             position: relative;
-            width: 75%;
+            width: 90%;
             margin-right: auto;
             margin-left: auto;
             margin-top: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 30px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             text-align: center;
             font-family: arial;
@@ -163,7 +164,7 @@
         </div>
 
         <h1 class="center" id="Cakes">Cakes</h1>
-        @for (int i = 0; i < Model.Cakes.Count; i+=3)
+        @for (int i = 0; i < Model.Cakes.Count; i += 3)
         {
             <div class="row">
                 <div class="column3">
@@ -180,21 +181,21 @@
 
                 <div class="column3">
 
-                    @if (i+1 < Model.Cakes.Count)
+                    @if (i + 1 < Model.Cakes.Count)
                     {
                         <div class="orderContainer">
                             <div class="imageCon">
                                 <img src="@Model.Cakes[i+1].ImgPath" class="orderImage">
                                 <button class="orderBtn" onclick="addToCart(@Model.Cakes[i+1].BakeID)">Order Now!</button>
                             </div>
-                            <h3>@Model.Cakes[i+1].BakeName</h3>
-                            <p class="price">$@Model.Cakes[i+1].Price</p>
-                            <p class="description">@Model.Cakes[i+1].Description</p>
+                            <h3>@Model.Cakes[i + 1].BakeName</h3>
+                            <p class="price">$@Model.Cakes[i + 1].Price</p>
+                            <p class="description">@Model.Cakes[i + 1].Description</p>
                         </div>
                     }
                 </div>
                 <div class="column3">
-                    @if (i+2 < Model.Cakes.Count)
+                    @if (i + 2 < Model.Cakes.Count)
                     {
 
                         <div class="orderContainer">
@@ -213,7 +214,7 @@
         }
 
         <h1 class="center" id="Cookies">Cookies</h1>
-        @for (int i = 0; i < Model.Cookies.Count; i+=3)
+        @for (int i = 0; i < Model.Cookies.Count; i += 3)
         {
             <div class="row">
                 <div class="column3">
@@ -230,21 +231,21 @@
 
                 <div class="column3">
 
-                    @if (i+1 < Model.Cookies.Count)
+                    @if (i + 1 < Model.Cookies.Count)
                     {
                         <div class="orderContainer">
                             <div class="imageCon">
                                 <img src="@Model.Cookies[i+1].ImgPath" class="orderImage">
                                 <button class="orderBtn" onclick="addToCart(@Model.Cookies[i+1].BakeID)">Order Now!</button>
                             </div>
-                            <h3>@Model.Cookies[i+1].BakeName</h3>
-                            <p class="price">$@Model.Cookies[i+1].Price</p>
-                            <p class="description">@Model.Cookies[i+1].Description</p>
+                            <h3>@Model.Cookies[i + 1].BakeName</h3>
+                            <p class="price">$@Model.Cookies[i + 1].Price</p>
+                            <p class="description">@Model.Cookies[i + 1].Description</p>
                         </div>
                     }
                 </div>
                 <div class="column3">
-                    @if (i+2 < Model.Cookies.Count)
+                    @if (i + 2 < Model.Cookies.Count)
                     {
 
                         <div class="orderContainer">
@@ -252,9 +253,9 @@
                                 <img src="@Model.Cookies[i+2].ImgPath" class="orderImage">
                                 <button class="orderBtn" onclick="addToCart(@Model.Cookies[i+2].BakeID)">Order Now!</button>
                             </div>
-                            <h3>@Model.Cookies[i+2].BakeName</h3>
-                            <p class="price">$@Model.Cookies[i+2].Price</p>
-                            <p class="description">@Model.Cookies[i+2].Description</p>
+                            <h3>@Model.Cookies[i + 2].BakeName</h3>
+                            <p class="price">$@Model.Cookies[i + 2].Price</p>
+                            <p class="description">@Model.Cookies[i + 2].Description</p>
                         </div>
                     }
                 </div>
@@ -263,7 +264,7 @@
         }
 
         <h1 class="center" id="Cupcakes">Cupcakes</h1>
-        @for (int i = 0; i < Model.Cupcakes.Count; i+=3)
+        @for (int i = 0; i < Model.Cupcakes.Count; i += 3)
         {
             <div class="row">
                 <div class="column3">
@@ -280,21 +281,21 @@
 
                 <div class="column3">
 
-                    @if (i+1 < Model.Cupcakes.Count)
+                    @if (i + 1 < Model.Cupcakes.Count)
                     {
                         <div class="orderContainer">
                             <div class="imageCon">
                                 <img src="@Model.Cupcakes[i+1].ImgPath" class="orderImage">
                                 <button class="orderBtn" onclick="addToCart(@Model.Cupcakes[i+1].BakeID)">Order Now!</button>
                             </div>
-                            <h3>@Model.Cupcakes[i+1].BakeName</h3>
-                            <p class="price">$@Model.Cupcakes[i+1].Price</p>
-                            <p class="description">@Model.Cupcakes[i+1].Description</p>
+                            <h3>@Model.Cupcakes[i + 1].BakeName</h3>
+                            <p class="price">$@Model.Cupcakes[i + 1].Price</p>
+                            <p class="description">@Model.Cupcakes[i + 1].Description</p>
                         </div>
                     }
                 </div>
                 <div class="column3">
-                    @if (i+2 < Model.Cupcakes.Count)
+                    @if (i + 2 < Model.Cupcakes.Count)
                     {
 
                         <div class="orderContainer">
@@ -302,9 +303,9 @@
                                 <img src="@Model.Cupcakes[i+2].ImgPath" class="orderImage">
                                 <button class="orderBtn" onclick="addToCart(@Model.Cupcakes[i+2].BakeID)">Order Now!</button>
                             </div>
-                            <h3>@Model.Cupcakes[i+2].BakeName</h3>
-                            <p class="price">$@Model.Cupcakes[i+2].Price</p>
-                            <p class="description">@Model.Cupcakes[i+2].Description</p>
+                            <h3>@Model.Cupcakes[i + 2].BakeName</h3>
+                            <p class="price">$@Model.Cupcakes[i + 2].Price</p>
+                            <p class="description">@Model.Cupcakes[i + 2].Description</p>
                         </div>
                     }
                 </div>
@@ -313,7 +314,7 @@
         }
 
         <h1 class="center" id="Pastry">Pastries</h1>
-        @for (int i = 0; i < Model.Pastry.Count; i+=3)
+        @for (int i = 0; i < Model.Pastry.Count; i += 3)
         {
             <div class="row">
                 <div class="column3">
@@ -330,21 +331,21 @@
 
                 <div class="column3">
 
-                    @if (i+1 < Model.Pastry.Count)
+                    @if (i + 1 < Model.Pastry.Count)
                     {
                         <div class="orderContainer">
                             <div class="imageCon">
                                 <img src="@Model.Pastry[i+1].ImgPath" class="orderImage">
                                 <button class="orderBtn" onclick="addToCart(@Model.Pastry[i+1].BakeID)">Order Now!</button>
                             </div>
-                            <h3>@Model.Pastry[i+1].BakeName</h3>
-                            <p class="price">$@Model.Pastry[i+1].Price</p>
-                            <p class="description">@Model.Pastry[i+1].Description</p>
+                            <h3>@Model.Pastry[i + 1].BakeName</h3>
+                            <p class="price">$@Model.Pastry[i + 1].Price</p>
+                            <p class="description">@Model.Pastry[i + 1].Description</p>
                         </div>
                     }
                 </div>
                 <div class="column3">
-                    @if (i+2 < Model.Pastry.Count)
+                    @if (i + 2 < Model.Pastry.Count)
                     {
 
                         <div class="orderContainer">
@@ -352,9 +353,9 @@
                                 <img src="@Model.Pastry[i+2].ImgPath" class="orderImage">
                                 <button class="orderBtn" onclick="addToCart(@Model.Pastry[i+2].BakeID)">Order Now!</button>
                             </div>
-                            <h3>@Model.Pastry[i+2].BakeName</h3>
-                            <p class="price">$@Model.Pastry[i+2].Price</p>
-                            <p class="description">@Model.Pastry[i+2].Description</p>
+                            <h3>@Model.Pastry[i + 2].BakeName</h3>
+                            <p class="price">$@Model.Pastry[i + 2].Price</p>
+                            <p class="description">@Model.Pastry[i + 2].Description</p>
                         </div>
                     }
                 </div>
@@ -363,7 +364,7 @@
         }
 
         <h1 class="center" id="Holiday">Holiday</h1>
-        @for (int i = 0; i < Model.Holiday.Count; i+=3)
+        @for (int i = 0; i < Model.Holiday.Count; i += 3)
         {
             <div class="row">
                 <div class="column3">
@@ -380,21 +381,21 @@
 
                 <div class="column3">
 
-                    @if (i+1 < Model.Holiday.Count)
+                    @if (i + 1 < Model.Holiday.Count)
                     {
                         <div class="orderContainer">
                             <div class="imageCon">
                                 <img src="@Model.Holiday[i+1].ImgPath" class="orderImage">
                                 <button class="orderBtn" onclick="addToCart(@Model.Holiday[i+1].BakeID)">Order Now!</button>
                             </div>
-                            <h3>@Model.Holiday[i+1].BakeName</h3>
-                            <p class="price">$@Model.Holiday[i+1].Price</p>
-                            <p class="description">@Model.Holiday[i+1].Description</p>
+                            <h3>@Model.Holiday[i + 1].BakeName</h3>
+                            <p class="price">$@Model.Holiday[i + 1].Price</p>
+                            <p class="description">@Model.Holiday[i + 1].Description</p>
                         </div>
                     }
                 </div>
                 <div class="column3">
-                    @if (i+2 < Model.Holiday.Count)
+                    @if (i + 2 < Model.Holiday.Count)
                     {
 
                         <div class="orderContainer">
@@ -402,9 +403,9 @@
                                 <img src="@Model.Holiday[i+2].ImgPath" class="orderImage">
                                 <button class="orderBtn" onclick="addToCart(@Model.Holiday[i+2].BakeID)">Order Now!</button>
                             </div>
-                            <h3>@Model.Holiday[i+2].BakeName</h3>
-                            <p class="price">$@Model.Holiday[i+2].Price</p>
-                            <p class="description">@Model.Holiday[i+2].Description</p>
+                            <h3>@Model.Holiday[i + 2].BakeName</h3>
+                            <p class="price">$@Model.Holiday[i + 2].Price</p>
+                            <p class="description">@Model.Holiday[i + 2].Description</p>
                         </div>
                     }
                 </div>
@@ -413,7 +414,7 @@
         }
 
         <h1 class="center" id="Misc">Misc.</h1>
-        @for (int i = 0; i < Model.Misc.Count; i+=3)
+        @for (int i = 0; i < Model.Misc.Count; i += 3)
         {
             <div class="row">
                 <div class="column3">
@@ -430,21 +431,21 @@
 
                 <div class="column3">
 
-                    @if (i+1 < Model.Misc.Count)
+                    @if (i + 1 < Model.Misc.Count)
                     {
                         <div class="orderContainer">
                             <div class="imageCon">
                                 <img src="@Model.Misc[i+1].ImgPath" class="orderImage">
                                 <button class="orderBtn" onclick="addToCart(@Model.Misc[i+1].BakeID)">Order Now!</button>
                             </div>
-                            <h3>@Model.Misc[i+1].BakeName</h3>
-                            <p class="price">$@Model.Misc[i+1].Price</p>
-                            <p class="description">@Model.Misc[i+1].Description</p>
+                            <h3>@Model.Misc[i + 1].BakeName</h3>
+                            <p class="price">$@Model.Misc[i + 1].Price</p>
+                            <p class="description">@Model.Misc[i + 1].Description</p>
                         </div>
                     }
                 </div>
                 <div class="column3">
-                    @if (i+2 < Model.Misc.Count)
+                    @if (i + 2 < Model.Misc.Count)
                     {
 
                         <div class="orderContainer">
@@ -452,15 +453,32 @@
                                 <img src="@Model.Cakes[i+2].ImgPath" class="orderImage">
                                 <button class="orderBtn" onclick="addToCart(@Model.Cakes[i+2].BakeID)">Order Now!</button>
                             </div>
-                            <h3>@Model.Misc[i+2].BakeName</h3>
-                            <p class="price">$@Model.Misc[i+2].Price</p>
-                            <p class="description">@Model.Misc[i+2].Description</p>
+                            <h3>@Model.Misc[i + 2].BakeName</h3>
+                            <p class="price">$@Model.Misc[i + 2].Price</p>
+                            <p class="description">@Model.Misc[i + 2].Description</p>
                         </div>
                     }
                 </div>
 
             </div>
         }
+
+
+        <div class="modal p-0" id="popUp" tabindex="-1" role="dialog" style="display:none;">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content" id="success">
+                    <div class="modal-header  border-bottom-0">
+                        <h4 class="modal-title">Bake Added to Cart!</h4>
+                        <button type="button" class="close" onclick="document.getElementById('popUp').style.display='none'" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>Don't forget to checkout!</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 
@@ -491,11 +509,18 @@
                 type: 'POST',
                 url: '/ShoppingCart/Add',
                 data: { id: bakeId },
-                success: function (result) {
-                    alert(result);
+                success: {
+                    document.getElementById('popUp').display = "block";
                 }
             });
-        };                  
+        };
+
+        var modal = document.getElementById('popUp');
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
 
     </script>
 

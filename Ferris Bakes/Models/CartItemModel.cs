@@ -23,6 +23,6 @@ namespace Ferris_Bakes.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public double Price { get; set; }
-        public string imgPath { get; set; }
+        public string ImgPath { get; set; }
     } 
 }

@@ -13,34 +13,34 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.bake)
+                @Html.DisplayNameFor(model => model.Bake)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.flavor)
+                @Html.DisplayNameFor(model => model.Flavor)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.size)
+                @Html.DisplayNameFor(model => model.Size)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.filling)
+                @Html.DisplayNameFor(model => model.Filling)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.fillFlavor)
+                @Html.DisplayNameFor(model => model.FillFlavor)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.comment)
+                @Html.DisplayNameFor(model => model.Comment)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.customerFirstName)
+                @Html.DisplayNameFor(model => model.CustomerFirstName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.customerLastName)
+                @Html.DisplayNameFor(model => model.CustomerLastName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.date)
+                @Html.DisplayNameFor(model => model.Date)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.dueDate)
+                @Html.DisplayNameFor(model => model.DueDate)
             </th>
             <th></th>
         </tr>
@@ -49,34 +49,34 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.bake)
+                @Html.DisplayFor(modelItem => item.Bake)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.flavor)
+                @Html.DisplayFor(modelItem => item.Flavor)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.size)
+                @Html.DisplayFor(modelItem => item.Size)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.filling)
+                @Html.DisplayFor(modelItem => item.Filling)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.fillFlavor)
+                @Html.DisplayFor(modelItem => item.FillFlavor)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.comment)
+                @Html.DisplayFor(modelItem => item.Comment)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.customerFirstName)
+                @Html.DisplayFor(modelItem => item.CustomerFirstName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.customerLastName)
+                @Html.DisplayFor(modelItem => item.CustomerLastName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.date)
+                @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.dueDate)
+                @Html.DisplayFor(modelItem => item.DueDate)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.CustomBakeID">Edit</a> |

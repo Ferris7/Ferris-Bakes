@@ -14,7 +14,7 @@ namespace Ferris_Bakes.Logic
     {
         public List<ReciepeModel> GetLikeableRecieps (Preference Preference)
         {
-            List<ReciepeModel> Reciepes = new List<ReciepeModel>();
+            List<ReciepeModel> Reciepes = new();
 
             using (var context = new FerrisBakesContext())
             {
@@ -23,11 +23,11 @@ namespace Ferris_Bakes.Logic
                 bool Fruit = !(Preference.Dislikes.Blackberry && Preference.Dislikes.Blueberry && Preference.Dislikes.Strawberry && Preference.Dislikes.Raspberry && Preference.Dislikes.Mango && Preference.Dislikes.Peach && Preference.Dislikes.Lemon);
                 //Fruit will only be negative if they don't like any fruit 
 
-                ReciepeBook Chocolate = new ReciepeBook();
-                ReciepeBook Vanilla = new ReciepeBook();
-                ReciepeBook FruitBook = new ReciepeBook();
-                ReciepeBook Misc = new ReciepeBook();
-                ReciepeBook Vegan = new ReciepeBook();
+                ReciepeBook Chocolate = new();
+                ReciepeBook Vanilla = new();
+                ReciepeBook FruitBook = new();
+                ReciepeBook Misc = new();
+                ReciepeBook Vegan = new();
 
                 foreach (ReciepeBook r in context.ReciepeBook)
                 {
@@ -160,13 +160,13 @@ namespace Ferris_Bakes.Logic
 
         public List<ReciepeModel> BookReader (Ingredients Dislikes, ReciepeBook Book, List<ReciepeModel> RecipeList, List<Ingredients> IngredientsList)
         {
-            List<ReciepeModel> Reciepes = new List<ReciepeModel>();
+            List<ReciepeModel> Reciepes = new();
 
             foreach (ReciepeModel r in RecipeList)
             {
                 if (r.BookId == Book.BookId)
                 {
-                    Ingredients temp = new Ingredients();
+                    Ingredients temp = new();
                     temp = IngredientsList.Find(x => x.ReciepeID == r.ReciepeNumber);
                     if (!temp.CompareDislikes(Dislikes))
                         Reciepes.Add(r);
@@ -179,13 +179,13 @@ namespace Ferris_Bakes.Logic
 
         public List<ReciepeModel> BookReader(Ingredients Dislikes, Chapter Chapter, List<ReciepeModel> RecipeList, List<Ingredients> IngredientsList)
         {
-            List<ReciepeModel> Reciepes = new List<ReciepeModel>();
+            List<ReciepeModel> Reciepes = new();
 
             foreach (ReciepeModel r in RecipeList)
             {
                 if (r.BookId == Chapter.BookID && r.ChapterId == Chapter.ChapterId)
                 {
-                    Ingredients temp = new Ingredients();
+                    Ingredients temp = new();
                     temp = IngredientsList.Find(x => x.ReciepeID == r.ReciepeNumber);
                     if (!temp.CompareDislikes(Dislikes))
                         Reciepes.Add(r);
@@ -198,11 +198,11 @@ namespace Ferris_Bakes.Logic
 
         public void LikeCalculator(Ingredients Likes, List<ReciepeModel> RecipeList, List<Ingredients> IngredientsList)
         {
-            List<int> Values = new List<int>(RecipeList.Count);
+            List<int> Values = new(RecipeList.Count);
 
             for (int i = 0; i < RecipeList.Count; i++)
             {
-                Ingredients temp = new Ingredients();
+                Ingredients temp = new();
                 temp = IngredientsList.Find(x => x.ReciepeID == RecipeList[i].ReciepeNumber);
                 Values.Add(temp.CompareLikes(Likes));
             }

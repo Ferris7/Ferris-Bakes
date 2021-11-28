@@ -22,48 +22,48 @@ namespace Ferris_Bakes.Controllers
 
         public IActionResult Index(string bake)
         {
-            CustomOrderModel data = new CustomOrderModel();
+            CustomOrderModel data = new();
 
             if (bake == null)
             {
                 return View(data);
             }
      
-            data.bake = bake;
+            data.Bake = bake;
 
             switch(bake)
             {
                 case "Bars": 
-                    data.flavorOptions = new List<string> { "Oat bar", "Strawberry & Cream Bar" };
-                    data.filling = true;
+                    data.FlavorOptions = new List<string> { "Oat bar", "Strawberry & Cream Bar" };
+                    data.Filling = true;
                     break;
                 case "Brownies": 
-                    data.flavorOptions = new List<string> { "Regular", "Nutty", "Slutty (add Oreos and Cookie Dough)" };
-                    data.filling = false;
+                    data.FlavorOptions = new List<string> { "Regular", "Nutty", "Slutty (add Oreos and Cookie Dough)" };
+                    data.Filling = false;
                     break;
                 case "Cake":
-                    data.flavorOptions = new List<string> { "Cheesecake", "Chocolate", "Chocolate With Baileys", "Lemon", "Pumpkin", "Red Velvet", "Sparkling Apple Cider Pound Cake", "Yellow" };
-                    data.filling = true;
+                    data.FlavorOptions = new List<string> { "Cheesecake", "Chocolate", "Chocolate With Baileys", "Lemon", "Pumpkin", "Red Velvet", "Sparkling Apple Cider Pound Cake", "Yellow" };
+                    data.Filling = true;
                     break;
                 case "Cupcake":
-                    data.flavorOptions = new List<string> { "Chocolate", "Chocolate With Baileys", "Lemon", "Pumpkin", "Red Velvet", "Yellow" };
-                    data.filling = true;
+                    data.FlavorOptions = new List<string> { "Chocolate", "Chocolate With Baileys", "Lemon", "Pumpkin", "Red Velvet", "Yellow" };
+                    data.Filling = true;
                     break;
                 case "Cookies":
-                    data.flavorOptions = new List<string> { "Chocolate Chip", "Chocolate Crinkle", "Sugar" };
-                    data.filling = false;
+                    data.FlavorOptions = new List<string> { "Chocolate Chip", "Chocolate Crinkle", "Sugar" };
+                    data.Filling = false;
                     break;
                 case "Pastry":
-                    data.flavorOptions = new List<string> { "Jam & Cream Cheese Pinwheel", "Strudel" };
-                    data.filling = true;
+                    data.FlavorOptions = new List<string> { "Jam & Cream Cheese Pinwheel", "Strudel" };
+                    data.Filling = true;
                     break;
                 case "Pie":
-                    data.flavorOptions = new List<string> { "Apple", "Chocolate"};
-                    data.filling = false;
+                    data.FlavorOptions = new List<string> { "Apple", "Chocolate"};
+                    data.Filling = false;
                     break;
                 default: 
-                    data.flavorOptions = null;
-                    data.filling = false;
+                    data.FlavorOptions = null;
+                    data.Filling = false;
                     break;
             }
 
@@ -76,9 +76,9 @@ namespace Ferris_Bakes.Controllers
         public IActionResult Form(CustomOrderModel data)
         {
 
-            ViewData["Bake"] = data.bake;
+            ViewData["Bake"] = data.Bake;
             
-            ViewData["Sizing"] = data.bake switch
+            ViewData["Sizing"] = data.Bake switch
             {
                 "Bars" => "Size is number of pans.",
                 "Brownies" => "Size is number of pans.",
@@ -90,7 +90,7 @@ namespace Ferris_Bakes.Controllers
                 _ => "Size is in individual items.",
             };
 
-            data.calculatePrice();
+            data.CalculatePrice();
 
 
             return View("Details", data);
@@ -100,10 +100,10 @@ namespace Ferris_Bakes.Controllers
         public IActionResult Details(CustomOrderModel data)
         {
 
-            ViewData["Bake"] = data.bake;
+            ViewData["Bake"] = data.Bake;
 
             data.ConfirmationNumber = Guid.NewGuid().ToString();
-            data.date = DateTime.Now;
+            data.Date = DateTime.Now;
 
             ViewData["ID"] = data.ConfirmationNumber;
 
