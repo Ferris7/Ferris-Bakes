@@ -2,20 +2,45 @@
     ViewData["Title"] = "Home Page";
 }
 
-<style>
-    .backgroundDec {
-        background-image: url('/wwwroot/pics/Background Dec2.png'), -webkit-linear-gradient(top, #b5abff 0, #6f5cff 100%);
-    }
-</style>
+<head>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        .bgImage {
+            background-image: -webkit-linear-gradient(top, #b5abff 0, #6f5cff 100%);
+        }
 
-<body class="backgroundDec">
-    <div class="text-center">
-        <br />
+        .bgImage::before {
+            content: "";
+            background-image: url('../pics/Background Dec.png');
+            background-size: 50%;
+            position: absolute;
+            background-position: center;
+            background-repeat: repeat;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            opacity: 0.85;
+            z-index: -5;
+        }
+
+        .header {
+            color: floralwhite;
+            background-color: rgba(129, 133, 130, .7);
+            max-width: fit-content;
+            margin: auto;
+            padding: 25px;
+        }
+    </style>
+</head>
+
+
+<body class="bgImage">
+    <div class="header">
         <h1 class="display-4">Welcome to Ferris Bakes</h1>
 
         <br />
         <h3>This is my website dedicated to my baking. Please Enjoy!</h3>
-
     </div>
 </body>
 
