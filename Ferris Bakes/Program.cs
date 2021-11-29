@@ -11,6 +11,7 @@ using Ferris_Bakes.Data;
 using Ferris_Bakes.Models;
 using Microsoft.EntityFrameworkCore;
 using Ferris_Bakes.Logic;
+using Azure.Identity;
 
 namespace Ferris_Bakes
 {
@@ -46,6 +47,11 @@ namespace Ferris_Bakes
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+.ConfigureAppConfiguration((context, config) =>
+{
+var keyVaultEndpoint = new Uri(Environment.GetEnvironmentVariable("VaultUri"));
+config.AddAzureKeyVault(keyVaultEndpoint, new DefaultAzureCredential());
+})
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
