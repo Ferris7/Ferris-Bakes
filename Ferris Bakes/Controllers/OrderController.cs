@@ -12,13 +12,6 @@ namespace Ferris_Bakes.Controllers
 {
     public class OrderController : Controller
     {
-        private readonly ILogger<OrderController> _logger;
-
-        public OrderController(ILogger<OrderController> logger)
-        {
-            _logger = logger;
-        }
-
         public IActionResult Index()
         {
             using (var context = new FerrisBakesContext())
@@ -69,11 +62,6 @@ namespace Ferris_Bakes.Controllers
 
                 return View(temp);
             }
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

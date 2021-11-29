@@ -13,13 +13,6 @@ namespace Ferris_Bakes.Controllers
 {
     public class CustomOrderController : Controller
     {
-        private readonly ILogger<CustomOrderController> _logger;
-
-        public CustomOrderController(ILogger<CustomOrderController> logger)
-        {
-            _logger = logger;
-        }
-
         public IActionResult Index(string bake)
         {
             CustomOrderModel data = new();
