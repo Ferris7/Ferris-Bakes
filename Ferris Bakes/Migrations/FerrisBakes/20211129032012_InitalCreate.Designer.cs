@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ferris_Bakes.Migrations.FerrisBakes
 {
     [DbContext(typeof(FerrisBakesContext))]
-    [Migration("20211126175412_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20211129032012_InitalCreate")]
+    partial class InitalCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -97,6 +97,9 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImgPath")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
@@ -118,9 +121,6 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImgPath")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("ItemId");
 
                     b.ToTable("Cart");
@@ -133,31 +133,25 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ConfirmationNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CustomerEmail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CustomerPhone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Frosting")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
-
                     b.Property<string>("Bake")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ConfirmationNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerEmail")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CustomerFirstName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CustomerLastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerPhone")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Date")
@@ -174,6 +168,12 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
 
                     b.Property<string>("Flavor")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Frosting")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
 
                     b.Property<int>("Size")
                         .HasColumnType("int");
@@ -211,8 +211,8 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                     b.Property<DateTime>("DueDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("OrderNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("OrderConfirmation")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("RecipeOrder")
                         .HasColumnType("bit");

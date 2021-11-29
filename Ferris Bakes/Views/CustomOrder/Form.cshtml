@@ -37,7 +37,7 @@
                             <h2 style="margin-bottom:15px">Bake Type: @Model.Bake</h2>
                             <h2><label asp-for="FlavorOptions">Flavors:</label></h2>
                         </div>
-                        @Model.Bake
+                        @Html.DropDownListFor(m => m.Flavor, Model.FlavorOptions.Select(x => new SelectListItem(x, x)), "Select a Flavor", new { @class = "selector form-control" })
                         <br />
                     </div>
 

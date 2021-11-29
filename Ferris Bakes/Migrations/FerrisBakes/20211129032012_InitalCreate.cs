@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Ferris_Bakes.Migrations.FerrisBakes
 {
-    public partial class InitialCreate : Migration
+    public partial class InitalCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -22,7 +22,7 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<double>(type: "float", nullable: false),
-                    imgPath = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    ImgPath = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -49,20 +49,20 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                     CustomBakeID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ConfirmationNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    bake = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    flavor = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    size = table.Column<int>(type: "int", nullable: false),
+                    Bake = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Flavor = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Size = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<double>(type: "float", nullable: false),
                     Frosting = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    filling = table.Column<bool>(type: "bit", nullable: false),
-                    fillFlavor = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    customerFirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    customerLastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Filling = table.Column<bool>(type: "bit", nullable: false),
+                    FillFlavor = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CustomerFirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CustomerLastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CustomerEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CustomerPhone = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    dueDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DueDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -152,7 +152,7 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                 {
                     DBkey = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    OrderNumber = table.Column<int>(type: "int", nullable: false),
+                    OrderConfirmation = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SetOrder = table.Column<bool>(type: "bit", nullable: false),
                     RecipeOrder = table.Column<bool>(type: "bit", nullable: false),
                     SetOrderId = table.Column<int>(type: "int", nullable: false),

@@ -36,11 +36,13 @@ namespace Ferris_Bakes.Controllers
 
         public IActionResult Checkout()
         {
-            return View();
+            return View("Checkout");
         }
 
         public IActionResult OrderPlaced(CheckoutOrderModel model)
         {
+            model.OrderConfirmation = Guid.NewGuid().ToString();
+
             using (var context = new FerrisBakesContext())
             {
                 foreach (CartItemModel m in context.Cart)
@@ -64,10 +66,12 @@ namespace Ferris_Bakes.Controllers
         public DatabaseSetOrder SetOrderConvert(CheckoutOrderModel order, CartItemModel cartItem)
         {
             DatabaseSetOrder db = new();
-            db.OrderNumber = order.OrderNumber;
+            db.OrderConfirmation = order.OrderConfirmation;
             db.RecipeOrderId = cartItem.RecipeId;
             db.Title = cartItem.Title;
             db.Description = cartItem.Description;
+            db.SetOrder = cartItem.SetOrder;
+            db.RecipeOrder = cartItem.RecipeOrder;
             db.SetOrderId = cartItem.ProductId;
             db.CustomerFirstName = order.CustomerFirstName;
             db.CustomerLastName = order.CustomerLastName;

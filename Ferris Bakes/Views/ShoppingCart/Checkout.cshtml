@@ -47,33 +47,41 @@
 
                         <div class="row3">
                             <div class="form-inline">
-                                <label for="CustomerFirstName">First Name:</label>
+                                <label for="Size">First Name:</label>
                                 <span class="tab"></span>
-                                <input asp-for="CustomerFirstName" class="form-control" placeholder="Enter your first name" id="costumerName">
+                                <input asp-for="CustomerFirstName" class="form-control" placeholder="Enter Your Name" id="costumerName">
                             </div>
-                            <div class="form-inline">
-                                <label for="CustomerLastName">Last Name:</label>
+                            <p></p>
+                            <div class="form-inline" style="margin-left: 30px">
+                                <label for="Size">Last Name:</label>
                                 <span class="tab"></span>
-                                <input asp-for="CustomerLastName" class="form-control" placeholder="Enter your last name" id="costumerName">
+                                <input asp-for="CustomerLastName" class="form-control" placeholder="Enter Your Name" id="costumerName">
                             </div>
-                        </div>
-                        <div class="row3">
-                            <label for="CustomerEmail">Email:</label>
-                            <span class="tab"></span>
-                            <input asp-for="CustomerEmail" class="form-control" placeholder="Enter your email" />
-                        </div>
-                        <div class="row3">
-                            <label for="CustomerPhoneNumber">Phone Number:</label>
-                            <span class="tab"></span>
-                            <input asp-for="CustomerPhoneNumber" class="form-control" placeholder="Enter your phone number" />
                         </div>
                         <div class="row3">
                             <div class="form-inline">
-                                <label for="Size">Date Requested By:</label>
+                                <label for="CustomerEmail">Email Address:</label>
                                 <span class="tab"></span>
-                                <input asp-for="DueDate" class="form-control" type="datetime-local" id="dueDate"
-                                       name="DueDate" value=DateTime.Today
-                                       min="DateTime.Today+3" max="2024-12-01T00:00">
+                                <input asp-for="CustomerEmail" class="form-control" placeholder="Enter your email address" />
+                            </div>
+                        </div>
+                        <div class="row3">
+                            <div class="form-inline">
+                                <label for="CustomerPhoneNumber">Phone Number:</label>
+                                <span class="tab"></span>
+                                <input asp-for="CustomerPhoneNumber" class="form-control" placeholder="Enter your phone number" />
+                            </div>
+                        </div>
+
+                        <div class="row3">
+                            <div class="form-inline">
+                                <div class="form-inline">
+                                    <label for="Size">Date Requested By:</label>
+                                    <span class="tab"></span>
+                                    <input asp-for="DueDate" class="form-control" type="datetime-local" id="dueDate"
+                                           name="DueDate" value=DateTime.Today
+                                           min="DateTime.Today+3" max="2024-12-01T00:00">
+                                </div>
                             </div>
                         </div>
 
@@ -82,7 +90,7 @@
                             <input type="submit" class="btn btn-info" id="betterButton" value="Order Now!" asp-controller="ShoppingCart" asp-action="OrderPlaced" />
                         </div>
 
-                    </div>
+                        </div>
                 </div>
             </form>
         </div>

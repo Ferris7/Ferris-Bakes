@@ -11,7 +11,7 @@ namespace Ferris_Bakes.Models
     {
         [Key]
         public int DBkey { get; set; }
-        public int OrderNumber { get; set; }
+        public string OrderConfirmation { get; set; }
         public bool SetOrder { get; set; }
         public bool RecipeOrder { get; set; }
         public int SetOrderId { get; set; }

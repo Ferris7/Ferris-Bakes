@@ -11,6 +11,7 @@ namespace Ferris_Bakes.Models
     {
         [Key]
         public int OrderNumber { get; set; }
+        public string OrderConfirmation { get; set; }
         public string CustomerFirstName { get; set; }
         public string CustomerLastName { get; set; }
         public string CustomerEmail { get; set; }
