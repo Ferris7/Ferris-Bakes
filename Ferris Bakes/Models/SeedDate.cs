@@ -13,16 +13,19 @@ namespace Ferris_Bakes.Models
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
-            using var context = new FerrisBakesContext(
+            using (var context = new FerrisBakesContext(
                serviceProvider.GetRequiredService<
-                   DbContextOptions<FerrisBakesContext>>());
-            SeedSetOrder(context);
-            SeedReciepes(context);
-            SeedChapters(context);
-            SeedReciepeBooks(context);
-            SeedIngredients(context);
+                   DbContextOptions<FerrisBakesContext>>()))
+            {
+                SeedSetOrder(context);
+                SeedReciepes(context);
+                SeedChapters(context);
+                SeedReciepeBooks(context);
+                SeedIngredients(context);
 
-            ClearCart(context);
+                ClearCart(context);
+            }
+                
 
         }
         

@@ -6,47 +6,233 @@
 
 @model AdminModel
 
+<style>
+    .item {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .adminRow {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        overflow: auto;
+        margin-bottom: 15px;
+    }
+
+    .userInput {
+        background-color: lightgray;
+        max-width: 70%;
+        padding: 10px 30px;
+        margin-bottom: 0px;
+    }
+
+    .width {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+    }
+
+    .conNum {
+        margin-left: 15px;
+        max-width: 70%;
+    }
+
+    .card-header {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .headMarg {
+        margin-right: 15px;
+    }
+
+</style>
+
 <body>
-    <h2>List of Orders:</h2>
-
-    <h4>Custom Orders</h4>
-
+    <h2 style="margin-left:10%;">List of Orders:</h2>
+    <br />
+    <h4 style="text-align:center;">Custom Orders</h4>
+    <br />
     @for (int i = 0; i < Model.CustomOrderList.Count; i++)
     {
-        <div class="card">
+        <div class="card width">
             <div class="card-header">
-                <label asp-for="@Model.CustomOrderList[i].CustomBakeID">Order Number: </label>
-                <input asp-for="@Model.CustomOrderList[i].CustomBakeID" readonly />
+                <label class="headMarg" asp-for="@Model.CustomOrderList[i].ConfirmationNumber">Confirmation Number: </label>
+                <input class="conNum" asp-for="@Model.CustomOrderList[i].ConfirmationNumber" readonly />
             </div>
             <div class="card-body">
-                <label asp-for="@Model.CustomOrderList[i].Bake">Bake: </label>
-                <input asp-for="@Model.CustomOrderList[i].Bake" readonly />
-                <label asp-for="@Model.CustomOrderList[i].Flavor">Flavor: </label>
-                <input asp-for="@Model.CustomOrderList[i].Flavor" readonly />
-                <label asp-for="@Model.CustomOrderList[i].Frosting">Frosting: </label>
-                <input asp-for="@Model.CustomOrderList[i].Frosting" readonly />
-                <label asp-for="@Model.CustomOrderList[i].FillFlavor">Filling Flavor: </label>
-                <input asp-for="@Model.CustomOrderList[i].FillFlavor" readonly />
-                <label asp-for="@Model.CustomOrderList[i].Size">Size/Quantity: </label>
-                <input asp-for="@Model.CustomOrderList[i].Size" readonly />
-                <label asp-for="@Model.CustomOrderList[i].Comment">Comments: </label>
-                <input asp-for="@Model.CustomOrderList[i].Comment" readonly />
-                <label asp-for="@Model.CustomOrderList[i].CustomerFirstName">First Name: </label>
-                <input asp-for="@Model.CustomOrderList[i].CustomerFirstName" readonly />
-                <label asp-for="@Model.CustomOrderList[i].CustomerLastName">Last Name: </label>
-                <input asp-for="@Model.CustomOrderList[i].CustomerLastName" readonly />
-                <label asp-for="@Model.CustomOrderList[i].Date">Date Submitted: </label>
-                <input asp-for="@Model.CustomOrderList[i].Date" readonly />
-                <label asp-for="@Model.CustomOrderList[i].DueDate">Date Requested: </label>
-                <input asp-for="@Model.CustomOrderList[i].DueDate" readonly />
+                <div class="adminRow">
+                    <div class="item">
+                        <label asp-for="@Model.CustomOrderList[i].Bake">Bake: </label>
+                        <span class="tab"></span>
+                        <p class="userInput">@Model.CustomOrderList[i].Bake</p>
+                    </div>
+                    <span class="tab"></span>
+                    <div class="item">
+                        <label asp-for="@Model.CustomOrderList[i].Flavor">Flavor: </label>
+                        <span class="tab"></span>
+                        <p class="userInput">@Model.CustomOrderList[i].Flavor</p>
+                    </div>
+                    <span class="tab"></span>
+                    <div class="item">
+                        <label asp-for="@Model.CustomOrderList[i].Frosting">Frosting: </label>
+                        <span class="tab"></span>
+                        <p class="userInput">@Model.CustomOrderList[i].Frosting</p>
+                    </div>
+                    <span class="tab"></span>
+                    <div class="item">
+                        <label asp-for="@Model.CustomOrderList[i].FillFlavor">Filling Flavor: </label>
+                        <span class="tab"></span>
+                        <p class="userInput">@Model.CustomOrderList[i].FillFlavor</p>
+                    </div>
+                    <span class="tab"></span>
+                    <div class="item">
+                        <label asp-for="@Model.CustomOrderList[i].Size">Size/Quantity: </label>
+                        <span class="tab"></span>
+                        <p class="userInput">@Model.CustomOrderList[i].Size</p>
+                    </div>
+                </div>
+                <div class="adminRow">
+                    <div class="item">
+                        <label asp-for="@Model.CustomOrderList[i].Comment">Comments: </label>
+                        <span class="tab"></span>
+                        <p class="userInput">@Model.CustomOrderList[i].Comment</p>
+                    </div>
+                </div>
+                <div class="adminRow">
+                    <div class="item">
+                        <label asp-for="@Model.CustomOrderList[i].CustomerFirstName">Customer First Name: </label>
+                        <span class="tab"></span>
+                        <p class="userInput">@Model.CustomOrderList[i].CustomerFirstName</p>
+                    </div>
+                    <span class="tab"></span>
+                    <div class="item">
+                        <label asp-for="@Model.CustomOrderList[i].CustomerLastName">Customer Last Name: </label>
+                        <span class="tab"></span>
+                        <p class="userInput">@Model.CustomOrderList[i].CustomerLastName</p>
+                    </div>
+                </div>
+                <div class="adminRow">
+                    <div class="item">
+                        <label asp-for="@Model.CustomOrderList[i].CustomerEmail">Customer Email: </label>
+                        <span class="tab"></span>
+                        <p class="userInput">@Model.CustomOrderList[i].CustomerEmail</p>
+                    </div>
+                    <span class="tab"></span>
+                    <div class="item">
+                        <label asp-for="@Model.CustomOrderList[i].CustomerPhone">Customer Phone Number: </label>
+                        <span class="tab"></span>
+                        <p class="userInput">@Model.CustomOrderList[i].CustomerPhone</p>
+                    </div>
+                </div>
+                <div class="adminRow">
+                    <div class="item">
+                        <label asp-for="@Model.CustomOrderList[i].Date">Date Placed: </label>
+                        <span class="tab"></span>
+                        <p class="userInput">@Model.CustomOrderList[i].Date</p>
+                    </div>
+                    <span class="tab"></span>
+                    <div class="item">
+                        <label asp-for="@Model.CustomOrderList[i].DueDate">Due Date: </label>
+                        <span class="tab"></span>
+                        <p class="userInput">@Model.CustomOrderList[i].DueDate</p>
+                    </div>
+                </div>
             </div>
         </div>
     }
-        
-    <h4>Set Orders</h4>
+
+    <h4 style="text-align:center;">Set Orders</h4>
     @foreach (DatabaseSetOrder s in Model.DBSet)
-            {
+    {
+        <div class="card width">
+            <div class="card-header">
+                <label class="headMarg" asp-for="@s.OrderConfirmation">Order Number: </label>
+                <input class="conNum" asp-for="@s.OrderConfirmation" readonly />
+            </div>
+            <div class="card-body">
+                <div class="adminRow">
+                    <div class="item">
+                        <label asp-for="@s.Title">Name: </label>
+                        <span class="tab"></span>
+                        <p class="userInput">@s.Title</p>
+                    </div>
+                    <span class="tab"></span>
+                    <div class="item">
+                        <label asp-for="@s.Description">Description: </label>
+                        <span class="tab"></span>
+                        <p class="userInput">@s.Description</p>
+                    </div>
+                    <span class="tab"></span>                    
+                </div>
+                <div class="adminRow">
+                    <div class="item">
+                        <label asp-for="@s.SetOrder">Pre-Set Order: </label>
+                        <span class="tab"></span>
+                        <p class="userInput">@s.SetOrder</p>
+                    </div>
+                    <span class="tab"></span>
+                    <div class="item">
+                        <label asp-for="@s.RecipeOrder">Recipe Order: </label>
+                        <span class="tab"></span>
+                        <p class="userInput">@s.RecipeOrder</p>
+                    </div>
+                    <span class="tab"></span>
+                    <div class="item">
+                        <label asp-for="@s.SetOrderId">Set Order Id: </label>
+                        <span class="tab"></span>
+                        <p class="userInput">@s.SetOrderId</p>
+                    </div>
+                    <span class="tab"></span>
+                    <div class="item">
+                        <label asp-for="@s.RecipeOrderId">Recipe Id: </label>
+                        <span class="tab"></span>
+                        <p class="userInput">@s.RecipeOrderId</p>
+                    </div>
+                </div>
+                <div class="adminRow">
+                    <div class="item">
+                        <label asp-for="@s.CustomerFirstName">Customer First Name: </label>
+                        <span class="tab"></span>
+                        <p class="userInput">@s.CustomerFirstName</p>
+                    </div>
+                    <span class="tab"></span>
+                    <div class="item">
+                        <label asp-for="@s.CustomerLastName">Customer Last Name: </label>
+                        <span class="tab"></span>
+                        <p class="userInput">@s.CustomerLastName</p>
+                    </div>
+                </div>
+                <div class="adminRow">
+                    <div class="item">
+                        <label asp-for="@s.CustomerEmail">Customer Email: </label>
+                        <span class="tab"></span>
+                        <p class="userInput">@s.CustomerEmail</p>
+                    </div>
+                    <span class="tab"></span>
+                    <div class="item">
+                        <label asp-for="@s.CustomerPhoneNumber">Customer Phone Number: </label>
+                        <span class="tab"></span>
+                        <p class="userInput">@s.CustomerPhoneNumber</p>
+                    </div>
+                </div>
+                <div class="adminRow">
+                    <div class="item">
+                        <label asp-for="@s.DatePlaced">Date Placed: </label>
+                        <span class="tab"></span>
+                        <p class="userInput">@s.DatePlaced</p>
+                    </div>
+                    <span class="tab"></span>
+                    <div class="item">
+                        <label asp-for="@s.DueDate">Due Date: </label>
+                        <span class="tab"></span>
+                        <p class="userInput">@s.DueDate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
 
-            }
-
-    </body>
+</body>

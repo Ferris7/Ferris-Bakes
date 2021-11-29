@@ -12,30 +12,19 @@ namespace Ferris_Bakes.Controllers
     {
         public IActionResult Index()
         {
-            using var context = new FerrisBakesContext();
-
-            AdminModel temp = new() { DBSet = context.SetOrders.ToList() };
-            temp.SetOrderList = new List<SetOrderModel>();
-            temp.CustomOrderList = new List<CustomOrderModel>();
-
-            foreach (DatabaseSetOrder s in context.SetOrders)
+            using (var context = new FerrisBakesContext())
             {
-                var setItem = context.SetOrderList.SingleOrDefault(
-                c => c.BakeID == s.SetOrderId);
 
-                if (setItem != null)
+                AdminModel temp = new AdminModel { DBSet = context.SetOrders.ToList() };
+                temp.CustomOrderList = new List<CustomOrderModel>();
+
+                foreach (CustomOrderModel c in context.CustomOrders)
                 {
-                    temp.SetOrderList.Add(setItem);
+                    temp.CustomOrderList.Add(c);
                 }
 
-            }
-
-            foreach (CustomOrderModel c in context.CustomOrders)
-            {
-                temp.CustomOrderList.Add(c);
-            }
-
-            return View(temp);
+                return View(temp);
+            }            
         }
     }
 }

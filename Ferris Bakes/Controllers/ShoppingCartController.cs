@@ -23,15 +23,18 @@ namespace Ferris_Bakes.Controllers
         public IActionResult Index()
         {
 
-            using var context = new FerrisBakesContext();
+            using (var context = new FerrisBakesContext())
+            {
 
-            ShoppingCartModel temp = new();
 
-            ShoppingCartActions actions = new();
+                ShoppingCartModel temp = new();
 
-            temp.Cart = actions.GetCartItems();
+                ShoppingCartActions actions = new();
 
-            return View(temp);
+                temp.Cart = actions.GetCartItems();
+
+                return View(temp);
+            }
         }
 
         public IActionResult Checkout()
