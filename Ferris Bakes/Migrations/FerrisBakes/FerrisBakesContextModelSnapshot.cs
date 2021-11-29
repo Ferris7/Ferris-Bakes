@@ -224,6 +224,9 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                     b.Property<int>("SetOrderId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Size")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 

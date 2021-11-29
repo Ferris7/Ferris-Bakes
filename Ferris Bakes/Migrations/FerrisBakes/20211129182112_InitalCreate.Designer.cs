@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ferris_Bakes.Migrations.FerrisBakes
 {
     [DbContext(typeof(FerrisBakesContext))]
-    [Migration("20211129032012_InitalCreate")]
+    [Migration("20211129182112_InitalCreate")]
     partial class InitalCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -224,6 +224,9 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                         .HasColumnType("bit");
 
                     b.Property<int>("SetOrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Size")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")

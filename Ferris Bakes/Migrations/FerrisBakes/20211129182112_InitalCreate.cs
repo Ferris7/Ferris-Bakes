@@ -159,6 +159,7 @@ namespace Ferris_Bakes.Migrations.FerrisBakes
                     RecipeOrderId = table.Column<int>(type: "int", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Size = table.Column<int>(type: "int", nullable: false),
                     CustomerFirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CustomerLastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CustomerEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),

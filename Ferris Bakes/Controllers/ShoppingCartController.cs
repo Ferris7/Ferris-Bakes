@@ -76,6 +76,7 @@ namespace Ferris_Bakes.Controllers
             db.SetOrder = cartItem.SetOrder;
             db.RecipeOrder = cartItem.RecipeOrder;
             db.SetOrderId = cartItem.ProductId;
+            db.Size = cartItem.Quantity;
             db.CustomerFirstName = order.CustomerFirstName;
             db.CustomerLastName = order.CustomerLastName;
             db.CustomerEmail = order.CustomerEmail;

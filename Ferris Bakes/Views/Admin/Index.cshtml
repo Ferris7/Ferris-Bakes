@@ -67,13 +67,12 @@
     }
 
     .tempHide {
-        display: none;
     }
 
 </style>
 
 <body>
-    <div class="modal dec" style="display:block;">
+    <div class="modal dec" style="display:none;">
 
         <form class="modal-content">
             <div class="head">
@@ -210,6 +209,11 @@
                             <p class="userInput">@s.Description</p>
                         </div>
                         <span class="tab"></span>
+                        <div class="item">
+                            <label asp-for="@s.Size">Size/Quantity: </label>
+                            <span class="tab"></span>
+                            <p class="userInput">@s.Size</p>
+                        </div>
                     </div>
                     <div class="adminRow">
                         <div class="item">
