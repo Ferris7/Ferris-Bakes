@@ -18,6 +18,9 @@
             max-width: 65%;
             margin: auto;
         }
+        .baker {
+            font-size: 18px;
+        }
     </style>
 </head>
 
@@ -27,7 +30,7 @@
 
             <div class="text-center" id="orderHeader">
                 <h1 class="display-4">Order Delicious Bakes Here!</h1>
-                <p>Click the Baker in the bottom right for help customizing.</p>
+                <p class="baker">Click the Baker in the bottom right for help customizing.</p>
             </div>
 
             <form asp-controller="CustomOrder" asp-action="Form" method="post">

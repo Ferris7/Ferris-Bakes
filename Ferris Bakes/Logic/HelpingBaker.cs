@@ -209,6 +209,24 @@ namespace Ferris_Bakes.Logic
 
             SelectionSort(Values, RecipeList);
 
+            List<ReciepeModel> positive = new List<ReciepeModel>();
+
+            if (Values[0] != 0)
+            {
+                for (int i = 0; i < Values.Count; i++)
+                {
+                    if (Values[i] != 0)
+                    {
+                        positive.Add(RecipeList[i]);
+                    }
+                        
+                        
+                }
+            }
+
+            RecipeList.Clear();
+            RecipeList.AddRange(positive);
+
         }
 
         public void SelectionSort(List<int> Values, List<ReciepeModel> RecipeList)

@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Ferris_Bakes</RootNamespace>
+    <UserSecretsId>e35a2b56-2524-41e3-9b6f-c52eadd69587</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
