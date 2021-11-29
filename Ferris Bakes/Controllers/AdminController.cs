@@ -24,7 +24,18 @@ namespace Ferris_Bakes.Controllers
                 }
 
                 return View(temp);
-            }            
+            }
+        }
+
+        [HttpPost]
+        public IActionResult CheckAdmin(String Username, String Password)
+        {
+            if (Username.Equals("BakingPenguin"))
+            {
+                if (Password.Equals("Bueller7!"))
+                    return Ok("Success");
+            }
+            return Ok("Failure");
         }
     }
 }

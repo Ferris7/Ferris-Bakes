@@ -80,9 +80,35 @@
         font-size: 18px;
     }
 
+    .modal {
+        z-index: 2000;
+    }
+
+    .modal-content {
+        background-color: lightgreen;
+    }
+
 </style>
 
 <body>
+
+    <div class="modal p-0" id="popUp" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header  border-bottom-0">
+                    <h4 class="modal-title">Bake Added to Cart!</h4>
+                    <button type="button" class="close" onclick="document.getElementById('popUp').style.display='none'" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h5>Don't forget to checkout!</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="text-center" id="orderHeader">
         <h1 class="display-4">Bakes You'll Love!</h1>
         <p>Click the Baker in the bottom right for help customizing.</p>
@@ -135,7 +161,7 @@
                 url: '/ShoppingCart/AddRecipe',
                 data: { id: bakeId },
                 success: function (result) {
-                    alert(result);
+                    $('#popUp').modal('show');
                 }
             });
         };

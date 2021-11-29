@@ -149,12 +149,37 @@
             margin-left: auto;
             margin-top: 50px;
         }
+
+        .modal
+        {
+            z-index: 2000;            
+        }
+
+        .modal-content {
+            background-color: lightgreen;
+        }
         
     </style>
 
 </head>
 
 <body>
+
+    <div class="modal p-0" id="popUp" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header  border-bottom-0">
+                    <h4 class="modal-title">Bake Added to Cart!</h4>
+                    <button type="button" class="close" onclick="document.getElementById('popUp').style.display='none'" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h5>Don't forget to checkout!</h5>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>
 
@@ -471,24 +496,6 @@
 
             </div>
         }
-
-
-        <div class="modal p-0" id="popUp" tabindex="-1" role="dialog" style="display:none;">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content" id="success">
-                    <div class="modal-header  border-bottom-0">
-                        <h4 class="modal-title">Bake Added to Cart!</h4>
-                        <button type="button" class="close" onclick="document.getElementById('popUp').style.display='none'" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <h5>Don't forget to checkout!</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 
     <script>
@@ -512,14 +519,14 @@
             document.documentElement.scrollTop = 0;
         }
 
-       
+
         function addToCart(bakeId) {
             $.ajax({
                 type: 'POST',
                 url: '/ShoppingCart/Add',
                 data: { id: bakeId },
-                success: function() {
-                    document.getElementById('popUp').display = "block";
+                success: function (result) {
+                    $('#popUp').modal('show');
                 }
             });
         };
